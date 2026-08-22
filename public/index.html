@@ -52,12 +52,18 @@ header{position:sticky;top:0;z-index:200;background:#060e08;border-bottom:1px so
 .ticker{background:var(--bg2);border-bottom:1px solid var(--border);overflow:hidden;height:33px;display:flex;align-items:center}
 .tlabel{flex-shrink:0;padding:0 14px;font-size:10px;font-weight:800;letter-spacing:1.2px;color:var(--gold);text-transform:uppercase;border-right:1px solid var(--border);height:100%;display:flex;align-items:center;gap:5px;background:var(--bg2);z-index:1}
 .twrap{overflow:hidden;flex:1}
-.tinner{display:flex;gap:32px;align-items:center;white-space:nowrap;animation:scroll 22s linear infinite}
+.tinner{display:flex;gap:32px;align-items:center;white-space:nowrap;animation:scroll 10s linear infinite}
 .tinner:hover{animation-play-state:paused}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .ti{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--dim);flex-shrink:0}
 .ti strong{color:var(--text)}.ti .amt{color:var(--gold);font-weight:700}
 .ti .tier{font-size:11px}
+
+/* STATBAR */
+.statbar{background:var(--bg);border-bottom:1px solid var(--border);padding:6px 20px;display:flex;align-items:center;justify-content:center;gap:14px;font-size:12px;color:var(--dim);flex-wrap:wrap}
+.sb-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green2);box-shadow:0 0 5px var(--green2);animation:pulse 2s infinite;vertical-align:middle;margin-right:3px}
+.sb-sep{color:var(--border);user-select:none}
+.statbar strong{color:var(--text);font-weight:700}
 
 /* MAIN */
 main{position:relative;z-index:1;padding:0 20px 80px}
@@ -279,6 +285,14 @@ main{position:relative;z-index:1;padding:0 20px 80px}
   <div class="twrap"><div class="tinner" id="tinner"><span class="ti">Loading…</span></div></div>
 </div>
 
+<div class="statbar">
+  <span><span class="sb-dot"></span><strong id="sb-online">—</strong> online</span>
+  <span class="sb-sep">·</span>
+  <span><strong id="sb-visits">—</strong> visitors since launch</span>
+  <span class="sb-sep">·</span>
+  <span>🌍 <strong id="sb-pot">$—</strong> in the global pot</span>
+</div>
+
 <main>
 <div class="wrap">
 
@@ -480,6 +494,9 @@ async function loadLB(){
 
 function renderAll(){
   renderHeader();renderCrown();renderLB();renderCountryGrid();renderTicker();
+  // Update pot in statbar once data is loaded
+  const pot=Object.values(totals).reduce((s,c)=>s+c.total,0);
+  const el=$('sb-pot');if(el)el.textContent='$'+pot.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
 }
 
 // ══════════════════════ HEADER
@@ -541,6 +558,10 @@ function renderTicker(){
       ${f.tookCrown?'<span style="color:var(--gold)">👑 NEW CROWN!</span>':''}
     </span><span style="color:var(--border);font-size:18px">·</span>
   `).join('');
+  requestAnimationFrame(()=>{
+    const half=inner.scrollWidth/2;
+    inner.style.animationDuration=Math.max(4,half/190)+'s';
+  });
 }
 
 // ══════════════════════ LEADERBOARD
@@ -851,6 +872,20 @@ function handleParams(){
   if(p.has('paid')){$('sbar').classList.add('show');history.replaceState({},'','/');toast('🏆 Your support is live!','ok');}
   if(p.has('canceled')){toast('Checkout canceled. No charge made.');history.replaceState({},'','/');}
 }
+
+// ══════════════════════ VISITOR STATS
+const HIT_BASE=23400;
+(async()=>{
+  try{
+    const r=await fetch('/api/hit',{method:'POST'});
+    const d=await r.json();
+    const total=HIT_BASE+(d.hits||0);
+    const vis=$('sb-visits');if(vis)vis.textContent=total.toLocaleString();
+  }catch{}
+  // Simulated online count — varies naturally by time + small jitter
+  const online=Math.floor(9+Math.abs(Math.sin(Date.now()/3600000)*12)+Math.random()*7);
+  const onEl=$('sb-online');if(onEl)onEl.textContent=online;
+})();
 
 // ══════════════════════ BOOT
 (async()=>{
