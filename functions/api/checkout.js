@@ -35,8 +35,8 @@ export async function onRequestPost({ request, env }) {
   const gapToCrown = Math.max(0, crownTotal - myTotal + 1);
   const isTakingCrown = myTotal > crownTotal;
 
-  // Convert to EUR cents for Stripe (round to nearest cent)
-  const eurCents = Math.round(amount * rate * 100);
+  // Convert to EUR cents for Stripe: add $0.50 fee cover, then convert
+  const eurCents = Math.round((amount + 0.5) * rate * 100);
 
   const origin = env.SITE_URL || new URL(request.url).origin;
 
