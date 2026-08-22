@@ -289,7 +289,7 @@ main{position:relative;z-index:1;padding:0 20px 80px}
     <p>One crown. The club with the biggest global pot wears it. Pool with your fanbase, climb the rankings, take the throne.</p>
     <div class="chips">
       <span class="chip">🌍 Global clubs</span>
-      <span class="chip">💰 From $5</span>
+      <span class="chip">💰 From €5</span>
       <span class="chip">👑 1 world crown</span>
       <span class="chip">🤝 Pool with fans</span>
       <span class="chip">🔒 Stripe checkout</span>
@@ -310,15 +310,15 @@ main{position:relative;z-index:1;padding:0 20px 80px}
   <div class="tiers-row">
     <div class="tier-pill legend">
       <h4>👑 Legend</h4>
-      <p>$50+ · Your name stays on the leaderboard permanently, even if your club loses the crown.</p>
+      <p>€50+ · Your name stays on the leaderboard permanently, even if your club loses the crown.</p>
     </div>
     <div class="tier-pill champ">
       <h4>⚡ Champion</h4>
-      <p>$25+ · Highlighted as a Champion supporter next to your club's ranking.</p>
+      <p>€25+ · Highlighted as a Champion supporter next to your club's ranking.</p>
     </div>
     <div class="tier-pill">
       <h4>🤝 Supporter</h4>
-      <p>$5+ · Your contribution adds to the pot and your name goes in the leaderboard.</p>
+      <p>€5+ · Your contribution adds to the pot and your name goes in the leaderboard.</p>
     </div>
   </div>
 
@@ -389,17 +389,17 @@ main{position:relative;z-index:1;padding:0 20px 80px}
       <div>
         <div class="flabel">Your contribution</div>
         <div class="qarow">
-          <span class="qa" data-v="5">$5</span>
-          <span class="qa" data-v="10">$10</span>
-          <span class="qa" data-v="25">$25 ⚡</span>
-          <span class="qa" data-v="50">$50 👑</span>
-          <span class="qa" data-v="100">$100</span>
+          <span class="qa" data-v="5">€5</span>
+          <span class="qa" data-v="10">€10</span>
+          <span class="qa" data-v="25">€25 ⚡</span>
+          <span class="qa" data-v="50">€50 👑</span>
+          <span class="qa" data-v="100">€100</span>
         </div>
         <div class="amtrow">
-          <span class="amtpfx">$</span>
+          <span class="amtpfx">€</span>
           <input type="number" class="amtin" id="amt" placeholder="5" min="5" step="1">
         </div>
-        <div style="font-size:11px;color:var(--dim);margin-top:6px">Minimum $5. Any amount above $5 works — tiers unlock at $25 and $50.</div>
+        <div style="font-size:11px;color:var(--dim);margin-top:6px">Minimum €5. Any amount above €5 works — tiers unlock at €25 and €50.</div>
       </div>
       <!-- tier preview -->
       <div class="tier-preview" id="tier-preview">
@@ -438,7 +438,7 @@ let mCode=null, mClub=null;
 
 // ══════════════════════ UTILS
 const $=id=>document.getElementById(id);
-const fmt=n=>n>=1000?'$'+(n/1000).toFixed(n%1000===0?0:1)+'k':'$'+n;
+const fmt=n=>n>=1000?'€'+(n/1000).toFixed(n%1000===0?0:1)+'k':'€'+n;
 const fl=code=>`https://flagcdn.com/w40/${(code||'').toLowerCase()}.png`;
 const ago=ts=>{const s=Math.floor((Date.now()-ts)/1000);return s<60?'just now':s<3600?Math.floor(s/60)+'m ago':s<86400?Math.floor(s/3600)+'h ago':Math.floor(s/86400)+'d ago';};
 const tierFor=n=>{for(const t of TIERS)if(n>=t.min)return t;return null;};
@@ -840,3 +840,4 @@ function handleParams(){
 </script>
 </body>
 </html>
+

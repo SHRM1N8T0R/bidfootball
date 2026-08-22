@@ -13,7 +13,7 @@ export async function onRequestPost({ request, env }) {
   const amount   = Math.floor(Number(body.amount));
 
   if (!code || !country || !club) return json({ error: "Missing fields" }, 400);
-  if (!Number.isFinite(amount) || amount < MIN_BID) return json({ error: `Minimum contribution is $${MIN_BID}` }, 400);
+  if (!Number.isFinite(amount) || amount < MIN_BID) return json({ error: `Minimum contribution is €${MIN_BID}` }, 400);
   if (!env.STRIPE_SECRET_KEY) return json({ error: "Payments not configured yet" }, 503);
 
   const totals = await getTotals(env);
@@ -30,7 +30,7 @@ export async function onRequestPost({ request, env }) {
     const session = await stripe(env, "checkout/sessions", "POST", {
       mode: "payment",
       "line_items[0][quantity]": 1,
-      "line_items[0][price_data][currency]": "usd",
+      "line_items[0][price_data][currency]": "eur",
       "line_items[0][price_data][unit_amount]": amount * 100,
       "line_items[0][price_data][product_data][name]":
         isTakingCrown ? `👑 ${club} takes the WORLD CROWN!` : `Support ${club} — ${country}`,
