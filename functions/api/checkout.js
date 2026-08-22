@@ -29,6 +29,7 @@ export async function onRequestPost({ request, env }) {
   try {
     const session = await stripe(env, "checkout/sessions", "POST", {
       mode: "payment",
+      "automatic_payment_methods[enabled]": "true",
       "line_items[0][quantity]": 1,
       "line_items[0][price_data][currency]": "eur",
       "line_items[0][price_data][unit_amount]": amount * 100,
@@ -36,8 +37,8 @@ export async function onRequestPost({ request, env }) {
         isTakingCrown ? `👑 ${club} takes the WORLD CROWN!` : `Support ${club} — ${country}`,
       "line_items[0][price_data][product_data][description]":
         isTakingCrown
-          ? `Your $${amount} puts ${club} at the top of the world. The crown is theirs!`
-          : `Add $${amount} to ${club}'s pot. Current total: $${myTotal}. Gap to crown: $${gapToCrown}.`,
+          ? `Your €${amount} puts ${club} at the top of the world. The crown is theirs!`
+          : `Add €${amount} to ${club}'s pot. Current total: €${myTotal}. Gap to crown: €${gapToCrown}.`,
       "metadata[code]":     code,
       "metadata[country]":  country,
       "metadata[flag]":     flag,
