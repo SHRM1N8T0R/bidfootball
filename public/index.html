@@ -498,7 +498,7 @@ function renderCrown(){
       ${crown.country}
     </div>
     <div class="crown-total">${fmt(crown.total)}</div>
-    <div class="crown-meta">${crown.bids.toLocaleString()} supporter${crown.bids===1?'':' s'} · Last: ${ago(crown.ts)}</div>
+    <div class="crown-meta">${crown.bids.toLocaleString()} supporter${crown.bids===1?'':'s'} · Last: ${ago(crown.ts)}</div>
     ${crown.legends?.length?`<div style="font-size:12px;color:var(--gold);margin-top:8px">👑 Legends: ${crown.legends.join(', ')}</div>`:''}
   `;
 

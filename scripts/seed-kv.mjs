@@ -62,7 +62,7 @@ function kvPut(key, value) {
   const tmp = `_seed_${key.replace(/\W/g,"_")}.json`;
   writeFileSync(tmp, JSON.stringify(value));
   try {
-    execSync(`npx wrangler kv key put --binding=BIDS "${key}" --path="${tmp}"`, { stdio: "inherit" });
+    execSync(`npx wrangler kv key put --binding=BIDS --remote --preview false "${key}" --path="${tmp}"`, { stdio: "inherit" });
   } finally {
     try { unlinkSync(tmp); } catch {}
   }
