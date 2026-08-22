@@ -355,8 +355,8 @@ main{position:relative;z-index:1;padding:0 20px 80px}
     <div class="sec-title">🌍 Browse by Country</div>
   </div>
   <div class="region-tabs" id="rtabs">
-    <button class="rtab active" data-r="All">All</button>
-    <button class="rtab" data-r="Europe">🌍 Europe</button>
+    <button class="rtab" data-r="All">All</button>
+    <button class="rtab active" data-r="Europe">🌍 Europe</button>
     <button class="rtab" data-r="South America">🌎 S. America</button>
     <button class="rtab" data-r="North America">🌎 N. America</button>
     <button class="rtab" data-r="Africa">🌍 Africa</button>
@@ -448,7 +448,7 @@ const TIERS = [
 const MIN = 5;
 
 // ══════════════════════ STATE
-let clubs=[], totals={}, crown=null, ranked=[], feed=[], region="All";
+let clubs=[], totals={}, crown=null, ranked=[], feed=[], region="Europe";
 let mCode=null, mClub=null;
 
 // ══════════════════════ UTILS
@@ -597,7 +597,14 @@ function renderLB(){
 
 // ══════════════════════ COUNTRY GRID
 function renderCountryGrid(){
-  const list=region==='All'?clubs:clubs.filter(c=>c.r===region);
+  const base=region==='All'?clubs:clubs.filter(c=>c.r===region);
+  // Sort: countries with supporters first (by pot desc), then alphabetically
+  const list=[...base].sort((a,b)=>{
+    const aTop=Math.max(0,...Object.keys(totals).filter(k=>k.startsWith(a.c+'::')).map(k=>totals[k]?.total||0));
+    const bTop=Math.max(0,...Object.keys(totals).filter(k=>k.startsWith(b.c+'::')).map(k=>totals[k]?.total||0));
+    if(bTop!==aTop)return bTop-aTop;
+    return a.n.localeCompare(b.n);
+  });
   const topTotal=crown?.total||0;
   $('cgrid').innerHTML=list.map(c=>{
     const key=Object.keys(totals).find(k=>k.startsWith(c.c+'::')&&totals[k].total===Math.max(...Object.keys(totals).filter(k2=>k2.startsWith(c.c+'::')).map(k2=>totals[k2].total||0)));
