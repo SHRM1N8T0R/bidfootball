@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#060e08"/>
+      <stop offset="100%" style="stop-color:#0f2012"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c9a200"/>
+      <stop offset="100%" style="stop-color:#f5c518"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5c518;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#f5c518;stop-opacity:0"/>
+    </linearGradient>
+    <!-- pitch lines -->
+    <pattern id="pitch" x="0" y="0" width="88" height="88" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="88" x2="88" y2="88" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#pitch)"/>
+
+  <!-- Glow behind crown area -->
+  <ellipse cx="600" cy="280" rx="320" ry="200" fill="url(#glow)"/>
+
+  <!-- Top label -->
+  <text x="600" y="110" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="800" letter-spacing="4" fill="#638a6c" text-transform="uppercase">ONE CROWN · EVERY CLUB · ONE WINNER</text>
+
+  <!-- Crown emoji area -->
+  <text x="600" y="230" text-anchor="middle" font-size="90">👑</text>
+
+  <!-- Main headline -->
+  <text x="600" y="310" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="68" font-weight="900" letter-spacing="-2" fill="white">BidFootball</text>
+
+  <!-- Gold underline -->
+  <rect x="420" y="326" width="360" height="4" rx="2" fill="url(#gold)"/>
+
+  <!-- Subtext -->
+  <text x="600" y="390" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="26" fill="#9abfa2" letter-spacing="-0.3">Pool with fans. Biggest pot holds the crown.</text>
+
+  <!-- Stat pills -->
+  <!-- Pill 1 -->
+  <rect x="228" y="430" width="200" height="52" rx="26" fill="#0d1c10" stroke="#1a3320" stroke-width="1.5"/>
+  <text x="328" y="462" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" font-weight="700" fill="#e4ece6">🌍 189 Clubs</text>
+
+  <!-- Pill 2 -->
+  <rect x="450" y="430" width="200" height="52" rx="26" fill="#0d1c10" stroke="#1a3320" stroke-width="1.5"/>
+  <text x="550" y="462" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" font-weight="700" fill="#e4ece6">💰 From €5</text>
+
+  <!-- Pill 3 -->
+  <rect x="672" y="430" width="200" height="52" rx="26" fill="#0d1c10" stroke="#1a3320" stroke-width="1.5"/>
+  <text x="772" y="462" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" font-weight="700" fill="#e4ece6">⚡ Live Crown</text>
+
+  <!-- Domain -->
+  <text x="600" y="572" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="22" font-weight="700" fill="#1e9e46" letter-spacing="0.5">bidfootball.lol</text>
+
+  <!-- Border frame -->
+  <rect x="2" y="2" width="1196" height="626" rx="0" fill="none" stroke="#1a3320" stroke-width="3"/>
+</svg>
