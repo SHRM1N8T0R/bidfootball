@@ -1,13 +1,10 @@
-import { json, getCrowns, getFeed } from "../_shared.js";
+import { json, getTotals, getFeed, computeGlobalCrown, rankAllClubs } from "../_shared.js";
 
-// GET /api/leaderboard
-// Returns the current crown for every country that has one, plus the live feed.
 export async function onRequestGet({ env }) {
-  const [crowns, feed] = await Promise.all([getCrowns(env), getFeed(env)]);
-  return json({
-    crowns,               // { [code]: { code, country, flag, club, clubLogo, amount, bidder, ts } }
-    feed,                 // [ { code, country, club, amount, bidder, ts } ]
-    total: Object.keys(crowns).length,
-    updated: Date.now(),
-  });
+  const [totals, feed] = await Promise.all([getTotals(env), getFeed(env)]);
+  const crown    = computeGlobalCrown(totals);
+  const ranked   = rankAllClubs(totals, 50);
+  const grandTotal = Object.values(totals).reduce((s, c) => s + c.total, 0);
+  const totalBids  = Object.values(totals).reduce((s, c) => s + c.bids,  0);
+  return json({ crown, ranked, feed, totals, grandTotal, totalBids, updated: Date.now() });
 }
