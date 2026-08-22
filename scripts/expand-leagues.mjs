@@ -118,11 +118,11 @@ for (const { league, code, flag, country, region } of LEAGUES) {
     );
 
     if (existing) {
-      // Fill empty logos, or replace Wikipedia URLs with proper SportsDB logos
-      if (logo && (!existing.logo || existing.logo.includes("wikimedia"))) {
+      // Only fill if logo is missing — never overwrite a working logo
+      if (logo && !existing.logo) {
         existing.logo = logo;
         existing.n = displayName;
-        console.log(`  🔄 Updated: ${displayName}`);
+        console.log(`  🔄 Logo filled: ${displayName}`);
         updated++;
       } else {
         skipped++;

@@ -19,11 +19,11 @@
       },
       {
         "n": "Arsenal",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/q2mxlz1512644512.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/330px-Arsenal_FC.svg.png"
       },
       {
         "n": "Chelsea",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/urupss1421777612.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Chelsea_FC.svg/330px-Chelsea_FC.svg.png"
       },
       {
         "n": "Tottenham Hotspur",
@@ -79,11 +79,11 @@
       },
       {
         "n": "Barcelona",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/vsqdh71536400613.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/250px-FC_Barcelona_%28crest%29.svg.png"
       },
       {
         "n": "Atlético Madrid",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/5hx8pq1773917511.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Atletico_Madrid_Logo_2024.svg/330px-Atletico_Madrid_Logo_2024.svg.png"
       },
       {
         "n": "Sevilla",
@@ -135,11 +135,11 @@
     "clubs": [
       {
         "n": "Bayern München",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/gs99p51532295294.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg/330px-FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg.png"
       },
       {
         "n": "Borussia Dortmund",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/9f18ay1531055034.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/330px-Borussia_Dortmund_logo.svg.png"
       },
       {
         "n": "RB Leipzig",
@@ -147,7 +147,7 @@
       },
       {
         "n": "Bayer Leverkusen",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/i491tw1543832651.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/59/Bayer_04_Leverkusen_logo.svg/330px-Bayer_04_Leverkusen_logo.svg.png"
       },
       {
         "n": "Augsburg",
@@ -187,15 +187,15 @@
     "clubs": [
       {
         "n": "Juventus",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/xvltgg1725303959.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Juventus_FC_-_logo_black_%28Italy%2C_2020%29.svg/330px-Juventus_FC_-_logo_black_%28Italy%2C_2020%29.svg.png"
       },
       {
         "n": "Inter Milan",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/j2uwyv1546179241.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/FC_Internazionale_Milano_2021.svg/330px-FC_Internazionale_Milano_2021.svg.png"
       },
       {
         "n": "AC Milan",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/g3c6k81773920190.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Logo_of_AC_Milan.svg/330px-Logo_of_AC_Milan.svg.png"
       },
       {
         "n": "Napoli",
@@ -247,7 +247,7 @@
       },
       {
         "n": "Marseille",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/zgx7kp1548937902.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Olympique_de_Marseille_2026_logo.svg/250px-Olympique_de_Marseille_2026_logo.svg.png"
       },
       {
         "n": "Monaco",
@@ -255,7 +255,7 @@
       },
       {
         "n": "Lyon",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/qktpqy1656932846.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/Olympique_Lyonnais_logo.svg/330px-Olympique_Lyonnais_logo.svg.png"
       },
       {
         "n": "Angers",
@@ -299,7 +299,7 @@
     "clubs": [
       {
         "n": "Benfica",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/wvrvvw1421900728.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/SL_Benfica_logo.svg/330px-SL_Benfica_logo.svg.png"
       },
       {
         "n": "Porto",
@@ -355,7 +355,7 @@
     "clubs": [
       {
         "n": "Ajax",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/xwvptv1426074241.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/79/Ajax_Amsterdam.svg/250px-Ajax_Amsterdam.svg.png"
       },
       {
         "n": "PSV",
@@ -363,7 +363,7 @@
       },
       {
         "n": "Feyenoord",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/dvyrvy1764435249.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Feyenoord_logo_since_2024.svg/330px-Feyenoord_logo_since_2024.svg.png"
       },
       {
         "n": "ADO Den Haag",
@@ -407,51 +407,11 @@
     "clubs": [
       {
         "n": "Celtic",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/ulbq2a1727776234.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/71/Celtic_FC_crest.svg/330px-Celtic_FC_crest.svg.png"
       },
       {
         "n": "Rangers",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/7xv98g1549299468.png"
-      },
-      {
-        "n": "Currie",
-        "logo": ""
-      },
-      {
-        "n": "Edinburgh Academicals",
-        "logo": ""
-      },
-      {
-        "n": "Glasgow Hawks",
-        "logo": ""
-      },
-      {
-        "n": "Glasgow Hutchesons Aloysians",
-        "logo": ""
-      },
-      {
-        "n": "Hawick",
-        "logo": ""
-      },
-      {
-        "n": "Heriots Rugby Club",
-        "logo": ""
-      },
-      {
-        "n": "Jed-Forest",
-        "logo": ""
-      },
-      {
-        "n": "Marr",
-        "logo": ""
-      },
-      {
-        "n": "Musselburgh",
-        "logo": ""
-      },
-      {
-        "n": "Selkirk",
-        "logo": ""
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Rangers_FC.svg/330px-Rangers_FC.svg.png"
       },
       {
         "n": "Aberdeen",
@@ -495,15 +455,15 @@
     "clubs": [
       {
         "n": "Galatasaray",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/mop6mo1537382558.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Galatasaray_NEW_LOGOO.png/330px-Galatasaray_NEW_LOGOO.png"
       },
       {
         "n": "Fenerbahçe",
-        "logo": "https://r2.thesportsdb.com/images/media/team/logo/rvcnj21714107868.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/3/39/Fenerbah%C3%A7e.svg/330px-Fenerbah%C3%A7e.svg.png"
       },
       {
         "n": "Beşiktaş",
-        "logo": "https://r2.thesportsdb.com/images/media/team/badge/svo05k1776827439.png"
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/BesiktasJK-Logo.svg/250px-BesiktasJK-Logo.svg.png"
       },
       {
         "n": "Alanyaspor",
