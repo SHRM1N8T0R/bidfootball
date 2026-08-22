@@ -1,0 +1,5 @@
+# Copy to `.dev.vars` for local `wrangler pages dev`. NEVER commit real keys.
+# These come from your SEPARATE Stripe account.
+STRIPE_SECRET_KEY=sk_test_xxx
+STRIPE_WEBHOOK_SECRET=whsec_xxx
+SITE_URL=http://localhost:8788

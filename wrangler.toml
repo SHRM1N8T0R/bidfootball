@@ -1,0 +1,31 @@
+# Cloudflare Pages project config for bidfootball.lol
+# The frontend lives in /public and is served as static assets.
+# The API (leaderboard / checkout / Stripe webhook) lives in /functions
+# and runs on the Cloudflare Workers runtime as Pages Functions.
+
+name = "bidfootball"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "public"
+
+# --- KV: stores country crowns + the live bid feed ---
+# Create the namespaces with:
+#   npx wrangler kv namespace create BIDS
+#   npx wrangler kv namespace create BIDS --preview
+# then paste the returned ids below.
+[[kv_namespaces]]
+binding = "BIDS"
+id = "418d4963a54b4b3e954dfecbece2ed74"
+preview_id = "6952ec82caea4c98bb47ccdfaea18031"
+
+# --- Secrets (DO NOT put real values here) ---
+# Set these in the Cloudflare dashboard (Pages > Settings > Environment variables)
+# or via CLI, e.g.:
+#   npx wrangler pages secret put STRIPE_SECRET_KEY
+#   npx wrangler pages secret put STRIPE_WEBHOOK_SECRET
+#
+#   STRIPE_SECRET_KEY       -> sk_live_... (from the SEPARATE Stripe account)
+#   STRIPE_WEBHOOK_SECRET   -> whsec_...   (from the webhook endpoint you create)
+#
+# Non-secret vars can live here:
+[vars]
+SITE_URL = "https://bidfootball.lol"

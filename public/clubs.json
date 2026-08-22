@@ -1,0 +1,942 @@
+[
+  {
+    "c": "ENG",
+    "f": "gb-eng",
+    "n": "England",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Manchester City",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/330px-Manchester_City_FC_badge.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Manchester United",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/330px-Manchester_United_FC_crest.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Liverpool",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Logo_Liverpool_FC_%282024%29.png/330px-Logo_Liverpool_FC_%282024%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Arsenal",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Logo_representativo_de_Arsenal_de_Sarand%C3%AD.png/330px-Logo_representativo_de_Arsenal_de_Sarand%C3%AD.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Chelsea",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Chelsea_FC.svg/330px-Chelsea_FC.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Tottenham Hotspur",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Tottenham_Hotspur_Stadium_logo.svg/330px-Tottenham_Hotspur_Stadium_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Newcastle United",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Newcastle_United_Logo.svg/330px-Newcastle_United_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "ESP",
+    "f": "es",
+    "n": "Spain",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Real Madrid",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/RealMadrid_baloncesto.png/330px-RealMadrid_baloncesto.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Barcelona",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/034_Ciutat_Esportiva_Joan_Gamper%2C_Futbol_Club_Barcelona_%28Sant_Joan_Desp%C3%AD%29_%28cropped%29.jpg/330px-034_Ciutat_Esportiva_Joan_Gamper%2C_Futbol_Club_Barcelona_%28Sant_Joan_Desp%C3%AD%29_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Atlético Madrid",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Atletico_Madrid_Logo_2024.svg/330px-Atletico_Madrid_Logo_2024.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Sevilla",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Sevilla_Cathedral_-_Southeast.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original"
+      },
+      {
+        "n": "Valencia",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Malvarrosa_Beach%2C_Valencia%2C_Spain_%2829812271043%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original"
+      }
+    ]
+  },
+  {
+    "c": "GER",
+    "f": "de",
+    "n": "Germany",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Bayern München",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg/330px-FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Borussia Dortmund",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/330px-Borussia_Dortmund_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "RB Leipzig",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/2019-07-12_Fu%C3%9Fball%3B_Freundschaftsspiel_RB_Leipzig_-_FC_Z%C3%BCrich_1DX_0881_by_Stepro_2.png/330px-2019-07-12_Fu%C3%9Fball%3B_Freundschaftsspiel_RB_Leipzig_-_FC_Z%C3%BCrich_1DX_0881_by_Stepro_2.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Bayer Leverkusen",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Logo_TSV_Bayer_04_Leverkusen.svg/330px-Logo_TSV_Bayer_04_Leverkusen.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "ITA",
+    "f": "it",
+    "n": "Italy",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Juventus",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Juventus_FC_-_logo_black_%28Italy%2C_2020%29.svg/330px-Juventus_FC_-_logo_black_%28Italy%2C_2020%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Inter Milan",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/FC_Internazionale_Milano_2021.svg/330px-FC_Internazionale_Milano_2021.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "AC Milan",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Logo_of_AC_Milan.svg/330px-Logo_of_AC_Milan.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Napoli",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/SSC_Napoli_2024_%28deep_blue_navy%29.svg/330px-SSC_Napoli_2024_%28deep_blue_navy%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Roma",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/AS_ROMA_Text_Logo_2020_-_2021_.svg/330px-AS_ROMA_Text_Logo_2020_-_2021_.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "FRA",
+    "f": "fr",
+    "n": "France",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Paris Saint-Germain",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original"
+      },
+      {
+        "n": "Marseille",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Olympique_Marseille_logo.svg/330px-Olympique_Marseille_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Monaco",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Flag_of_Monaco.svg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original"
+      },
+      {
+        "n": "Lyon",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/9/97/Lyon-part-dieu-2023.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original"
+      }
+    ]
+  },
+  {
+    "c": "POR",
+    "f": "pt",
+    "n": "Portugal",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Benfica",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/SL_Benfica_logo.svg/330px-SL_Benfica_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Porto",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Emblema_F_C_Porto_%28derived%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+      },
+      {
+        "n": "Sporting CP",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Sporting_Clube_de_Portugal.svg/330px-Sporting_Clube_de_Portugal.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "NED",
+    "f": "nl",
+    "n": "Netherlands",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Ajax",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/AJAX_logo_by_gengns.svg/330px-AJAX_logo_by_gengns.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "PSV",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/PlayStation_Vita_logo.svg/330px-PlayStation_Vita_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Feyenoord",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Feyenoord_logo_since_2024.svg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original"
+      }
+    ]
+  },
+  {
+    "c": "SCT",
+    "f": "gb-sct",
+    "n": "Scotland",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Celtic",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/71/Celtic_FC_crest.svg/330px-Celtic_FC_crest.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Rangers",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Texas_Rangers_Insignia.svg/330px-Texas_Rangers_Insignia.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "TUR",
+    "f": "tr",
+    "n": "Turkey",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Galatasaray",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Galatasaray_Sports_Club_Logo.svg/330px-Galatasaray_Sports_Club_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Fenerbahçe",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Duke_University_logo.svg/330px-Duke_University_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Beşiktaş",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/BesiktasJK-Logo.svg/330px-BesiktasJK-Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "BEL",
+    "f": "be",
+    "n": "Belgium",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Club Brugge",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/9/97/Club_brugge.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original"
+      },
+      {
+        "n": "Anderlecht",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/2/25/Town_hall_of_Anderlecht_%28DSC_2233%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original"
+      }
+    ]
+  },
+  {
+    "c": "GRE",
+    "f": "gr",
+    "n": "Greece",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Olympiacos",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/Olympiacos_FC_crest.svg/330px-Olympiacos_FC_crest.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Panathinaikos",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Panathinaikos.svg/330px-Panathinaikos.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "AEK Athens",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/AEK_Basketball_Club_Logo.svg/330px-AEK_Basketball_Club_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "UKR",
+    "f": "ua",
+    "n": "Ukraine",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Shakhtar Donetsk",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a1/FC_Shakhtar_Donetsk.svg/330px-FC_Shakhtar_Donetsk.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Dynamo Kyiv",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Dynamo_logo.svg/330px-Dynamo_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "CRO",
+    "f": "hr",
+    "n": "Croatia",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Dinamo Zagreb",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Logo_GNK_Dinamo_Zagreb_%282019%29.svg/330px-Logo_GNK_Dinamo_Zagreb_%282019%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Hajduk Split",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/HNK_Hajduk_Split_logo.svg/330px-HNK_Hajduk_Split_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "SRB",
+    "f": "rs",
+    "n": "Serbia",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Red Star Belgrade",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Red_Star_Belgrade_crest.svg/330px-Red_Star_Belgrade_crest.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Partizan",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/e/ed/FK_Partizan.svg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original"
+      }
+    ]
+  },
+  {
+    "c": "RUS",
+    "f": "ru",
+    "n": "Russia",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Zenit",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/FC_Zenit_1_star_2015_logo.svg/330px-FC_Zenit_1_star_2015_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Spartak Moscow",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/9/93/FC_Spartak_Moscow_crest.svg/330px-FC_Spartak_Moscow_crest.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "CSKA Moscow",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/2/26/PFK_CSKA_Logo.svg/330px-PFK_CSKA_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "DEN",
+    "f": "dk",
+    "n": "Denmark",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "FC Copenhagen",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/2/26/FC_Copenhagen_logo.svg/330px-FC_Copenhagen_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Brøndby",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/F%C3%A9d%C3%A9ration_Luxembourgeoise_de_Football%2C_Logo.svg/330px-F%C3%A9d%C3%A9ration_Luxembourgeoise_de_Football%2C_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "SWE",
+    "f": "se",
+    "n": "Sweden",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Malmö FF",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Malmo_FF_logo.svg/330px-Malmo_FF_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "AIK",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/8/81/AIK_Fotboll_%28shield%29.svg/330px-AIK_Fotboll_%28shield%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "NOR",
+    "f": "no",
+    "n": "Norway",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Bodø/Glimt",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8d/FK_Bodo_Glimt_logo.svg/330px-FK_Bodo_Glimt_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Rosenborg",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Rosenborg_logo_RGB.svg/330px-Rosenborg_logo_RGB.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "BRA",
+    "f": "br",
+    "n": "Brazil",
+    "r": "South America",
+    "clubs": [
+      {
+        "n": "Flamengo",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Clube_de_Regatas_do_Flamengo_logo.svg/330px-Clube_de_Regatas_do_Flamengo_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Palmeiras",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/SE_Palmeiras_2025_crest.png/330px-SE_Palmeiras_2025_crest.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Corinthians",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Uefa_logo.svg/330px-Uefa_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "São Paulo",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg/330px-S%C3%A3o_Paulo_Futebol_Clube_logo_%282022%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Santos",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Santos_Futebol_Clube_logo_%28with_stars_and_crown%29.png/330px-Santos_Futebol_Clube_logo_%28with_stars_and_crown%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "ARG",
+    "f": "ar",
+    "n": "Argentina",
+    "r": "South America",
+    "clubs": [
+      {
+        "n": "Boca Juniors",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Boca_Juniors_logo18.svg/330px-Boca_Juniors_logo18.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "River Plate",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Club_Atl%C3%A9tico_River_Plate_logo.svg/330px-Club_Atl%C3%A9tico_River_Plate_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Racing Club",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Escudo_de_Racing_Club_%282014%29.svg/330px-Escudo_de_Racing_Club_%282014%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "URU",
+    "f": "uy",
+    "n": "Uruguay",
+    "r": "South America",
+    "clubs": [
+      {
+        "n": "Peñarol",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Escudo_del_Club_Atl%C3%A9tico_Pe%C3%B1arol.svg/330px-Escudo_del_Club_Atl%C3%A9tico_Pe%C3%B1arol.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Nacional",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Club_Nacional_de_Football.png/330px-Club_Nacional_de_Football.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "COL",
+    "f": "co",
+    "n": "Colombia",
+    "r": "South America",
+    "clubs": [
+      {
+        "n": "Atlético Nacional",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Atletico_Nacional_Logo.svg/330px-Atletico_Nacional_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Millonarios",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Millonarios_F%C3%BAtbol_Club_logo.svg/330px-Millonarios_F%C3%BAtbol_Club_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "CHI",
+    "f": "cl",
+    "n": "Chile",
+    "r": "South America",
+    "clubs": [
+      {
+        "n": "Colo-Colo",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Colo-Colo.svg/330px-Colo-Colo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Universidad de Chile",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Emblema_del_Club_Universidad_de_Chile.png/330px-Emblema_del_Club_Universidad_de_Chile.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "ECU",
+    "f": "ec",
+    "n": "Ecuador",
+    "r": "South America",
+    "clubs": [
+      {
+        "n": "Barcelona SC",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/PPB_Group_Berhad.svg/330px-PPB_Group_Berhad.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "LDU Quito",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Liga_Deportiva_Universitaria_de_Quito.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+      }
+    ]
+  },
+  {
+    "c": "PAR",
+    "f": "py",
+    "n": "Paraguay",
+    "r": "South America",
+    "clubs": [
+      {
+        "n": "Olimpia",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/45/Club_Olimpia_logo.svg/330px-Club_Olimpia_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Cerro Porteño",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Escudo_del_Club_Cerro_Porte%C3%B1o.svg/330px-Escudo_del_Club_Cerro_Porte%C3%B1o.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "PER",
+    "f": "pe",
+    "n": "Peru",
+    "r": "South America",
+    "clubs": [
+      {
+        "n": "Alianza Lima",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Escudo_Alianza_Lima.svg/330px-Escudo_Alianza_Lima.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Universitario",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Logo_oficial_de_Universitario.png/330px-Logo_oficial_de_Universitario.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "USA",
+    "f": "us",
+    "n": "United States",
+    "r": "North America",
+    "clubs": [
+      {
+        "n": "LAFC",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Los_Angeles_Football_Club_wordmark_%28gold%29.svg/330px-Los_Angeles_Football_Club_wordmark_%28gold%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Inter Miami",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Inter_Miami_CF_wordmark-full_pink.png/330px-Inter_Miami_CF_wordmark-full_pink.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "LA Galaxy",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Los_Angeles_Galaxy_logo.svg/330px-Los_Angeles_Galaxy_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Seattle Sounders",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Seattle_Sounders_FC_wordmark.svg/330px-Seattle_Sounders_FC_wordmark.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Atlanta United",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Atlanta_United_wordmark_black.svg/330px-Atlanta_United_wordmark_black.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "MEX",
+    "f": "mx",
+    "n": "Mexico",
+    "r": "North America",
+    "clubs": [
+      {
+        "n": "Club América",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/Club_Am%C3%A9rica_crest.svg/330px-Club_Am%C3%A9rica_crest.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Guadalajara",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/3/38/Panor%C3%A1mica_Guadalajara_desde_edificio_Bansi_hacia_norte_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original"
+      },
+      {
+        "n": "Cruz Azul",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cruz_Azul_2026.png/330px-Cruz_Azul_2026.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Tigres UANL",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Escudo_del_Club_de_F%C3%BAtbol_Tigres_UANL.svg/330px-Escudo_del_Club_de_F%C3%BAtbol_Tigres_UANL.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Monterrey",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Club_de_F%C3%BAtbol_Monterrey_2019_Logo.svg/330px-Club_de_F%C3%BAtbol_Monterrey_2019_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "CAN",
+    "f": "ca",
+    "n": "Canada",
+    "r": "North America",
+    "clubs": [
+      {
+        "n": "Toronto FC",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/MLS_crest_logo_RGB_-_Toronto_FC.svg/330px-MLS_crest_logo_RGB_-_Toronto_FC.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "CF Montréal",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/CF_Montreal_wordmark_black.svg/330px-CF_Montreal_wordmark_black.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Vancouver Whitecaps",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/MLS_crest_logo_RGB_-_Vancouver_Whitecaps_FC.svg/330px-MLS_crest_logo_RGB_-_Vancouver_Whitecaps_FC.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "CRC",
+    "f": "cr",
+    "n": "Costa Rica",
+    "r": "North America",
+    "clubs": [
+      {
+        "n": "Saprissa",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Escudo_Saprissa_2012.svg/330px-Escudo_Saprissa_2012.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      {
+        "n": "Alajuelense",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Logo_de_la_Liga_Deportiva_Alajuelense.svg/330px-Logo_de_la_Liga_Deportiva_Alajuelense.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "EGY",
+    "f": "eg",
+    "n": "Egypt",
+    "r": "Africa",
+    "clubs": [
+      {
+        "n": "Al Ahly",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/70/Al_Ahly_SC_logo.svg/330px-Al_Ahly_SC_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Zamalek",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/7/75/Zamalek_Arial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original"
+      }
+    ]
+  },
+  {
+    "c": "MAR",
+    "f": "ma",
+    "n": "Morocco",
+    "r": "Africa",
+    "clubs": [
+      {
+        "n": "Raja CA",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/b/bd/Raja_CA_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      },
+      {
+        "n": "Wydad AC",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Wydad_Athletic_Club_logo.svg/330px-Wydad_Athletic_Club_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "RSA",
+    "f": "za",
+    "n": "South Africa",
+    "r": "Africa",
+    "clubs": [
+      {
+        "n": "Mamelodi Sundowns",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c6/Mamelodi_Sundowns_F.C.svg/330px-Mamelodi_Sundowns_F.C.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Kaizer Chiefs",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/1/16/Kaizer_Chiefs_logo.svg/330px-Kaizer_Chiefs_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Orlando Pirates",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/9/95/Orlando_Pirates_FC_logo.svg/330px-Orlando_Pirates_FC_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "NGA",
+    "f": "ng",
+    "n": "Nigeria",
+    "r": "Africa",
+    "clubs": [
+      {
+        "n": "Enyimba",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/2/26/Aerial_view_of_Aba.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original"
+      },
+      {
+        "n": "Rivers United",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/3/39/Rivers_United_FC_%28logo%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      }
+    ]
+  },
+  {
+    "c": "TUN",
+    "f": "tn",
+    "n": "Tunisia",
+    "r": "Africa",
+    "clubs": [
+      {
+        "n": "Espérance de Tunis",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/f/fb/Esp%C3%A9rance_Sportive_de_Tunis_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      },
+      {
+        "n": "Étoile du Sahel",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Bank_BSU_Logo.svg/330px-Bank_BSU_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "ALG",
+    "f": "dz",
+    "n": "Algeria",
+    "r": "Africa",
+    "clubs": [
+      {
+        "n": "ES Sétif",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/f/fc/ES_S%C3%A9tif_-_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      },
+      {
+        "n": "CR Belouizdad",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/CRB_logo2023.png/330px-CRB_logo2023.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "COD",
+    "f": "cd",
+    "n": "DR Congo",
+    "r": "Africa",
+    "clubs": [
+      {
+        "n": "TP Mazembe",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/TP_Mazembe_Logo.svg/330px-TP_Mazembe_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "AS Vita Club",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/2/22/AS_Vita_Club_%28logo%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      }
+    ]
+  },
+  {
+    "c": "GHA",
+    "f": "gh",
+    "n": "Ghana",
+    "r": "Africa",
+    "clubs": [
+      {
+        "n": "Asante Kotoko",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/f/fd/Asante_Kotoko_SC_%28logo%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      },
+      {
+        "n": "Hearts of Oak",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/0/01/Accra_hearts_of_oak_sc.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      }
+    ]
+  },
+  {
+    "c": "JPN",
+    "f": "jp",
+    "n": "Japan",
+    "r": "Asia",
+    "clubs": [
+      {
+        "n": "Urawa Red Diamonds",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Urawa_Red_Diamonds_logo.svg/330px-Urawa_Red_Diamonds_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Kashima Antlers",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/3/37/Kashima_Antlers.svg/330px-Kashima_Antlers.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Yokohama F. Marinos",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/6/65/Yokohama_F_Marinos_logo.svg/330px-Yokohama_F_Marinos_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "KOR",
+    "f": "kr",
+    "n": "South Korea",
+    "r": "Asia",
+    "clubs": [
+      {
+        "n": "Jeonbuk Hyundai",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/2/23/Jeonbuk_Hyundai_Motors.svg/330px-Jeonbuk_Hyundai_Motors.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Ulsan HD",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Ulsan_Hyundai_FC.svg/330px-Ulsan_Hyundai_FC.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "CHN",
+    "f": "cn",
+    "n": "China",
+    "r": "Asia",
+    "clubs": [
+      {
+        "n": "Shanghai Port",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Shanghai_Port_F.C.svg/330px-Shanghai_Port_F.C.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Shandong Taishan",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/8/88/Shandong_Taishan_Football_Club.svg/330px-Shandong_Taishan_Football_Club.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "KSA",
+    "f": "sa",
+    "n": "Saudi Arabia",
+    "r": "Asia",
+    "clubs": [
+      {
+        "n": "Al Hilal",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Al_Hilal_SFC_Logo.svg/330px-Al_Hilal_SFC_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Al Nassr",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Nassr_FC_Logo.svg/330px-Nassr_FC_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Al Ittihad",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Al-Ittihad_Club_%28Jeddah%29_logo.svg/330px-Al-Ittihad_Club_%28Jeddah%29_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Al Ahli",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/45/Al_Ahli_Saudi_FC_logo.svg/330px-Al_Ahli_Saudi_FC_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "UAE",
+    "f": "ae",
+    "n": "United Arab Emirates",
+    "r": "Asia",
+    "clubs": [
+      {
+        "n": "Al Ain",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/6/62/Al_Ain_FC_logo_2024.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      },
+      {
+        "n": "Shabab Al Ahli",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Shabab_Al_Ahli_logo.svg/330px-Shabab_Al_Ahli_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "QAT",
+    "f": "qa",
+    "n": "Qatar",
+    "r": "Asia",
+    "clubs": [
+      {
+        "n": "Al Sadd",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/Al_Sadd_SC_logo.svg/330px-Al_Sadd_SC_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Al Duhail",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Al-Duhail_SC_%28logo%29.svg/330px-Al-Duhail_SC_%28logo%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "IRN",
+    "f": "ir",
+    "n": "Iran",
+    "r": "Asia",
+    "clubs": [
+      {
+        "n": "Persepolis",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/FC_Persepolis_Official_Logo.svg/330px-FC_Persepolis_Official_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Esteghlal",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/54/Esteghlal_F.C._Logo.svg/330px-Esteghlal_F.C._Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "IRQ",
+    "f": "iq",
+    "n": "Iraq",
+    "r": "Asia",
+    "clubs": [
+      {
+        "n": "Al Shorta",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Al-Shorta_SC_logo.svg/330px-Al-Shorta_SC_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Al Quwa Al Jawiya",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Al-Quwa_Al-Jawiya_logo.svg/330px-Al-Quwa_Al-Jawiya_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "THA",
+    "f": "th",
+    "n": "Thailand",
+    "r": "Asia",
+    "clubs": [
+      {
+        "n": "Buriram United",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/9/93/Buriram_United_logo.svg/330px-Buriram_United_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Bangkok United",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a3/Bangkok_United%2C_2018.png/330px-Bangkok_United%2C_2018.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "IND",
+    "f": "in",
+    "n": "India",
+    "r": "Asia",
+    "clubs": [
+      {
+        "n": "Mohun Bagan",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Mohun_Bagan_Super_Giant.svg/330px-Mohun_Bagan_Super_Giant.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Bengaluru FC",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Bengaluru_FC_logo.svg/330px-Bengaluru_FC_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "AUS",
+    "f": "au",
+    "n": "Australia",
+    "r": "Oceania",
+    "clubs": [
+      {
+        "n": "Melbourne City",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0f/Melbourne_City_FC.svg/330px-Melbourne_City_FC.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Sydney FC",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Sydney_FC_Logo.svg/330px-Sydney_FC_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Melbourne Victory",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/MVFC_W-League_Logo.jpg/330px-MVFC_W-League_Logo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "NZL",
+    "f": "nz",
+    "n": "New Zealand",
+    "r": "Oceania",
+    "clubs": [
+      {
+        "n": "Auckland City",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/9/93/Auckland_Territorial_Authority.PNG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original"
+      }
+    ]
+  }
+]
