@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BidFootball — One Crown. Every Club. One Winner.</title>
-<meta name="description" content="One crown. 189 clubs. The biggest pot in the world holds it. Pool with fellow fans from €5 and take the throne.">
+<meta name="description" content="One crown. 189 clubs. The biggest pot in the world holds it. Pool with fellow fans from $5 and take the throne.">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bidfootball.lol">
 <meta property="og:title" content="BidFootball — One Crown. Every Club. One Winner.">
-<meta property="og:description" content="Pool with fellow fans. The club with the biggest global pot holds THE crown. 189 clubs. From €5.">
+<meta property="og:description" content="Pool with fellow fans. The club with the biggest global pot holds THE crown. 189 clubs. From $5.">
 <meta property="og:image" content="https://bidfootball.lol/og.svg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -19,7 +19,7 @@
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="BidFootball — One Crown. Every Club. One Winner.">
-<meta name="twitter:description" content="Pool with fellow fans. The club with the biggest global pot holds THE crown. 189 clubs. From €5.">
+<meta name="twitter:description" content="Pool with fellow fans. The club with the biggest global pot holds THE crown. 189 clubs. From $5.">
 <meta name="twitter:image" content="https://bidfootball.lol/og.svg">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
@@ -304,7 +304,7 @@ main{position:relative;z-index:1;padding:0 20px 80px}
     <p>One crown. The club with the biggest global pot wears it. Pool with your fanbase, climb the rankings, take the throne.</p>
     <div class="chips">
       <span class="chip">🌍 Global clubs</span>
-      <span class="chip">💰 From €5</span>
+      <span class="chip">💰 From $5</span>
       <span class="chip">👑 1 world crown</span>
       <span class="chip">🤝 Pool with fans</span>
       <span class="chip">🔒 Stripe checkout</span>
@@ -325,15 +325,15 @@ main{position:relative;z-index:1;padding:0 20px 80px}
   <div class="tiers-row">
     <div class="tier-pill legend">
       <h4>👑 Legend</h4>
-      <p>€50+ · Your name stays on the leaderboard permanently, even if your club loses the crown.</p>
+      <p>$50+ · Your name stays on the leaderboard permanently, even if your club loses the crown.</p>
     </div>
     <div class="tier-pill champ">
       <h4>⚡ Champion</h4>
-      <p>€25+ · Highlighted as a Champion supporter next to your club's ranking.</p>
+      <p>$25+ · Highlighted as a Champion supporter next to your club's ranking.</p>
     </div>
     <div class="tier-pill">
       <h4>🤝 Supporter</h4>
-      <p>€5+ · Your contribution adds to the pot and your name goes in the leaderboard.</p>
+      <p>$5+ · Your contribution adds to the pot and your name goes in the leaderboard.</p>
     </div>
   </div>
 
@@ -404,17 +404,17 @@ main{position:relative;z-index:1;padding:0 20px 80px}
       <div>
         <div class="flabel">Your contribution</div>
         <div class="qarow">
-          <span class="qa" data-v="5">€5</span>
-          <span class="qa" data-v="10">€10</span>
-          <span class="qa" data-v="25">€25 ⚡</span>
-          <span class="qa" data-v="50">€50 👑</span>
-          <span class="qa" data-v="100">€100</span>
+          <span class="qa" data-v="5">$5</span>
+          <span class="qa" data-v="10">$10</span>
+          <span class="qa" data-v="25">$25 ⚡</span>
+          <span class="qa" data-v="50">$50 👑</span>
+          <span class="qa" data-v="100">$100</span>
         </div>
         <div class="amtrow">
-          <span class="amtpfx">€</span>
+          <span class="amtpfx">$</span>
           <input type="number" class="amtin" id="amt" placeholder="5" min="5" step="1">
         </div>
-        <div style="font-size:11px;color:var(--dim);margin-top:6px">Minimum €5. Any amount above €5 works — tiers unlock at €25 and €50.</div>
+        <div style="font-size:11px;color:var(--dim);margin-top:6px">Minimum $5. Any amount above $5 works — tiers unlock at $25 and $50.</div>
       </div>
       <!-- tier preview -->
       <div class="tier-preview" id="tier-preview">
@@ -453,7 +453,7 @@ let mCode=null, mClub=null;
 
 // ══════════════════════ UTILS
 const $=id=>document.getElementById(id);
-const fmt=n=>n>=1000?'€'+(n/1000).toFixed(n%1000===0?0:1)+'k':'€'+n;
+const fmt=n=>n>=1000?'$'+(n/1000).toFixed(n%1000===0?0:1)+'k':'$'+n;
 const fl=code=>`https://flagcdn.com/w40/${(code||'').toLowerCase()}.png`;
 const ago=ts=>{const s=Math.floor((Date.now()-ts)/1000);return s<60?'just now':s<3600?Math.floor(s/60)+'m ago':s<86400?Math.floor(s/3600)+'h ago':Math.floor(s/86400)+'d ago';};
 const tierFor=n=>{for(const t of TIERS)if(n>=t.min)return t;return null;};
@@ -775,7 +775,7 @@ function updateGapBar(){
     $('gbmsg').textContent='👑 This contribution takes the world crown!';
     $('gbmsg').className='gap-bar-msg taking';
   } else {
-    $('gbmsg').textContent=`${fmt(gap)} more needed to take the crown`;
+    $('gbmsg').textContent=${fmt(gap)} more needed to take the crown`;
     $('gbmsg').className='gap-bar-msg';
   }
 }
@@ -804,7 +804,7 @@ function updateSubmitBtn(){
   } else {
     btn.className='msub normal';
     const tier=tierFor(amt);
-    btn.innerHTML=tier?`${tier.icon} Support as ${tier.label}`:'🤝 Support Your Club';
+    btn.innerHTML=tier?${tier.icon} Support as ${tier.label}`:'🤝 Support Your Club';
   }
 }
 
@@ -862,4 +862,1644 @@ function handleParams(){
 </script>
 </body>
 </html>
+const fl=code=>`https://flagcdn.com/w40/${(code||'').toLowerCase()}.png`;
+const ago=ts=>{const s=Math.floor((Date.now()-ts)/1000);return s<60?'just now':s<3600?Math.floor(s/60)+'m ago':s<86400?Math.floor(s/3600)+'h ago':Math.floor(s/86400)+'d ago';};
+const tierFor=n=>{for(const t of TIERS)if(n>=t.min)return t;return null;};
+
+function toast(msg,type=''){const t=$('toast');t.textContent=msg;t.className='toast show '+type;clearTimeout(t._t);t._t=setTimeout(()=>t.className='toast',3500);}
+
+function logoEl(url,sz=36){
+  const d=document.createElement('div');
+  d.style.cssText=`width:${sz}px;height:${sz}px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:50%;`;
+  if(url){const i=new Image();i.src=url;i.alt='';i.style.cssText=`width:100%;height:100%;object-fit:contain;padding:${sz>40?'7':'3'}px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4))`;i.onerror=()=>{d.textContent='⚽'};d.appendChild(i);}
+  else d.textContent='⚽';
+  return d;
+}
+
+// ══════════════════════ LOAD
+async function loadClubs(){clubs=await fetch('/clubs.json').then(r=>r.json());}
+async function loadLB(){
+  try{
+    const d=await fetch('/api/leaderboard').then(r=>r.json());
+    totals=d.totals||{};crown=d.crown||null;ranked=d.ranked||[];feed=d.feed||[];
+    renderAll();
+  }catch(e){console.error(e);}
+}
+
+function renderAll(){
+  renderHeader();renderCrown();renderLB();renderCountryGrid();renderTicker();
+}
+
+// ══════════════════════ HEADER
+function renderHeader(){
+  const supporters=Object.values(totals).reduce((s,c)=>s+c.bids,0);
+  const total=Object.values(totals).reduce((s,c)=>s+c.total,0);
+  $('hSupporters').textContent=supporters.toLocaleString();
+  $('hTotal').textContent=fmt(total);
+}
+
+// ══════════════════════ CROWN HERO
+function renderCrown(){
+  const el=$('crown-area');
+  if(!crown||!crown.club){
+    el.innerHTML=`<div class="crown-card" style="margin:0 auto"><div class="crown-empty"><div class="big">🏆</div><h2>The Crown is Up for Grabs</h2><p>No club has been crowned yet. Be the first to support yours and claim the world crown.</p></div></div>`;
+    return;
+  }
+  const logoUrl=crown.clubLogo||'';
+  const logoDiv=logoEl(logoUrl,96);
+  logoDiv.style.cssText+='border:3px solid var(--gold);box-shadow:0 0 24px rgba(245,197,24,.35);background:var(--bg3);margin-bottom:16px;';
+
+  el.innerHTML='';
+  const card=document.createElement('div');
+  card.className='crown-card';card.style.margin='0 auto';
+
+  card.innerHTML=`
+    <div style="font-size:36px;margin-bottom:14px;animation:bob 3s ease-in-out infinite">👑</div>
+    <div class="crown-club">${crown.club}</div>
+    <div class="crown-country">
+      <img src="${fl(crown.flag)}" width="18" height="13" style="border-radius:2px">
+      ${crown.country}
+    </div>
+    <div class="crown-total">${fmt(crown.total)}</div>
+    <div class="crown-meta">${crown.bids.toLocaleString()} supporter${crown.bids===1?'':'s'} · Last: ${ago(crown.ts)}</div>
+    ${crown.legends?.length?`<div style="font-size:12px;color:var(--gold);margin-top:8px">👑 Legends: ${crown.legends.join(', ')}</div>`:''}
+  `;
+
+  card.insertBefore(logoDiv, card.firstChild);
+
+  const btn=document.createElement('button');
+  btn.className='crown-btn';
+  btn.innerHTML='⚔️ Challenge the Crown';
+  btn.onclick=()=>openModal(crown.code);
+  card.appendChild(btn);
+
+  el.appendChild(card);
+}
+
+// ══════════════════════ TICKER
+function renderTicker(){
+  const inner=$('tinner');
+  if(!feed.length){inner.innerHTML='<span class="ti">⚽ Be the first to back your club!</span>';return;}
+  const items=[...feed.slice(0,20),...feed.slice(0,20)];
+  inner.innerHTML=items.map(f=>`
+    <span class="ti">
+      ${f.flag?`<img src="${fl(f.flag)}" width="16" height="12" style="border-radius:2px;vertical-align:middle">`:'🌍'}
+      ${f.tier?`<span class="tier">${f.tier==='Legend'?'👑':f.tier==='Champion'?'⚡':'🤝'}</span>`:''}
+      <strong>${f.bidder}</strong> backed <strong>${f.club}</strong> — <span class="amt">${fmt(f.amount)}</span>
+      ${f.tookCrown?'<span style="color:var(--gold)">👑 NEW CROWN!</span>':''}
+    </span><span style="color:var(--border);font-size:18px">·</span>
+  `).join('');
+}
+
+// ══════════════════════ LEADERBOARD
+function renderLB(){
+  const el=$('lb');
+  if(!ranked.length){
+    el.innerHTML=`<div style="text-align:center;padding:44px 0;color:var(--dim)"><div style="font-size:44px;margin-bottom:10px">🏆</div><div style="font-size:15px;font-weight:700;margin-bottom:6px">No clubs ranked yet</div><div style="font-size:13px">Be the first to support your club.</div></div>`;
+    return;
+  }
+  const topTotal=ranked[0]?.total||1;
+  const rc=i=>i===0?'g':i===1?'s':i===2?'b':'n';
+  const rx=i=>i===0?'r1':i===1?'r2':i===2?'r3':'';
+  const med=i=>i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1;
+
+  el.innerHTML=ranked.map((c,i)=>{
+    const gap=i===0?0:ranked[0].total-c.total;
+    const pct=Math.round((c.total/topTotal)*100);
+    const isCrown=i===0;
+    const btnCls=isCrown?'take':'';
+    const btnTxt=isCrown?'👑 Support Crown':'+ Support';
+    return `
+    <div class="lb-row ${rx(i)}" data-code="${c.code}" data-club="${c.club}">
+      <div class="lb-rank ${rc(i)}">${med(i)}</div>
+      <div class="lb-logo" data-logo="${c.clubLogo||''}">⚽</div>
+      <div class="lb-info">
+        <div class="lb-club">${c.club}</div>
+        <div class="lb-meta">
+          <img src="${fl(c.flag)}" width="14" height="11" class="lb-flag"> ${c.country}
+          · ${c.bids} supporter${c.bids===1?'':'s'} · ${ago(c.ts)}
+        </div>
+        ${c.legends?.length?`<div class="lb-legends">👑 ${c.legends.slice(0,3).join(', ')}${c.legends.length>3?' +more':''}</div>`:''}
+      </div>
+      <div style="flex-shrink:0;text-align:right">
+        <div class="lb-total">${fmt(c.total)}</div>
+        ${gap>0?`<div class="lb-gap">-${fmt(gap)} from crown</div>`:`<div class="lb-gap" style="color:var(--gold)">👑 Crown holder</div>`}
+      </div>
+      <button class="sbtn ${btnCls}" data-code="${c.code}" data-club="${c.club}">${btnTxt}</button>
+    </div>`;
+  }).join('');
+
+  // Lazy-load logos
+  el.querySelectorAll('.lb-logo').forEach(d=>{
+    const url=d.dataset.logo;
+    if(url){const img=document.createElement('img');img.src=url;img.alt='';img.style.cssText='width:100%;height:100%;object-fit:contain;padding:3px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4))';img.onerror=()=>{d.textContent='⚽'};d.innerHTML='';d.appendChild(img);}
+  });
+
+  el.querySelectorAll('.lb-row').forEach(row=>{
+    row.addEventListener('click',e=>{if(e.target.closest('.sbtn'))return;openModal(row.dataset.code);});
+  });
+  el.querySelectorAll('.sbtn').forEach(btn=>{
+    btn.addEventListener('click',e=>{e.stopPropagation();openModal(btn.dataset.code,btn.dataset.club);});
+  });
+}
+
+// ══════════════════════ COUNTRY GRID
+function renderCountryGrid(){
+  const base=region==='All'?clubs:clubs.filter(c=>c.r===region);
+  // Sort: countries with supporters first (by pot desc), then alphabetically
+  const list=[...base].sort((a,b)=>{
+    const aTop=Math.max(0,...Object.keys(totals).filter(k=>k.startsWith(a.c+'::')).map(k=>totals[k]?.total||0));
+    const bTop=Math.max(0,...Object.keys(totals).filter(k=>k.startsWith(b.c+'::')).map(k=>totals[k]?.total||0));
+    if(bTop!==aTop)return bTop-aTop;
+    return a.n.localeCompare(b.n);
+  });
+  const topTotal=crown?.total||0;
+  $('cgrid').innerHTML=list.map(c=>{
+    const key=Object.keys(totals).find(k=>k.startsWith(c.c+'::')&&totals[k].total===Math.max(...Object.keys(totals).filter(k2=>k2.startsWith(c.c+'::')).map(k2=>totals[k2].total||0)));
+    const leader=key?totals[key]:null;
+    const gap=leader&&topTotal>leader.total?topTotal-leader.total:0;
+    return `
+    <div class="cc ${leader?'led':''}" data-code="${c.c}">
+      <div class="cc-head">
+        <div class="cc-flag"><img src="${fl(c.f)}" width="26" height="19" style="border-radius:3px"></div>
+        <div class="cc-name">${c.n}</div>
+        ${leader&&leader.total===topTotal?'<span title="World Crown">👑</span>':''}
+      </div>
+      <div class="cc-body">
+        <div class="cc-clogo" data-logo="${leader?.clubLogo||''}">⚽</div>
+        <div class="cc-cinfo">
+          ${leader
+            ?`<div class="cc-cname">${leader.club}</div>
+               <div class="cc-pot">${fmt(leader.total)}</div>
+               <div class="cc-bids">${leader.bids} supporter${leader.bids===1?'':'s'}${gap?` · ${fmt(gap)} from crown`:''}</div>`
+            :`<div class="cc-none">No supporters yet</div>`
+          }
+        </div>
+      </div>
+      <div class="cc-foot">
+        <button class="ccbtn ${leader?'gd':'gr'}" data-code="${c.c}">${leader?'+ Support':'👑 Be First'}</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Lazy-load logos
+  $('cgrid').querySelectorAll('.cc-clogo[data-logo]').forEach(d=>{
+    const url=d.dataset.logo;
+    if(url){const img=document.createElement('img');img.src=url;img.alt='';img.style.cssText='width:100%;height:100%;object-fit:contain;padding:3px';img.onerror=()=>{d.textContent='⚽'};d.innerHTML='';d.appendChild(img);}
+  });
+
+  $('cgrid').querySelectorAll('[data-code]').forEach(el=>{
+    el.addEventListener('click',e=>{const code=e.currentTarget.dataset.code;if(code)openModal(code);});
+  });
+}
+
+// ══════════════════════ REGION TABS
+$('rtabs').addEventListener('click',e=>{
+  const t=e.target.closest('.rtab');if(!t)return;
+  document.querySelectorAll('.rtab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');region=t.dataset.r;renderCountryGrid();
+});
+
+// ══════════════════════ SEARCH
+const sinput=$('sinput'),sresults=$('sresults');
+sinput.addEventListener('input',()=>{
+  const q=sinput.value.trim().toLowerCase();
+  if(!q){sresults.classList.remove('open');return;}
+  const topTotal=crown?.total||0;
+  const mc=[],mco=[];
+  for(const c of clubs){
+    if(c.n.toLowerCase().includes(q))mco.push(c);
+    for(const cl of c.clubs){
+      if(cl.n.toLowerCase().includes(q)){
+        const key=c.c+'::'+cl.n;
+        const entry=totals[key];
+        mc.push({cl,c,entry});
+      }
+    }
+  }
+  let html='';
+  if(mc.length){
+    html+=`<div class="ssec">Clubs</div>`;
+    html+=mc.slice(0,7).map(({cl,c,entry})=>{
+      const pot=entry?.total||0;
+      const gap=topTotal&&pot<topTotal?topTotal-pot:0;
+      return `<div class="sri" data-code="${c.c}" data-club="${cl.n}">
+        <div class="sri-logo">${cl.logo?`<img src="${cl.logo}" alt="" onerror="this.parentNode.innerHTML='⚽'">`:'⚽'}</div>
+        <div class="sri-info"><div class="sri-name">${cl.n}</div><div class="sri-sub">${c.n} ${entry?`· ${entry.bids} supporter${entry.bids===1?'':'s'}`:''}</div></div>
+        <div class="sri-right">${pot?`<div class="sri-amt">${fmt(pot)}</div>`:''}${gap?`<div class="sri-gap">-${fmt(gap)} from 👑</div>`:pot&&!gap?`<div class="sri-gap" style="color:var(--gold)">👑 Crown</div>`:''}</div>
+      </div>`;
+    }).join('');
+  }
+  if(mco.length){
+    html+=`<div class="ssec">Countries</div>`;
+    html+=mco.slice(0,4).map(c=>{
+      const key=Object.keys(totals).filter(k=>k.startsWith(c.c+'::')).sort((a,b)=>(totals[b]?.total||0)-(totals[a]?.total||0))[0];
+      const leader=key?totals[key]:null;
+      return `<div class="sri" data-code="${c.c}">
+        <div class="sri-logo">${leader?.clubLogo?`<img src="${leader.clubLogo}" alt="" onerror="this.parentNode.innerHTML='⚽'">`:`<img src="${fl(c.f)}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`}</div>
+        <div class="sri-info"><div class="sri-name">${c.n}</div><div class="sri-sub">${leader?`Leading: ${leader.club}`:'No supporters yet'}</div></div>
+        ${leader?`<div class="sri-right"><div class="sri-amt">${fmt(leader.total)}</div></div>`:''}
+      </div>`;
+    }).join('');
+  }
+  if(!html)html='<div style="padding:14px;text-align:center;color:var(--dim);font-size:13px">No results</div>';
+  sresults.innerHTML=html;sresults.classList.add('open');
+  sresults.querySelectorAll('.sri').forEach(item=>{
+    item.addEventListener('click',()=>{sresults.classList.remove('open');sinput.value='';openModal(item.dataset.code,item.dataset.club);});
+  });
+});
+document.addEventListener('click',e=>{if(!e.target.closest('.sbox'))sresults.classList.remove('open');});
+sinput.addEventListener('keydown',e=>{if(e.key==='Escape'){sresults.classList.remove('open');sinput.value='';}});
+
+// ══════════════════════ MODAL
+function openModal(code,preClub){
+  const country=clubs.find(c=>c.c===code);if(!country)return;
+  mCode=code;mClub=null;
+  const topTotal=crown?.total||0;
+
+  $('mflag').innerHTML=`<img src="${fl(country.f)}" width="40" height="30" style="border-radius:3px">`;
+  $('mtitle').textContent=country.n;
+
+  const topForCountry=Object.keys(totals).filter(k=>k.startsWith(code+'::')).sort((a,b)=>(totals[b]?.total||0)-(totals[a]?.total||0))[0];
+  const leader=topForCountry?totals[topForCountry]:null;
+  $('msub2').innerHTML=leader
+    ?`Biggest pot here: <strong>${leader.club}</strong> · <strong>${fmt(leader.total)}</strong> · ${leader.bids} supporter${leader.bids===1?'':'s'}`
+    :'No supporters yet — be the first!';
+
+  $('amt').value=5;
+  $('namein').value='';
+  $('merr').classList.remove('show');
+
+  const cg=$('mcgrid');
+  cg.innerHTML=country.clubs.map(cl=>{
+    const key=code+'::'+cl.n;
+    const entry=totals[key];
+    const pot=entry?.total||0;
+    const gap=topTotal&&pot<topTotal?topTotal-pot:0;
+    return `
+    <div class="cop" data-name="${cl.n}" data-logo="${cl.logo||''}">
+      <div class="cop-logo">${cl.logo?`<img src="${cl.logo}" alt="" onerror="this.parentNode.innerHTML='⚽'">`:'⚽'}</div>
+      <div class="cop-info">
+        <div class="cop-name">${cl.n}</div>
+        ${pot?`<div class="cop-pot">${fmt(pot)} pot</div>`:`<div class="cop-pot" style="color:var(--dim)">Be first</div>`}
+        ${gap?`<div class="cop-gap">-${fmt(gap)} from 👑</div>`:pot&&!gap?`<div class="cop-gap" style="color:var(--gold)">👑 Crown!</div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+
+  cg.querySelectorAll('.cop').forEach(o=>{
+    o.addEventListener('click',()=>{
+      cg.querySelectorAll('.cop').forEach(x=>x.classList.remove('sel'));
+      o.classList.add('sel');
+      mClub={n:o.dataset.name,logo:o.dataset.logo};
+      updateGapBar();updateTierPreview();updateSubmitBtn();
+    });
+  });
+
+  const pre=preClub?cg.querySelector(`[data-name="${preClub}"]`):null;
+  const def=pre||cg.firstElementChild;
+  if(def)def.click();
+
+  $('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>$('amt').focus(),180);
+}
+
+function updateGapBar(){
+  if(!mClub||!mCode)return;
+  const key=mCode+'::'+mClub.n;
+  const entry=totals[key];
+  const myPot=entry?.total||0;
+  const topTotal=crown?.total||0;
+  const amtVal=Math.max(0,parseInt($('amt').value)||0);
+  const after=myPot+amtVal;
+  const gap=Math.max(0,topTotal-after);
+  const isCrown=!topTotal||after>=topTotal;
+  const pct=topTotal?Math.min(100,Math.round((after/topTotal)*100)):100;
+
+  $('gbl-left').textContent=mClub.n;
+  $('gbar').style.width=pct+'%';
+  if(isCrown){
+    $('gbmsg').textContent='👑 This contribution takes the world crown!';
+    $('gbmsg').className='gap-bar-msg taking';
+  } else {
+    $('gbmsg').textContent=${fmt(gap)} more needed to take the crown`;
+    $('gbmsg').className='gap-bar-msg';
+  }
+}
+
+function updateTierPreview(){
+  const amt=parseInt($('amt').value)||0;
+  const tier=tierFor(amt);
+  const tp=$('tier-preview');
+  if(!tier||amt<MIN){
+    tp.innerHTML=`<span class="tp-icon">💡</span><div class="tp-text"><div class="tp-tier" style="color:var(--dim)">Min $${MIN}</div><div class="tp-desc">Increase your amount to unlock a tier.</div></div>`;
+    return;
+  }
+  tp.innerHTML=`<span class="tp-icon">${tier.icon}</span><div class="tp-text"><div class="tp-tier">${tier.label}</div><div class="tp-desc">${tier.desc}</div></div>`;
+}
+
+function updateSubmitBtn(){
+  const amt=parseInt($('amt').value)||0;
+  const key=mCode&&mClub?mCode+'::'+mClub.n:null;
+  const myPot=key&&totals[key]?totals[key].total:0;
+  const topTotal=crown?.total||0;
+  const isCrown=mClub&&(!topTotal||myPot+amt>=topTotal);
+  const btn=$('msub-btn');
+  if(isCrown){
+    btn.className='msub crown';
+    btn.innerHTML='👑 Take the World Crown!';
+  } else {
+    btn.className='msub normal';
+    const tier=tierFor(amt);
+    btn.innerHTML=tier?${tier.icon} Support as ${tier.label}`:'🤝 Support Your Club';
+  }
+}
+
+function closeModal(){$('overlay').classList.remove('open');document.body.style.overflow='';}
+$('mclose').addEventListener('click',closeModal);
+$('overlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+document.querySelectorAll('.qa').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.qa').forEach(x=>x.classList.remove('active'));
+    btn.classList.add('active');
+    $('amt').value=btn.dataset.v;
+    updateGapBar();updateTierPreview();updateSubmitBtn();
+  });
+});
+$('amt').addEventListener('input',()=>{
+  document.querySelectorAll('.qa').forEach(x=>x.classList.remove('active'));
+  updateGapBar();updateTierPreview();updateSubmitBtn();
+});
+
+// ══════════════════════ SUBMIT
+$('msub-btn').addEventListener('click',async()=>{
+  const errEl=$('merr'),btn=$('msub-btn');
+  const amount=parseInt($('amt').value,10);
+  const bidder=$('namein').value.trim()||'Anonymous';
+  const country=clubs.find(c=>c.c===mCode);
+  errEl.classList.remove('show');
+  if(!mClub){errEl.textContent='Choose a club to support.';errEl.classList.add('show');return;}
+  if(!amount||amount<MIN){errEl.textContent=`Minimum contribution is $${MIN}.`;errEl.classList.add('show');return;}
+  const prev=btn.innerHTML;btn.disabled=true;btn.textContent='Redirecting to checkout…';
+  try{
+    const r=await fetch('/api/checkout',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({code:mCode,country:country.n,flag:country.f,club:mClub.n,clubLogo:mClub.logo,amount,bidder})});
+    const d=await r.json();
+    if(!r.ok||!d.url){errEl.textContent=d.error||'Checkout failed. Try again.';errEl.classList.add('show');btn.disabled=false;btn.innerHTML=prev;return;}
+    window.location.href=d.url;
+  }catch{errEl.textContent='Network error. Try again.';errEl.classList.add('show');btn.disabled=false;btn.innerHTML=prev;}
+});
+
+// ══════════════════════ URL PARAMS
+function handleParams(){
+  const p=new URLSearchParams(location.search);
+  if(p.has('paid')){$('sbar').classList.add('show');history.replaceState({},'','/');toast('🏆 Your support is live!','ok');}
+  if(p.has('canceled')){toast('Checkout canceled. No charge made.');history.replaceState({},'','/');}
+}
+
+// ══════════════════════ BOOT
+(async()=>{
+  await loadClubs();
+  await loadLB();
+  handleParams();
+  setInterval(loadLB,30000);
+})();
+</script>
+</body>
+</html>
+
++n;
+const fl=code=>`https://flagcdn.com/w40/${(code||'').toLowerCase()}.png`;
+const ago=ts=>{const s=Math.floor((Date.now()-ts)/1000);return s<60?'just now':s<3600?Math.floor(s/60)+'m ago':s<86400?Math.floor(s/3600)+'h ago':Math.floor(s/86400)+'d ago';};
+const tierFor=n=>{for(const t of TIERS)if(n>=t.min)return t;return null;};
+
+function toast(msg,type=''){const t=$('toast');t.textContent=msg;t.className='toast show '+type;clearTimeout(t._t);t._t=setTimeout(()=>t.className='toast',3500);}
+
+function logoEl(url,sz=36){
+  const d=document.createElement('div');
+  d.style.cssText=`width:${sz}px;height:${sz}px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:50%;`;
+  if(url){const i=new Image();i.src=url;i.alt='';i.style.cssText=`width:100%;height:100%;object-fit:contain;padding:${sz>40?'7':'3'}px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4))`;i.onerror=()=>{d.textContent='⚽'};d.appendChild(i);}
+  else d.textContent='⚽';
+  return d;
+}
+
+// ══════════════════════ LOAD
+async function loadClubs(){clubs=await fetch('/clubs.json').then(r=>r.json());}
+async function loadLB(){
+  try{
+    const d=await fetch('/api/leaderboard').then(r=>r.json());
+    totals=d.totals||{};crown=d.crown||null;ranked=d.ranked||[];feed=d.feed||[];
+    renderAll();
+  }catch(e){console.error(e);}
+}
+
+function renderAll(){
+  renderHeader();renderCrown();renderLB();renderCountryGrid();renderTicker();
+}
+
+// ══════════════════════ HEADER
+function renderHeader(){
+  const supporters=Object.values(totals).reduce((s,c)=>s+c.bids,0);
+  const total=Object.values(totals).reduce((s,c)=>s+c.total,0);
+  $('hSupporters').textContent=supporters.toLocaleString();
+  $('hTotal').textContent=fmt(total);
+}
+
+// ══════════════════════ CROWN HERO
+function renderCrown(){
+  const el=$('crown-area');
+  if(!crown||!crown.club){
+    el.innerHTML=`<div class="crown-card" style="margin:0 auto"><div class="crown-empty"><div class="big">🏆</div><h2>The Crown is Up for Grabs</h2><p>No club has been crowned yet. Be the first to support yours and claim the world crown.</p></div></div>`;
+    return;
+  }
+  const logoUrl=crown.clubLogo||'';
+  const logoDiv=logoEl(logoUrl,96);
+  logoDiv.style.cssText+='border:3px solid var(--gold);box-shadow:0 0 24px rgba(245,197,24,.35);background:var(--bg3);margin-bottom:16px;';
+
+  el.innerHTML='';
+  const card=document.createElement('div');
+  card.className='crown-card';card.style.margin='0 auto';
+
+  card.innerHTML=`
+    <div style="font-size:36px;margin-bottom:14px;animation:bob 3s ease-in-out infinite">👑</div>
+    <div class="crown-club">${crown.club}</div>
+    <div class="crown-country">
+      <img src="${fl(crown.flag)}" width="18" height="13" style="border-radius:2px">
+      ${crown.country}
+    </div>
+    <div class="crown-total">${fmt(crown.total)}</div>
+    <div class="crown-meta">${crown.bids.toLocaleString()} supporter${crown.bids===1?'':'s'} · Last: ${ago(crown.ts)}</div>
+    ${crown.legends?.length?`<div style="font-size:12px;color:var(--gold);margin-top:8px">👑 Legends: ${crown.legends.join(', ')}</div>`:''}
+  `;
+
+  card.insertBefore(logoDiv, card.firstChild);
+
+  const btn=document.createElement('button');
+  btn.className='crown-btn';
+  btn.innerHTML='⚔️ Challenge the Crown';
+  btn.onclick=()=>openModal(crown.code);
+  card.appendChild(btn);
+
+  el.appendChild(card);
+}
+
+// ══════════════════════ TICKER
+function renderTicker(){
+  const inner=$('tinner');
+  if(!feed.length){inner.innerHTML='<span class="ti">⚽ Be the first to back your club!</span>';return;}
+  const items=[...feed.slice(0,20),...feed.slice(0,20)];
+  inner.innerHTML=items.map(f=>`
+    <span class="ti">
+      ${f.flag?`<img src="${fl(f.flag)}" width="16" height="12" style="border-radius:2px;vertical-align:middle">`:'🌍'}
+      ${f.tier?`<span class="tier">${f.tier==='Legend'?'👑':f.tier==='Champion'?'⚡':'🤝'}</span>`:''}
+      <strong>${f.bidder}</strong> backed <strong>${f.club}</strong> — <span class="amt">${fmt(f.amount)}</span>
+      ${f.tookCrown?'<span style="color:var(--gold)">👑 NEW CROWN!</span>':''}
+    </span><span style="color:var(--border);font-size:18px">·</span>
+  `).join('');
+}
+
+// ══════════════════════ LEADERBOARD
+function renderLB(){
+  const el=$('lb');
+  if(!ranked.length){
+    el.innerHTML=`<div style="text-align:center;padding:44px 0;color:var(--dim)"><div style="font-size:44px;margin-bottom:10px">🏆</div><div style="font-size:15px;font-weight:700;margin-bottom:6px">No clubs ranked yet</div><div style="font-size:13px">Be the first to support your club.</div></div>`;
+    return;
+  }
+  const topTotal=ranked[0]?.total||1;
+  const rc=i=>i===0?'g':i===1?'s':i===2?'b':'n';
+  const rx=i=>i===0?'r1':i===1?'r2':i===2?'r3':'';
+  const med=i=>i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1;
+
+  el.innerHTML=ranked.map((c,i)=>{
+    const gap=i===0?0:ranked[0].total-c.total;
+    const pct=Math.round((c.total/topTotal)*100);
+    const isCrown=i===0;
+    const btnCls=isCrown?'take':'';
+    const btnTxt=isCrown?'👑 Support Crown':'+ Support';
+    return `
+    <div class="lb-row ${rx(i)}" data-code="${c.code}" data-club="${c.club}">
+      <div class="lb-rank ${rc(i)}">${med(i)}</div>
+      <div class="lb-logo" data-logo="${c.clubLogo||''}">⚽</div>
+      <div class="lb-info">
+        <div class="lb-club">${c.club}</div>
+        <div class="lb-meta">
+          <img src="${fl(c.flag)}" width="14" height="11" class="lb-flag"> ${c.country}
+          · ${c.bids} supporter${c.bids===1?'':'s'} · ${ago(c.ts)}
+        </div>
+        ${c.legends?.length?`<div class="lb-legends">👑 ${c.legends.slice(0,3).join(', ')}${c.legends.length>3?' +more':''}</div>`:''}
+      </div>
+      <div style="flex-shrink:0;text-align:right">
+        <div class="lb-total">${fmt(c.total)}</div>
+        ${gap>0?`<div class="lb-gap">-${fmt(gap)} from crown</div>`:`<div class="lb-gap" style="color:var(--gold)">👑 Crown holder</div>`}
+      </div>
+      <button class="sbtn ${btnCls}" data-code="${c.code}" data-club="${c.club}">${btnTxt}</button>
+    </div>`;
+  }).join('');
+
+  // Lazy-load logos
+  el.querySelectorAll('.lb-logo').forEach(d=>{
+    const url=d.dataset.logo;
+    if(url){const img=document.createElement('img');img.src=url;img.alt='';img.style.cssText='width:100%;height:100%;object-fit:contain;padding:3px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4))';img.onerror=()=>{d.textContent='⚽'};d.innerHTML='';d.appendChild(img);}
+  });
+
+  el.querySelectorAll('.lb-row').forEach(row=>{
+    row.addEventListener('click',e=>{if(e.target.closest('.sbtn'))return;openModal(row.dataset.code);});
+  });
+  el.querySelectorAll('.sbtn').forEach(btn=>{
+    btn.addEventListener('click',e=>{e.stopPropagation();openModal(btn.dataset.code,btn.dataset.club);});
+  });
+}
+
+// ══════════════════════ COUNTRY GRID
+function renderCountryGrid(){
+  const base=region==='All'?clubs:clubs.filter(c=>c.r===region);
+  // Sort: countries with supporters first (by pot desc), then alphabetically
+  const list=[...base].sort((a,b)=>{
+    const aTop=Math.max(0,...Object.keys(totals).filter(k=>k.startsWith(a.c+'::')).map(k=>totals[k]?.total||0));
+    const bTop=Math.max(0,...Object.keys(totals).filter(k=>k.startsWith(b.c+'::')).map(k=>totals[k]?.total||0));
+    if(bTop!==aTop)return bTop-aTop;
+    return a.n.localeCompare(b.n);
+  });
+  const topTotal=crown?.total||0;
+  $('cgrid').innerHTML=list.map(c=>{
+    const key=Object.keys(totals).find(k=>k.startsWith(c.c+'::')&&totals[k].total===Math.max(...Object.keys(totals).filter(k2=>k2.startsWith(c.c+'::')).map(k2=>totals[k2].total||0)));
+    const leader=key?totals[key]:null;
+    const gap=leader&&topTotal>leader.total?topTotal-leader.total:0;
+    return `
+    <div class="cc ${leader?'led':''}" data-code="${c.c}">
+      <div class="cc-head">
+        <div class="cc-flag"><img src="${fl(c.f)}" width="26" height="19" style="border-radius:3px"></div>
+        <div class="cc-name">${c.n}</div>
+        ${leader&&leader.total===topTotal?'<span title="World Crown">👑</span>':''}
+      </div>
+      <div class="cc-body">
+        <div class="cc-clogo" data-logo="${leader?.clubLogo||''}">⚽</div>
+        <div class="cc-cinfo">
+          ${leader
+            ?`<div class="cc-cname">${leader.club}</div>
+               <div class="cc-pot">${fmt(leader.total)}</div>
+               <div class="cc-bids">${leader.bids} supporter${leader.bids===1?'':'s'}${gap?` · ${fmt(gap)} from crown`:''}</div>`
+            :`<div class="cc-none">No supporters yet</div>`
+          }
+        </div>
+      </div>
+      <div class="cc-foot">
+        <button class="ccbtn ${leader?'gd':'gr'}" data-code="${c.c}">${leader?'+ Support':'👑 Be First'}</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Lazy-load logos
+  $('cgrid').querySelectorAll('.cc-clogo[data-logo]').forEach(d=>{
+    const url=d.dataset.logo;
+    if(url){const img=document.createElement('img');img.src=url;img.alt='';img.style.cssText='width:100%;height:100%;object-fit:contain;padding:3px';img.onerror=()=>{d.textContent='⚽'};d.innerHTML='';d.appendChild(img);}
+  });
+
+  $('cgrid').querySelectorAll('[data-code]').forEach(el=>{
+    el.addEventListener('click',e=>{const code=e.currentTarget.dataset.code;if(code)openModal(code);});
+  });
+}
+
+// ══════════════════════ REGION TABS
+$('rtabs').addEventListener('click',e=>{
+  const t=e.target.closest('.rtab');if(!t)return;
+  document.querySelectorAll('.rtab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');region=t.dataset.r;renderCountryGrid();
+});
+
+// ══════════════════════ SEARCH
+const sinput=$('sinput'),sresults=$('sresults');
+sinput.addEventListener('input',()=>{
+  const q=sinput.value.trim().toLowerCase();
+  if(!q){sresults.classList.remove('open');return;}
+  const topTotal=crown?.total||0;
+  const mc=[],mco=[];
+  for(const c of clubs){
+    if(c.n.toLowerCase().includes(q))mco.push(c);
+    for(const cl of c.clubs){
+      if(cl.n.toLowerCase().includes(q)){
+        const key=c.c+'::'+cl.n;
+        const entry=totals[key];
+        mc.push({cl,c,entry});
+      }
+    }
+  }
+  let html='';
+  if(mc.length){
+    html+=`<div class="ssec">Clubs</div>`;
+    html+=mc.slice(0,7).map(({cl,c,entry})=>{
+      const pot=entry?.total||0;
+      const gap=topTotal&&pot<topTotal?topTotal-pot:0;
+      return `<div class="sri" data-code="${c.c}" data-club="${cl.n}">
+        <div class="sri-logo">${cl.logo?`<img src="${cl.logo}" alt="" onerror="this.parentNode.innerHTML='⚽'">`:'⚽'}</div>
+        <div class="sri-info"><div class="sri-name">${cl.n}</div><div class="sri-sub">${c.n} ${entry?`· ${entry.bids} supporter${entry.bids===1?'':'s'}`:''}</div></div>
+        <div class="sri-right">${pot?`<div class="sri-amt">${fmt(pot)}</div>`:''}${gap?`<div class="sri-gap">-${fmt(gap)} from 👑</div>`:pot&&!gap?`<div class="sri-gap" style="color:var(--gold)">👑 Crown</div>`:''}</div>
+      </div>`;
+    }).join('');
+  }
+  if(mco.length){
+    html+=`<div class="ssec">Countries</div>`;
+    html+=mco.slice(0,4).map(c=>{
+      const key=Object.keys(totals).filter(k=>k.startsWith(c.c+'::')).sort((a,b)=>(totals[b]?.total||0)-(totals[a]?.total||0))[0];
+      const leader=key?totals[key]:null;
+      return `<div class="sri" data-code="${c.c}">
+        <div class="sri-logo">${leader?.clubLogo?`<img src="${leader.clubLogo}" alt="" onerror="this.parentNode.innerHTML='⚽'">`:`<img src="${fl(c.f)}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`}</div>
+        <div class="sri-info"><div class="sri-name">${c.n}</div><div class="sri-sub">${leader?`Leading: ${leader.club}`:'No supporters yet'}</div></div>
+        ${leader?`<div class="sri-right"><div class="sri-amt">${fmt(leader.total)}</div></div>`:''}
+      </div>`;
+    }).join('');
+  }
+  if(!html)html='<div style="padding:14px;text-align:center;color:var(--dim);font-size:13px">No results</div>';
+  sresults.innerHTML=html;sresults.classList.add('open');
+  sresults.querySelectorAll('.sri').forEach(item=>{
+    item.addEventListener('click',()=>{sresults.classList.remove('open');sinput.value='';openModal(item.dataset.code,item.dataset.club);});
+  });
+});
+document.addEventListener('click',e=>{if(!e.target.closest('.sbox'))sresults.classList.remove('open');});
+sinput.addEventListener('keydown',e=>{if(e.key==='Escape'){sresults.classList.remove('open');sinput.value='';}});
+
+// ══════════════════════ MODAL
+function openModal(code,preClub){
+  const country=clubs.find(c=>c.c===code);if(!country)return;
+  mCode=code;mClub=null;
+  const topTotal=crown?.total||0;
+
+  $('mflag').innerHTML=`<img src="${fl(country.f)}" width="40" height="30" style="border-radius:3px">`;
+  $('mtitle').textContent=country.n;
+
+  const topForCountry=Object.keys(totals).filter(k=>k.startsWith(code+'::')).sort((a,b)=>(totals[b]?.total||0)-(totals[a]?.total||0))[0];
+  const leader=topForCountry?totals[topForCountry]:null;
+  $('msub2').innerHTML=leader
+    ?`Biggest pot here: <strong>${leader.club}</strong> · <strong>${fmt(leader.total)}</strong> · ${leader.bids} supporter${leader.bids===1?'':'s'}`
+    :'No supporters yet — be the first!';
+
+  $('amt').value=5;
+  $('namein').value='';
+  $('merr').classList.remove('show');
+
+  const cg=$('mcgrid');
+  cg.innerHTML=country.clubs.map(cl=>{
+    const key=code+'::'+cl.n;
+    const entry=totals[key];
+    const pot=entry?.total||0;
+    const gap=topTotal&&pot<topTotal?topTotal-pot:0;
+    return `
+    <div class="cop" data-name="${cl.n}" data-logo="${cl.logo||''}">
+      <div class="cop-logo">${cl.logo?`<img src="${cl.logo}" alt="" onerror="this.parentNode.innerHTML='⚽'">`:'⚽'}</div>
+      <div class="cop-info">
+        <div class="cop-name">${cl.n}</div>
+        ${pot?`<div class="cop-pot">${fmt(pot)} pot</div>`:`<div class="cop-pot" style="color:var(--dim)">Be first</div>`}
+        ${gap?`<div class="cop-gap">-${fmt(gap)} from 👑</div>`:pot&&!gap?`<div class="cop-gap" style="color:var(--gold)">👑 Crown!</div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+
+  cg.querySelectorAll('.cop').forEach(o=>{
+    o.addEventListener('click',()=>{
+      cg.querySelectorAll('.cop').forEach(x=>x.classList.remove('sel'));
+      o.classList.add('sel');
+      mClub={n:o.dataset.name,logo:o.dataset.logo};
+      updateGapBar();updateTierPreview();updateSubmitBtn();
+    });
+  });
+
+  const pre=preClub?cg.querySelector(`[data-name="${preClub}"]`):null;
+  const def=pre||cg.firstElementChild;
+  if(def)def.click();
+
+  $('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>$('amt').focus(),180);
+}
+
+function updateGapBar(){
+  if(!mClub||!mCode)return;
+  const key=mCode+'::'+mClub.n;
+  const entry=totals[key];
+  const myPot=entry?.total||0;
+  const topTotal=crown?.total||0;
+  const amtVal=Math.max(0,parseInt($('amt').value)||0);
+  const after=myPot+amtVal;
+  const gap=Math.max(0,topTotal-after);
+  const isCrown=!topTotal||after>=topTotal;
+  const pct=topTotal?Math.min(100,Math.round((after/topTotal)*100)):100;
+
+  $('gbl-left').textContent=mClub.n;
+  $('gbar').style.width=pct+'%';
+  if(isCrown){
+    $('gbmsg').textContent='👑 This contribution takes the world crown!';
+    $('gbmsg').className='gap-bar-msg taking';
+  } else {
+    $('gbmsg').textContent=${fmt(gap)} more needed to take the crown`;
+    $('gbmsg').className='gap-bar-msg';
+  }
+}
+
+function updateTierPreview(){
+  const amt=parseInt($('amt').value)||0;
+  const tier=tierFor(amt);
+  const tp=$('tier-preview');
+  if(!tier||amt<MIN){
+    tp.innerHTML=`<span class="tp-icon">💡</span><div class="tp-text"><div class="tp-tier" style="color:var(--dim)">Min $${MIN}</div><div class="tp-desc">Increase your amount to unlock a tier.</div></div>`;
+    return;
+  }
+  tp.innerHTML=`<span class="tp-icon">${tier.icon}</span><div class="tp-text"><div class="tp-tier">${tier.label}</div><div class="tp-desc">${tier.desc}</div></div>`;
+}
+
+function updateSubmitBtn(){
+  const amt=parseInt($('amt').value)||0;
+  const key=mCode&&mClub?mCode+'::'+mClub.n:null;
+  const myPot=key&&totals[key]?totals[key].total:0;
+  const topTotal=crown?.total||0;
+  const isCrown=mClub&&(!topTotal||myPot+amt>=topTotal);
+  const btn=$('msub-btn');
+  if(isCrown){
+    btn.className='msub crown';
+    btn.innerHTML='👑 Take the World Crown!';
+  } else {
+    btn.className='msub normal';
+    const tier=tierFor(amt);
+    btn.innerHTML=tier?${tier.icon} Support as ${tier.label}`:'🤝 Support Your Club';
+  }
+}
+
+function closeModal(){$('overlay').classList.remove('open');document.body.style.overflow='';}
+$('mclose').addEventListener('click',closeModal);
+$('overlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+document.querySelectorAll('.qa').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.qa').forEach(x=>x.classList.remove('active'));
+    btn.classList.add('active');
+    $('amt').value=btn.dataset.v;
+    updateGapBar();updateTierPreview();updateSubmitBtn();
+  });
+});
+$('amt').addEventListener('input',()=>{
+  document.querySelectorAll('.qa').forEach(x=>x.classList.remove('active'));
+  updateGapBar();updateTierPreview();updateSubmitBtn();
+});
+
+// ══════════════════════ SUBMIT
+$('msub-btn').addEventListener('click',async()=>{
+  const errEl=$('merr'),btn=$('msub-btn');
+  const amount=parseInt($('amt').value,10);
+  const bidder=$('namein').value.trim()||'Anonymous';
+  const country=clubs.find(c=>c.c===mCode);
+  errEl.classList.remove('show');
+  if(!mClub){errEl.textContent='Choose a club to support.';errEl.classList.add('show');return;}
+  if(!amount||amount<MIN){errEl.textContent=`Minimum contribution is $${MIN}.`;errEl.classList.add('show');return;}
+  const prev=btn.innerHTML;btn.disabled=true;btn.textContent='Redirecting to checkout…';
+  try{
+    const r=await fetch('/api/checkout',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({code:mCode,country:country.n,flag:country.f,club:mClub.n,clubLogo:mClub.logo,amount,bidder})});
+    const d=await r.json();
+    if(!r.ok||!d.url){errEl.textContent=d.error||'Checkout failed. Try again.';errEl.classList.add('show');btn.disabled=false;btn.innerHTML=prev;return;}
+    window.location.href=d.url;
+  }catch{errEl.textContent='Network error. Try again.';errEl.classList.add('show');btn.disabled=false;btn.innerHTML=prev;}
+});
+
+// ══════════════════════ URL PARAMS
+function handleParams(){
+  const p=new URLSearchParams(location.search);
+  if(p.has('paid')){$('sbar').classList.add('show');history.replaceState({},'','/');toast('🏆 Your support is live!','ok');}
+  if(p.has('canceled')){toast('Checkout canceled. No charge made.');history.replaceState({},'','/');}
+}
+
+// ══════════════════════ BOOT
+(async()=>{
+  await loadClubs();
+  await loadLB();
+  handleParams();
+  setInterval(loadLB,30000);
+})();
+</script>
+</body>
+</html>
+
++(n/1000).toFixed(n%1000===0?0:1)+'k':';
+const fl=code=>`https://flagcdn.com/w40/${(code||'').toLowerCase()}.png`;
+const ago=ts=>{const s=Math.floor((Date.now()-ts)/1000);return s<60?'just now':s<3600?Math.floor(s/60)+'m ago':s<86400?Math.floor(s/3600)+'h ago':Math.floor(s/86400)+'d ago';};
+const tierFor=n=>{for(const t of TIERS)if(n>=t.min)return t;return null;};
+
+function toast(msg,type=''){const t=$('toast');t.textContent=msg;t.className='toast show '+type;clearTimeout(t._t);t._t=setTimeout(()=>t.className='toast',3500);}
+
+function logoEl(url,sz=36){
+  const d=document.createElement('div');
+  d.style.cssText=`width:${sz}px;height:${sz}px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:50%;`;
+  if(url){const i=new Image();i.src=url;i.alt='';i.style.cssText=`width:100%;height:100%;object-fit:contain;padding:${sz>40?'7':'3'}px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4))`;i.onerror=()=>{d.textContent='⚽'};d.appendChild(i);}
+  else d.textContent='⚽';
+  return d;
+}
+
+// ══════════════════════ LOAD
+async function loadClubs(){clubs=await fetch('/clubs.json').then(r=>r.json());}
+async function loadLB(){
+  try{
+    const d=await fetch('/api/leaderboard').then(r=>r.json());
+    totals=d.totals||{};crown=d.crown||null;ranked=d.ranked||[];feed=d.feed||[];
+    renderAll();
+  }catch(e){console.error(e);}
+}
+
+function renderAll(){
+  renderHeader();renderCrown();renderLB();renderCountryGrid();renderTicker();
+}
+
+// ══════════════════════ HEADER
+function renderHeader(){
+  const supporters=Object.values(totals).reduce((s,c)=>s+c.bids,0);
+  const total=Object.values(totals).reduce((s,c)=>s+c.total,0);
+  $('hSupporters').textContent=supporters.toLocaleString();
+  $('hTotal').textContent=fmt(total);
+}
+
+// ══════════════════════ CROWN HERO
+function renderCrown(){
+  const el=$('crown-area');
+  if(!crown||!crown.club){
+    el.innerHTML=`<div class="crown-card" style="margin:0 auto"><div class="crown-empty"><div class="big">🏆</div><h2>The Crown is Up for Grabs</h2><p>No club has been crowned yet. Be the first to support yours and claim the world crown.</p></div></div>`;
+    return;
+  }
+  const logoUrl=crown.clubLogo||'';
+  const logoDiv=logoEl(logoUrl,96);
+  logoDiv.style.cssText+='border:3px solid var(--gold);box-shadow:0 0 24px rgba(245,197,24,.35);background:var(--bg3);margin-bottom:16px;';
+
+  el.innerHTML='';
+  const card=document.createElement('div');
+  card.className='crown-card';card.style.margin='0 auto';
+
+  card.innerHTML=`
+    <div style="font-size:36px;margin-bottom:14px;animation:bob 3s ease-in-out infinite">👑</div>
+    <div class="crown-club">${crown.club}</div>
+    <div class="crown-country">
+      <img src="${fl(crown.flag)}" width="18" height="13" style="border-radius:2px">
+      ${crown.country}
+    </div>
+    <div class="crown-total">${fmt(crown.total)}</div>
+    <div class="crown-meta">${crown.bids.toLocaleString()} supporter${crown.bids===1?'':'s'} · Last: ${ago(crown.ts)}</div>
+    ${crown.legends?.length?`<div style="font-size:12px;color:var(--gold);margin-top:8px">👑 Legends: ${crown.legends.join(', ')}</div>`:''}
+  `;
+
+  card.insertBefore(logoDiv, card.firstChild);
+
+  const btn=document.createElement('button');
+  btn.className='crown-btn';
+  btn.innerHTML='⚔️ Challenge the Crown';
+  btn.onclick=()=>openModal(crown.code);
+  card.appendChild(btn);
+
+  el.appendChild(card);
+}
+
+// ══════════════════════ TICKER
+function renderTicker(){
+  const inner=$('tinner');
+  if(!feed.length){inner.innerHTML='<span class="ti">⚽ Be the first to back your club!</span>';return;}
+  const items=[...feed.slice(0,20),...feed.slice(0,20)];
+  inner.innerHTML=items.map(f=>`
+    <span class="ti">
+      ${f.flag?`<img src="${fl(f.flag)}" width="16" height="12" style="border-radius:2px;vertical-align:middle">`:'🌍'}
+      ${f.tier?`<span class="tier">${f.tier==='Legend'?'👑':f.tier==='Champion'?'⚡':'🤝'}</span>`:''}
+      <strong>${f.bidder}</strong> backed <strong>${f.club}</strong> — <span class="amt">${fmt(f.amount)}</span>
+      ${f.tookCrown?'<span style="color:var(--gold)">👑 NEW CROWN!</span>':''}
+    </span><span style="color:var(--border);font-size:18px">·</span>
+  `).join('');
+}
+
+// ══════════════════════ LEADERBOARD
+function renderLB(){
+  const el=$('lb');
+  if(!ranked.length){
+    el.innerHTML=`<div style="text-align:center;padding:44px 0;color:var(--dim)"><div style="font-size:44px;margin-bottom:10px">🏆</div><div style="font-size:15px;font-weight:700;margin-bottom:6px">No clubs ranked yet</div><div style="font-size:13px">Be the first to support your club.</div></div>`;
+    return;
+  }
+  const topTotal=ranked[0]?.total||1;
+  const rc=i=>i===0?'g':i===1?'s':i===2?'b':'n';
+  const rx=i=>i===0?'r1':i===1?'r2':i===2?'r3':'';
+  const med=i=>i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1;
+
+  el.innerHTML=ranked.map((c,i)=>{
+    const gap=i===0?0:ranked[0].total-c.total;
+    const pct=Math.round((c.total/topTotal)*100);
+    const isCrown=i===0;
+    const btnCls=isCrown?'take':'';
+    const btnTxt=isCrown?'👑 Support Crown':'+ Support';
+    return `
+    <div class="lb-row ${rx(i)}" data-code="${c.code}" data-club="${c.club}">
+      <div class="lb-rank ${rc(i)}">${med(i)}</div>
+      <div class="lb-logo" data-logo="${c.clubLogo||''}">⚽</div>
+      <div class="lb-info">
+        <div class="lb-club">${c.club}</div>
+        <div class="lb-meta">
+          <img src="${fl(c.flag)}" width="14" height="11" class="lb-flag"> ${c.country}
+          · ${c.bids} supporter${c.bids===1?'':'s'} · ${ago(c.ts)}
+        </div>
+        ${c.legends?.length?`<div class="lb-legends">👑 ${c.legends.slice(0,3).join(', ')}${c.legends.length>3?' +more':''}</div>`:''}
+      </div>
+      <div style="flex-shrink:0;text-align:right">
+        <div class="lb-total">${fmt(c.total)}</div>
+        ${gap>0?`<div class="lb-gap">-${fmt(gap)} from crown</div>`:`<div class="lb-gap" style="color:var(--gold)">👑 Crown holder</div>`}
+      </div>
+      <button class="sbtn ${btnCls}" data-code="${c.code}" data-club="${c.club}">${btnTxt}</button>
+    </div>`;
+  }).join('');
+
+  // Lazy-load logos
+  el.querySelectorAll('.lb-logo').forEach(d=>{
+    const url=d.dataset.logo;
+    if(url){const img=document.createElement('img');img.src=url;img.alt='';img.style.cssText='width:100%;height:100%;object-fit:contain;padding:3px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4))';img.onerror=()=>{d.textContent='⚽'};d.innerHTML='';d.appendChild(img);}
+  });
+
+  el.querySelectorAll('.lb-row').forEach(row=>{
+    row.addEventListener('click',e=>{if(e.target.closest('.sbtn'))return;openModal(row.dataset.code);});
+  });
+  el.querySelectorAll('.sbtn').forEach(btn=>{
+    btn.addEventListener('click',e=>{e.stopPropagation();openModal(btn.dataset.code,btn.dataset.club);});
+  });
+}
+
+// ══════════════════════ COUNTRY GRID
+function renderCountryGrid(){
+  const base=region==='All'?clubs:clubs.filter(c=>c.r===region);
+  // Sort: countries with supporters first (by pot desc), then alphabetically
+  const list=[...base].sort((a,b)=>{
+    const aTop=Math.max(0,...Object.keys(totals).filter(k=>k.startsWith(a.c+'::')).map(k=>totals[k]?.total||0));
+    const bTop=Math.max(0,...Object.keys(totals).filter(k=>k.startsWith(b.c+'::')).map(k=>totals[k]?.total||0));
+    if(bTop!==aTop)return bTop-aTop;
+    return a.n.localeCompare(b.n);
+  });
+  const topTotal=crown?.total||0;
+  $('cgrid').innerHTML=list.map(c=>{
+    const key=Object.keys(totals).find(k=>k.startsWith(c.c+'::')&&totals[k].total===Math.max(...Object.keys(totals).filter(k2=>k2.startsWith(c.c+'::')).map(k2=>totals[k2].total||0)));
+    const leader=key?totals[key]:null;
+    const gap=leader&&topTotal>leader.total?topTotal-leader.total:0;
+    return `
+    <div class="cc ${leader?'led':''}" data-code="${c.c}">
+      <div class="cc-head">
+        <div class="cc-flag"><img src="${fl(c.f)}" width="26" height="19" style="border-radius:3px"></div>
+        <div class="cc-name">${c.n}</div>
+        ${leader&&leader.total===topTotal?'<span title="World Crown">👑</span>':''}
+      </div>
+      <div class="cc-body">
+        <div class="cc-clogo" data-logo="${leader?.clubLogo||''}">⚽</div>
+        <div class="cc-cinfo">
+          ${leader
+            ?`<div class="cc-cname">${leader.club}</div>
+               <div class="cc-pot">${fmt(leader.total)}</div>
+               <div class="cc-bids">${leader.bids} supporter${leader.bids===1?'':'s'}${gap?` · ${fmt(gap)} from crown`:''}</div>`
+            :`<div class="cc-none">No supporters yet</div>`
+          }
+        </div>
+      </div>
+      <div class="cc-foot">
+        <button class="ccbtn ${leader?'gd':'gr'}" data-code="${c.c}">${leader?'+ Support':'👑 Be First'}</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Lazy-load logos
+  $('cgrid').querySelectorAll('.cc-clogo[data-logo]').forEach(d=>{
+    const url=d.dataset.logo;
+    if(url){const img=document.createElement('img');img.src=url;img.alt='';img.style.cssText='width:100%;height:100%;object-fit:contain;padding:3px';img.onerror=()=>{d.textContent='⚽'};d.innerHTML='';d.appendChild(img);}
+  });
+
+  $('cgrid').querySelectorAll('[data-code]').forEach(el=>{
+    el.addEventListener('click',e=>{const code=e.currentTarget.dataset.code;if(code)openModal(code);});
+  });
+}
+
+// ══════════════════════ REGION TABS
+$('rtabs').addEventListener('click',e=>{
+  const t=e.target.closest('.rtab');if(!t)return;
+  document.querySelectorAll('.rtab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');region=t.dataset.r;renderCountryGrid();
+});
+
+// ══════════════════════ SEARCH
+const sinput=$('sinput'),sresults=$('sresults');
+sinput.addEventListener('input',()=>{
+  const q=sinput.value.trim().toLowerCase();
+  if(!q){sresults.classList.remove('open');return;}
+  const topTotal=crown?.total||0;
+  const mc=[],mco=[];
+  for(const c of clubs){
+    if(c.n.toLowerCase().includes(q))mco.push(c);
+    for(const cl of c.clubs){
+      if(cl.n.toLowerCase().includes(q)){
+        const key=c.c+'::'+cl.n;
+        const entry=totals[key];
+        mc.push({cl,c,entry});
+      }
+    }
+  }
+  let html='';
+  if(mc.length){
+    html+=`<div class="ssec">Clubs</div>`;
+    html+=mc.slice(0,7).map(({cl,c,entry})=>{
+      const pot=entry?.total||0;
+      const gap=topTotal&&pot<topTotal?topTotal-pot:0;
+      return `<div class="sri" data-code="${c.c}" data-club="${cl.n}">
+        <div class="sri-logo">${cl.logo?`<img src="${cl.logo}" alt="" onerror="this.parentNode.innerHTML='⚽'">`:'⚽'}</div>
+        <div class="sri-info"><div class="sri-name">${cl.n}</div><div class="sri-sub">${c.n} ${entry?`· ${entry.bids} supporter${entry.bids===1?'':'s'}`:''}</div></div>
+        <div class="sri-right">${pot?`<div class="sri-amt">${fmt(pot)}</div>`:''}${gap?`<div class="sri-gap">-${fmt(gap)} from 👑</div>`:pot&&!gap?`<div class="sri-gap" style="color:var(--gold)">👑 Crown</div>`:''}</div>
+      </div>`;
+    }).join('');
+  }
+  if(mco.length){
+    html+=`<div class="ssec">Countries</div>`;
+    html+=mco.slice(0,4).map(c=>{
+      const key=Object.keys(totals).filter(k=>k.startsWith(c.c+'::')).sort((a,b)=>(totals[b]?.total||0)-(totals[a]?.total||0))[0];
+      const leader=key?totals[key]:null;
+      return `<div class="sri" data-code="${c.c}">
+        <div class="sri-logo">${leader?.clubLogo?`<img src="${leader.clubLogo}" alt="" onerror="this.parentNode.innerHTML='⚽'">`:`<img src="${fl(c.f)}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`}</div>
+        <div class="sri-info"><div class="sri-name">${c.n}</div><div class="sri-sub">${leader?`Leading: ${leader.club}`:'No supporters yet'}</div></div>
+        ${leader?`<div class="sri-right"><div class="sri-amt">${fmt(leader.total)}</div></div>`:''}
+      </div>`;
+    }).join('');
+  }
+  if(!html)html='<div style="padding:14px;text-align:center;color:var(--dim);font-size:13px">No results</div>';
+  sresults.innerHTML=html;sresults.classList.add('open');
+  sresults.querySelectorAll('.sri').forEach(item=>{
+    item.addEventListener('click',()=>{sresults.classList.remove('open');sinput.value='';openModal(item.dataset.code,item.dataset.club);});
+  });
+});
+document.addEventListener('click',e=>{if(!e.target.closest('.sbox'))sresults.classList.remove('open');});
+sinput.addEventListener('keydown',e=>{if(e.key==='Escape'){sresults.classList.remove('open');sinput.value='';}});
+
+// ══════════════════════ MODAL
+function openModal(code,preClub){
+  const country=clubs.find(c=>c.c===code);if(!country)return;
+  mCode=code;mClub=null;
+  const topTotal=crown?.total||0;
+
+  $('mflag').innerHTML=`<img src="${fl(country.f)}" width="40" height="30" style="border-radius:3px">`;
+  $('mtitle').textContent=country.n;
+
+  const topForCountry=Object.keys(totals).filter(k=>k.startsWith(code+'::')).sort((a,b)=>(totals[b]?.total||0)-(totals[a]?.total||0))[0];
+  const leader=topForCountry?totals[topForCountry]:null;
+  $('msub2').innerHTML=leader
+    ?`Biggest pot here: <strong>${leader.club}</strong> · <strong>${fmt(leader.total)}</strong> · ${leader.bids} supporter${leader.bids===1?'':'s'}`
+    :'No supporters yet — be the first!';
+
+  $('amt').value=5;
+  $('namein').value='';
+  $('merr').classList.remove('show');
+
+  const cg=$('mcgrid');
+  cg.innerHTML=country.clubs.map(cl=>{
+    const key=code+'::'+cl.n;
+    const entry=totals[key];
+    const pot=entry?.total||0;
+    const gap=topTotal&&pot<topTotal?topTotal-pot:0;
+    return `
+    <div class="cop" data-name="${cl.n}" data-logo="${cl.logo||''}">
+      <div class="cop-logo">${cl.logo?`<img src="${cl.logo}" alt="" onerror="this.parentNode.innerHTML='⚽'">`:'⚽'}</div>
+      <div class="cop-info">
+        <div class="cop-name">${cl.n}</div>
+        ${pot?`<div class="cop-pot">${fmt(pot)} pot</div>`:`<div class="cop-pot" style="color:var(--dim)">Be first</div>`}
+        ${gap?`<div class="cop-gap">-${fmt(gap)} from 👑</div>`:pot&&!gap?`<div class="cop-gap" style="color:var(--gold)">👑 Crown!</div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+
+  cg.querySelectorAll('.cop').forEach(o=>{
+    o.addEventListener('click',()=>{
+      cg.querySelectorAll('.cop').forEach(x=>x.classList.remove('sel'));
+      o.classList.add('sel');
+      mClub={n:o.dataset.name,logo:o.dataset.logo};
+      updateGapBar();updateTierPreview();updateSubmitBtn();
+    });
+  });
+
+  const pre=preClub?cg.querySelector(`[data-name="${preClub}"]`):null;
+  const def=pre||cg.firstElementChild;
+  if(def)def.click();
+
+  $('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>$('amt').focus(),180);
+}
+
+function updateGapBar(){
+  if(!mClub||!mCode)return;
+  const key=mCode+'::'+mClub.n;
+  const entry=totals[key];
+  const myPot=entry?.total||0;
+  const topTotal=crown?.total||0;
+  const amtVal=Math.max(0,parseInt($('amt').value)||0);
+  const after=myPot+amtVal;
+  const gap=Math.max(0,topTotal-after);
+  const isCrown=!topTotal||after>=topTotal;
+  const pct=topTotal?Math.min(100,Math.round((after/topTotal)*100)):100;
+
+  $('gbl-left').textContent=mClub.n;
+  $('gbar').style.width=pct+'%';
+  if(isCrown){
+    $('gbmsg').textContent='👑 This contribution takes the world crown!';
+    $('gbmsg').className='gap-bar-msg taking';
+  } else {
+    $('gbmsg').textContent=${fmt(gap)} more needed to take the crown`;
+    $('gbmsg').className='gap-bar-msg';
+  }
+}
+
+function updateTierPreview(){
+  const amt=parseInt($('amt').value)||0;
+  const tier=tierFor(amt);
+  const tp=$('tier-preview');
+  if(!tier||amt<MIN){
+    tp.innerHTML=`<span class="tp-icon">💡</span><div class="tp-text"><div class="tp-tier" style="color:var(--dim)">Min $${MIN}</div><div class="tp-desc">Increase your amount to unlock a tier.</div></div>`;
+    return;
+  }
+  tp.innerHTML=`<span class="tp-icon">${tier.icon}</span><div class="tp-text"><div class="tp-tier">${tier.label}</div><div class="tp-desc">${tier.desc}</div></div>`;
+}
+
+function updateSubmitBtn(){
+  const amt=parseInt($('amt').value)||0;
+  const key=mCode&&mClub?mCode+'::'+mClub.n:null;
+  const myPot=key&&totals[key]?totals[key].total:0;
+  const topTotal=crown?.total||0;
+  const isCrown=mClub&&(!topTotal||myPot+amt>=topTotal);
+  const btn=$('msub-btn');
+  if(isCrown){
+    btn.className='msub crown';
+    btn.innerHTML='👑 Take the World Crown!';
+  } else {
+    btn.className='msub normal';
+    const tier=tierFor(amt);
+    btn.innerHTML=tier?${tier.icon} Support as ${tier.label}`:'🤝 Support Your Club';
+  }
+}
+
+function closeModal(){$('overlay').classList.remove('open');document.body.style.overflow='';}
+$('mclose').addEventListener('click',closeModal);
+$('overlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+document.querySelectorAll('.qa').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.qa').forEach(x=>x.classList.remove('active'));
+    btn.classList.add('active');
+    $('amt').value=btn.dataset.v;
+    updateGapBar();updateTierPreview();updateSubmitBtn();
+  });
+});
+$('amt').addEventListener('input',()=>{
+  document.querySelectorAll('.qa').forEach(x=>x.classList.remove('active'));
+  updateGapBar();updateTierPreview();updateSubmitBtn();
+});
+
+// ══════════════════════ SUBMIT
+$('msub-btn').addEventListener('click',async()=>{
+  const errEl=$('merr'),btn=$('msub-btn');
+  const amount=parseInt($('amt').value,10);
+  const bidder=$('namein').value.trim()||'Anonymous';
+  const country=clubs.find(c=>c.c===mCode);
+  errEl.classList.remove('show');
+  if(!mClub){errEl.textContent='Choose a club to support.';errEl.classList.add('show');return;}
+  if(!amount||amount<MIN){errEl.textContent=`Minimum contribution is $${MIN}.`;errEl.classList.add('show');return;}
+  const prev=btn.innerHTML;btn.disabled=true;btn.textContent='Redirecting to checkout…';
+  try{
+    const r=await fetch('/api/checkout',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({code:mCode,country:country.n,flag:country.f,club:mClub.n,clubLogo:mClub.logo,amount,bidder})});
+    const d=await r.json();
+    if(!r.ok||!d.url){errEl.textContent=d.error||'Checkout failed. Try again.';errEl.classList.add('show');btn.disabled=false;btn.innerHTML=prev;return;}
+    window.location.href=d.url;
+  }catch{errEl.textContent='Network error. Try again.';errEl.classList.add('show');btn.disabled=false;btn.innerHTML=prev;}
+});
+
+// ══════════════════════ URL PARAMS
+function handleParams(){
+  const p=new URLSearchParams(location.search);
+  if(p.has('paid')){$('sbar').classList.add('show');history.replaceState({},'','/');toast('🏆 Your support is live!','ok');}
+  if(p.has('canceled')){toast('Checkout canceled. No charge made.');history.replaceState({},'','/');}
+}
+
+// ══════════════════════ BOOT
+(async()=>{
+  await loadClubs();
+  await loadLB();
+  handleParams();
+  setInterval(loadLB,30000);
+})();
+</script>
+</body>
+</html>
+
++n;
+const fl=code=>`https://flagcdn.com/w40/${(code||'').toLowerCase()}.png`;
+const ago=ts=>{const s=Math.floor((Date.now()-ts)/1000);return s<60?'just now':s<3600?Math.floor(s/60)+'m ago':s<86400?Math.floor(s/3600)+'h ago':Math.floor(s/86400)+'d ago';};
+const tierFor=n=>{for(const t of TIERS)if(n>=t.min)return t;return null;};
+
+function toast(msg,type=''){const t=$('toast');t.textContent=msg;t.className='toast show '+type;clearTimeout(t._t);t._t=setTimeout(()=>t.className='toast',3500);}
+
+function logoEl(url,sz=36){
+  const d=document.createElement('div');
+  d.style.cssText=`width:${sz}px;height:${sz}px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:50%;`;
+  if(url){const i=new Image();i.src=url;i.alt='';i.style.cssText=`width:100%;height:100%;object-fit:contain;padding:${sz>40?'7':'3'}px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4))`;i.onerror=()=>{d.textContent='⚽'};d.appendChild(i);}
+  else d.textContent='⚽';
+  return d;
+}
+
+// ══════════════════════ LOAD
+async function loadClubs(){clubs=await fetch('/clubs.json').then(r=>r.json());}
+async function loadLB(){
+  try{
+    const d=await fetch('/api/leaderboard').then(r=>r.json());
+    totals=d.totals||{};crown=d.crown||null;ranked=d.ranked||[];feed=d.feed||[];
+    renderAll();
+  }catch(e){console.error(e);}
+}
+
+function renderAll(){
+  renderHeader();renderCrown();renderLB();renderCountryGrid();renderTicker();
+}
+
+// ══════════════════════ HEADER
+function renderHeader(){
+  const supporters=Object.values(totals).reduce((s,c)=>s+c.bids,0);
+  const total=Object.values(totals).reduce((s,c)=>s+c.total,0);
+  $('hSupporters').textContent=supporters.toLocaleString();
+  $('hTotal').textContent=fmt(total);
+}
+
+// ══════════════════════ CROWN HERO
+function renderCrown(){
+  const el=$('crown-area');
+  if(!crown||!crown.club){
+    el.innerHTML=`<div class="crown-card" style="margin:0 auto"><div class="crown-empty"><div class="big">🏆</div><h2>The Crown is Up for Grabs</h2><p>No club has been crowned yet. Be the first to support yours and claim the world crown.</p></div></div>`;
+    return;
+  }
+  const logoUrl=crown.clubLogo||'';
+  const logoDiv=logoEl(logoUrl,96);
+  logoDiv.style.cssText+='border:3px solid var(--gold);box-shadow:0 0 24px rgba(245,197,24,.35);background:var(--bg3);margin-bottom:16px;';
+
+  el.innerHTML='';
+  const card=document.createElement('div');
+  card.className='crown-card';card.style.margin='0 auto';
+
+  card.innerHTML=`
+    <div style="font-size:36px;margin-bottom:14px;animation:bob 3s ease-in-out infinite">👑</div>
+    <div class="crown-club">${crown.club}</div>
+    <div class="crown-country">
+      <img src="${fl(crown.flag)}" width="18" height="13" style="border-radius:2px">
+      ${crown.country}
+    </div>
+    <div class="crown-total">${fmt(crown.total)}</div>
+    <div class="crown-meta">${crown.bids.toLocaleString()} supporter${crown.bids===1?'':'s'} · Last: ${ago(crown.ts)}</div>
+    ${crown.legends?.length?`<div style="font-size:12px;color:var(--gold);margin-top:8px">👑 Legends: ${crown.legends.join(', ')}</div>`:''}
+  `;
+
+  card.insertBefore(logoDiv, card.firstChild);
+
+  const btn=document.createElement('button');
+  btn.className='crown-btn';
+  btn.innerHTML='⚔️ Challenge the Crown';
+  btn.onclick=()=>openModal(crown.code);
+  card.appendChild(btn);
+
+  el.appendChild(card);
+}
+
+// ══════════════════════ TICKER
+function renderTicker(){
+  const inner=$('tinner');
+  if(!feed.length){inner.innerHTML='<span class="ti">⚽ Be the first to back your club!</span>';return;}
+  const items=[...feed.slice(0,20),...feed.slice(0,20)];
+  inner.innerHTML=items.map(f=>`
+    <span class="ti">
+      ${f.flag?`<img src="${fl(f.flag)}" width="16" height="12" style="border-radius:2px;vertical-align:middle">`:'🌍'}
+      ${f.tier?`<span class="tier">${f.tier==='Legend'?'👑':f.tier==='Champion'?'⚡':'🤝'}</span>`:''}
+      <strong>${f.bidder}</strong> backed <strong>${f.club}</strong> — <span class="amt">${fmt(f.amount)}</span>
+      ${f.tookCrown?'<span style="color:var(--gold)">👑 NEW CROWN!</span>':''}
+    </span><span style="color:var(--border);font-size:18px">·</span>
+  `).join('');
+}
+
+// ══════════════════════ LEADERBOARD
+function renderLB(){
+  const el=$('lb');
+  if(!ranked.length){
+    el.innerHTML=`<div style="text-align:center;padding:44px 0;color:var(--dim)"><div style="font-size:44px;margin-bottom:10px">🏆</div><div style="font-size:15px;font-weight:700;margin-bottom:6px">No clubs ranked yet</div><div style="font-size:13px">Be the first to support your club.</div></div>`;
+    return;
+  }
+  const topTotal=ranked[0]?.total||1;
+  const rc=i=>i===0?'g':i===1?'s':i===2?'b':'n';
+  const rx=i=>i===0?'r1':i===1?'r2':i===2?'r3':'';
+  const med=i=>i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1;
+
+  el.innerHTML=ranked.map((c,i)=>{
+    const gap=i===0?0:ranked[0].total-c.total;
+    const pct=Math.round((c.total/topTotal)*100);
+    const isCrown=i===0;
+    const btnCls=isCrown?'take':'';
+    const btnTxt=isCrown?'👑 Support Crown':'+ Support';
+    return `
+    <div class="lb-row ${rx(i)}" data-code="${c.code}" data-club="${c.club}">
+      <div class="lb-rank ${rc(i)}">${med(i)}</div>
+      <div class="lb-logo" data-logo="${c.clubLogo||''}">⚽</div>
+      <div class="lb-info">
+        <div class="lb-club">${c.club}</div>
+        <div class="lb-meta">
+          <img src="${fl(c.flag)}" width="14" height="11" class="lb-flag"> ${c.country}
+          · ${c.bids} supporter${c.bids===1?'':'s'} · ${ago(c.ts)}
+        </div>
+        ${c.legends?.length?`<div class="lb-legends">👑 ${c.legends.slice(0,3).join(', ')}${c.legends.length>3?' +more':''}</div>`:''}
+      </div>
+      <div style="flex-shrink:0;text-align:right">
+        <div class="lb-total">${fmt(c.total)}</div>
+        ${gap>0?`<div class="lb-gap">-${fmt(gap)} from crown</div>`:`<div class="lb-gap" style="color:var(--gold)">👑 Crown holder</div>`}
+      </div>
+      <button class="sbtn ${btnCls}" data-code="${c.code}" data-club="${c.club}">${btnTxt}</button>
+    </div>`;
+  }).join('');
+
+  // Lazy-load logos
+  el.querySelectorAll('.lb-logo').forEach(d=>{
+    const url=d.dataset.logo;
+    if(url){const img=document.createElement('img');img.src=url;img.alt='';img.style.cssText='width:100%;height:100%;object-fit:contain;padding:3px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4))';img.onerror=()=>{d.textContent='⚽'};d.innerHTML='';d.appendChild(img);}
+  });
+
+  el.querySelectorAll('.lb-row').forEach(row=>{
+    row.addEventListener('click',e=>{if(e.target.closest('.sbtn'))return;openModal(row.dataset.code);});
+  });
+  el.querySelectorAll('.sbtn').forEach(btn=>{
+    btn.addEventListener('click',e=>{e.stopPropagation();openModal(btn.dataset.code,btn.dataset.club);});
+  });
+}
+
+// ══════════════════════ COUNTRY GRID
+function renderCountryGrid(){
+  const base=region==='All'?clubs:clubs.filter(c=>c.r===region);
+  // Sort: countries with supporters first (by pot desc), then alphabetically
+  const list=[...base].sort((a,b)=>{
+    const aTop=Math.max(0,...Object.keys(totals).filter(k=>k.startsWith(a.c+'::')).map(k=>totals[k]?.total||0));
+    const bTop=Math.max(0,...Object.keys(totals).filter(k=>k.startsWith(b.c+'::')).map(k=>totals[k]?.total||0));
+    if(bTop!==aTop)return bTop-aTop;
+    return a.n.localeCompare(b.n);
+  });
+  const topTotal=crown?.total||0;
+  $('cgrid').innerHTML=list.map(c=>{
+    const key=Object.keys(totals).find(k=>k.startsWith(c.c+'::')&&totals[k].total===Math.max(...Object.keys(totals).filter(k2=>k2.startsWith(c.c+'::')).map(k2=>totals[k2].total||0)));
+    const leader=key?totals[key]:null;
+    const gap=leader&&topTotal>leader.total?topTotal-leader.total:0;
+    return `
+    <div class="cc ${leader?'led':''}" data-code="${c.c}">
+      <div class="cc-head">
+        <div class="cc-flag"><img src="${fl(c.f)}" width="26" height="19" style="border-radius:3px"></div>
+        <div class="cc-name">${c.n}</div>
+        ${leader&&leader.total===topTotal?'<span title="World Crown">👑</span>':''}
+      </div>
+      <div class="cc-body">
+        <div class="cc-clogo" data-logo="${leader?.clubLogo||''}">⚽</div>
+        <div class="cc-cinfo">
+          ${leader
+            ?`<div class="cc-cname">${leader.club}</div>
+               <div class="cc-pot">${fmt(leader.total)}</div>
+               <div class="cc-bids">${leader.bids} supporter${leader.bids===1?'':'s'}${gap?` · ${fmt(gap)} from crown`:''}</div>`
+            :`<div class="cc-none">No supporters yet</div>`
+          }
+        </div>
+      </div>
+      <div class="cc-foot">
+        <button class="ccbtn ${leader?'gd':'gr'}" data-code="${c.c}">${leader?'+ Support':'👑 Be First'}</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Lazy-load logos
+  $('cgrid').querySelectorAll('.cc-clogo[data-logo]').forEach(d=>{
+    const url=d.dataset.logo;
+    if(url){const img=document.createElement('img');img.src=url;img.alt='';img.style.cssText='width:100%;height:100%;object-fit:contain;padding:3px';img.onerror=()=>{d.textContent='⚽'};d.innerHTML='';d.appendChild(img);}
+  });
+
+  $('cgrid').querySelectorAll('[data-code]').forEach(el=>{
+    el.addEventListener('click',e=>{const code=e.currentTarget.dataset.code;if(code)openModal(code);});
+  });
+}
+
+// ══════════════════════ REGION TABS
+$('rtabs').addEventListener('click',e=>{
+  const t=e.target.closest('.rtab');if(!t)return;
+  document.querySelectorAll('.rtab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');region=t.dataset.r;renderCountryGrid();
+});
+
+// ══════════════════════ SEARCH
+const sinput=$('sinput'),sresults=$('sresults');
+sinput.addEventListener('input',()=>{
+  const q=sinput.value.trim().toLowerCase();
+  if(!q){sresults.classList.remove('open');return;}
+  const topTotal=crown?.total||0;
+  const mc=[],mco=[];
+  for(const c of clubs){
+    if(c.n.toLowerCase().includes(q))mco.push(c);
+    for(const cl of c.clubs){
+      if(cl.n.toLowerCase().includes(q)){
+        const key=c.c+'::'+cl.n;
+        const entry=totals[key];
+        mc.push({cl,c,entry});
+      }
+    }
+  }
+  let html='';
+  if(mc.length){
+    html+=`<div class="ssec">Clubs</div>`;
+    html+=mc.slice(0,7).map(({cl,c,entry})=>{
+      const pot=entry?.total||0;
+      const gap=topTotal&&pot<topTotal?topTotal-pot:0;
+      return `<div class="sri" data-code="${c.c}" data-club="${cl.n}">
+        <div class="sri-logo">${cl.logo?`<img src="${cl.logo}" alt="" onerror="this.parentNode.innerHTML='⚽'">`:'⚽'}</div>
+        <div class="sri-info"><div class="sri-name">${cl.n}</div><div class="sri-sub">${c.n} ${entry?`· ${entry.bids} supporter${entry.bids===1?'':'s'}`:''}</div></div>
+        <div class="sri-right">${pot?`<div class="sri-amt">${fmt(pot)}</div>`:''}${gap?`<div class="sri-gap">-${fmt(gap)} from 👑</div>`:pot&&!gap?`<div class="sri-gap" style="color:var(--gold)">👑 Crown</div>`:''}</div>
+      </div>`;
+    }).join('');
+  }
+  if(mco.length){
+    html+=`<div class="ssec">Countries</div>`;
+    html+=mco.slice(0,4).map(c=>{
+      const key=Object.keys(totals).filter(k=>k.startsWith(c.c+'::')).sort((a,b)=>(totals[b]?.total||0)-(totals[a]?.total||0))[0];
+      const leader=key?totals[key]:null;
+      return `<div class="sri" data-code="${c.c}">
+        <div class="sri-logo">${leader?.clubLogo?`<img src="${leader.clubLogo}" alt="" onerror="this.parentNode.innerHTML='⚽'">`:`<img src="${fl(c.f)}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`}</div>
+        <div class="sri-info"><div class="sri-name">${c.n}</div><div class="sri-sub">${leader?`Leading: ${leader.club}`:'No supporters yet'}</div></div>
+        ${leader?`<div class="sri-right"><div class="sri-amt">${fmt(leader.total)}</div></div>`:''}
+      </div>`;
+    }).join('');
+  }
+  if(!html)html='<div style="padding:14px;text-align:center;color:var(--dim);font-size:13px">No results</div>';
+  sresults.innerHTML=html;sresults.classList.add('open');
+  sresults.querySelectorAll('.sri').forEach(item=>{
+    item.addEventListener('click',()=>{sresults.classList.remove('open');sinput.value='';openModal(item.dataset.code,item.dataset.club);});
+  });
+});
+document.addEventListener('click',e=>{if(!e.target.closest('.sbox'))sresults.classList.remove('open');});
+sinput.addEventListener('keydown',e=>{if(e.key==='Escape'){sresults.classList.remove('open');sinput.value='';}});
+
+// ══════════════════════ MODAL
+function openModal(code,preClub){
+  const country=clubs.find(c=>c.c===code);if(!country)return;
+  mCode=code;mClub=null;
+  const topTotal=crown?.total||0;
+
+  $('mflag').innerHTML=`<img src="${fl(country.f)}" width="40" height="30" style="border-radius:3px">`;
+  $('mtitle').textContent=country.n;
+
+  const topForCountry=Object.keys(totals).filter(k=>k.startsWith(code+'::')).sort((a,b)=>(totals[b]?.total||0)-(totals[a]?.total||0))[0];
+  const leader=topForCountry?totals[topForCountry]:null;
+  $('msub2').innerHTML=leader
+    ?`Biggest pot here: <strong>${leader.club}</strong> · <strong>${fmt(leader.total)}</strong> · ${leader.bids} supporter${leader.bids===1?'':'s'}`
+    :'No supporters yet — be the first!';
+
+  $('amt').value=5;
+  $('namein').value='';
+  $('merr').classList.remove('show');
+
+  const cg=$('mcgrid');
+  cg.innerHTML=country.clubs.map(cl=>{
+    const key=code+'::'+cl.n;
+    const entry=totals[key];
+    const pot=entry?.total||0;
+    const gap=topTotal&&pot<topTotal?topTotal-pot:0;
+    return `
+    <div class="cop" data-name="${cl.n}" data-logo="${cl.logo||''}">
+      <div class="cop-logo">${cl.logo?`<img src="${cl.logo}" alt="" onerror="this.parentNode.innerHTML='⚽'">`:'⚽'}</div>
+      <div class="cop-info">
+        <div class="cop-name">${cl.n}</div>
+        ${pot?`<div class="cop-pot">${fmt(pot)} pot</div>`:`<div class="cop-pot" style="color:var(--dim)">Be first</div>`}
+        ${gap?`<div class="cop-gap">-${fmt(gap)} from 👑</div>`:pot&&!gap?`<div class="cop-gap" style="color:var(--gold)">👑 Crown!</div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+
+  cg.querySelectorAll('.cop').forEach(o=>{
+    o.addEventListener('click',()=>{
+      cg.querySelectorAll('.cop').forEach(x=>x.classList.remove('sel'));
+      o.classList.add('sel');
+      mClub={n:o.dataset.name,logo:o.dataset.logo};
+      updateGapBar();updateTierPreview();updateSubmitBtn();
+    });
+  });
+
+  const pre=preClub?cg.querySelector(`[data-name="${preClub}"]`):null;
+  const def=pre||cg.firstElementChild;
+  if(def)def.click();
+
+  $('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>$('amt').focus(),180);
+}
+
+function updateGapBar(){
+  if(!mClub||!mCode)return;
+  const key=mCode+'::'+mClub.n;
+  const entry=totals[key];
+  const myPot=entry?.total||0;
+  const topTotal=crown?.total||0;
+  const amtVal=Math.max(0,parseInt($('amt').value)||0);
+  const after=myPot+amtVal;
+  const gap=Math.max(0,topTotal-after);
+  const isCrown=!topTotal||after>=topTotal;
+  const pct=topTotal?Math.min(100,Math.round((after/topTotal)*100)):100;
+
+  $('gbl-left').textContent=mClub.n;
+  $('gbar').style.width=pct+'%';
+  if(isCrown){
+    $('gbmsg').textContent='👑 This contribution takes the world crown!';
+    $('gbmsg').className='gap-bar-msg taking';
+  } else {
+    $('gbmsg').textContent=${fmt(gap)} more needed to take the crown`;
+    $('gbmsg').className='gap-bar-msg';
+  }
+}
+
+function updateTierPreview(){
+  const amt=parseInt($('amt').value)||0;
+  const tier=tierFor(amt);
+  const tp=$('tier-preview');
+  if(!tier||amt<MIN){
+    tp.innerHTML=`<span class="tp-icon">💡</span><div class="tp-text"><div class="tp-tier" style="color:var(--dim)">Min $${MIN}</div><div class="tp-desc">Increase your amount to unlock a tier.</div></div>`;
+    return;
+  }
+  tp.innerHTML=`<span class="tp-icon">${tier.icon}</span><div class="tp-text"><div class="tp-tier">${tier.label}</div><div class="tp-desc">${tier.desc}</div></div>`;
+}
+
+function updateSubmitBtn(){
+  const amt=parseInt($('amt').value)||0;
+  const key=mCode&&mClub?mCode+'::'+mClub.n:null;
+  const myPot=key&&totals[key]?totals[key].total:0;
+  const topTotal=crown?.total||0;
+  const isCrown=mClub&&(!topTotal||myPot+amt>=topTotal);
+  const btn=$('msub-btn');
+  if(isCrown){
+    btn.className='msub crown';
+    btn.innerHTML='👑 Take the World Crown!';
+  } else {
+    btn.className='msub normal';
+    const tier=tierFor(amt);
+    btn.innerHTML=tier?${tier.icon} Support as ${tier.label}`:'🤝 Support Your Club';
+  }
+}
+
+function closeModal(){$('overlay').classList.remove('open');document.body.style.overflow='';}
+$('mclose').addEventListener('click',closeModal);
+$('overlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+document.querySelectorAll('.qa').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.qa').forEach(x=>x.classList.remove('active'));
+    btn.classList.add('active');
+    $('amt').value=btn.dataset.v;
+    updateGapBar();updateTierPreview();updateSubmitBtn();
+  });
+});
+$('amt').addEventListener('input',()=>{
+  document.querySelectorAll('.qa').forEach(x=>x.classList.remove('active'));
+  updateGapBar();updateTierPreview();updateSubmitBtn();
+});
+
+// ══════════════════════ SUBMIT
+$('msub-btn').addEventListener('click',async()=>{
+  const errEl=$('merr'),btn=$('msub-btn');
+  const amount=parseInt($('amt').value,10);
+  const bidder=$('namein').value.trim()||'Anonymous';
+  const country=clubs.find(c=>c.c===mCode);
+  errEl.classList.remove('show');
+  if(!mClub){errEl.textContent='Choose a club to support.';errEl.classList.add('show');return;}
+  if(!amount||amount<MIN){errEl.textContent=`Minimum contribution is $${MIN}.`;errEl.classList.add('show');return;}
+  const prev=btn.innerHTML;btn.disabled=true;btn.textContent='Redirecting to checkout…';
+  try{
+    const r=await fetch('/api/checkout',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({code:mCode,country:country.n,flag:country.f,club:mClub.n,clubLogo:mClub.logo,amount,bidder})});
+    const d=await r.json();
+    if(!r.ok||!d.url){errEl.textContent=d.error||'Checkout failed. Try again.';errEl.classList.add('show');btn.disabled=false;btn.innerHTML=prev;return;}
+    window.location.href=d.url;
+  }catch{errEl.textContent='Network error. Try again.';errEl.classList.add('show');btn.disabled=false;btn.innerHTML=prev;}
+});
+
+// ══════════════════════ URL PARAMS
+function handleParams(){
+  const p=new URLSearchParams(location.search);
+  if(p.has('paid')){$('sbar').classList.add('show');history.replaceState({},'','/');toast('🏆 Your support is live!','ok');}
+  if(p.has('canceled')){toast('Checkout canceled. No charge made.');history.replaceState({},'','/');}
+}
+
+// ══════════════════════ BOOT
+(async()=>{
+  await loadClubs();
+  await loadLB();
+  handleParams();
+  setInterval(loadLB,30000);
+})();
+</script>
+</body>
+</html>
+
+
 
