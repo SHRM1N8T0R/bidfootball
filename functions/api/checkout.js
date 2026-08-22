@@ -29,7 +29,6 @@ export async function onRequestPost({ request, env }) {
   try {
     const session = await stripe(env, "checkout/sessions", "POST", {
       mode: "payment",
-      "automatic_payment_methods[enabled]": "true",
       "line_items[0][quantity]": 1,
       "line_items[0][price_data][currency]": "eur",
       "line_items[0][price_data][unit_amount]": amount * 100,
