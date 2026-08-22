@@ -938,5 +938,381 @@
         "logo": "https://upload.wikimedia.org/wikipedia/commons/9/93/Auckland_Territorial_Authority.PNG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
       }
     ]
+  },
+  {
+    "c": "ISR",
+    "f": "il",
+    "n": "Israel",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Maccabi Tel Aviv",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/e/e9/Maccabi_Tel_Aviv.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      },
+      {
+        "n": "Maccabi Haifa",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/1/15/Maccabi_Haifa_FC_Logo_2023.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      },
+      {
+        "n": "Hapoel Tel Aviv",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/7/7c/Hapoel_Tel_Aviv.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      },
+      {
+        "n": "Beitar Jerusalem",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/6/61/Beitar_Jerusalem.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      }
+    ]
+  },
+  {
+    "c": "SUI",
+    "f": "ch",
+    "n": "Switzerland",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Young Boys",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/BSC_Young_Boys.svg/960px-BSC_Young_Boys.svg.png"
+      },
+      {
+        "n": "FC Basel",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/FC_Basel_crest.svg/330px-FC_Basel_crest.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Servette FC",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/Servette_FC_crest.svg/330px-Servette_FC_crest.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Grasshopper Club",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/GC_Z%C3%BCrich_Logo.svg/330px-GC_Z%C3%BCrich_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "AUT",
+    "f": "at",
+    "n": "Austria",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Red Bull Salzburg",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/FC_Red_Bull_Salzburg_logo.svg/330px-FC_Red_Bull_Salzburg_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Rapid Wien",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/SK_Rapid_Wien_Logo.svg/500px-SK_Rapid_Wien_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Austria Wien",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/6/65/FK_Austria_Wien_Logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      }
+    ]
+  },
+  {
+    "c": "POL",
+    "f": "pl",
+    "n": "Poland",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Legia Warsaw",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/Legia_Warsaw_logo.svg/330px-Legia_Warsaw_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Lech Poznań",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/KKS_Lech_Pozna%C5%84.svg/330px-KKS_Lech_Pozna%C5%84.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Wisła Kraków",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/1/15/Wis%C5%82a_Krak%C3%B3w_logo.svg/330px-Wis%C5%82a_Krak%C3%B3w_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "CZE",
+    "f": "cz",
+    "n": "Czech Republic",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Sparta Prague",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/AC-Sparta-LOGO2021.svg/250px-AC-Sparta-LOGO2021.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Slavia Prague",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/SK_Slavia_Praha_full_logo.svg/500px-SK_Slavia_Praha_full_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Viktoria Plzeň",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/Viktoria_Plzen_logo.svg/250px-Viktoria_Plzen_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "HUN",
+    "f": "hu",
+    "n": "Hungary",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Ferencváros",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Budapest_Bezirk09.svg/960px-Budapest_Bezirk09.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "MTK Budapest",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/MTK_Budapest_FC_%28crest%29.svg/250px-MTK_Budapest_FC_%28crest%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "ROU",
+    "f": "ro",
+    "n": "Romania",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "FCSB",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Fcsb-logo.svg/500px-Fcsb-logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "CFR Cluj",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7e/CFR_Cluj_badge.svg/250px-CFR_Cluj_badge.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Dinamo Bucharest",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/6/69/CS_Dinamo_Bucure%C8%99ti_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      }
+    ]
+  },
+  {
+    "c": "WAL",
+    "f": "gb-wls",
+    "n": "Wales",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Cardiff City",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Cardiff_City_crest.svg/330px-Cardiff_City_crest.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Swansea City",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/Swansea_City_AFC_logo.svg/330px-Swansea_City_AFC_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "The New Saints",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/The_New_Saints_FC_logo.svg/330px-The_New_Saints_FC_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "IRL",
+    "f": "ie",
+    "n": "Republic of Ireland",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Shamrock Rovers",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/6/63/Shamrock_Rovers_F.C._crest.svg/330px-Shamrock_Rovers_F.C._crest.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Bohemian FC",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/50/Bohemian_F.C._crest.svg/330px-Bohemian_F.C._crest.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Shelbourne",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Shelbourne_F.C._crest.svg/330px-Shelbourne_F.C._crest.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "SVK",
+    "f": "sk",
+    "n": "Slovakia",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Slovan Bratislava",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/SK_Slovan_Bratislava_logo.svg/250px-SK_Slovan_Bratislava_logo.svg.png"
+      },
+      {
+        "n": "Spartak Trnava",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1e/Spartak_Trnava_logo.svg/250px-Spartak_Trnava_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "BIH",
+    "f": "ba",
+    "n": "Bosnia & Herzegovina",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "FK Sarajevo",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/FK_Sarajevo_logo.svg/250px-FK_Sarajevo_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Zrinjski Mostar",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/6/69/H%C5%A0K_Zrinjski_Mostar.svg/330px-H%C5%A0K_Zrinjski_Mostar.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "FK Željezničar",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Zeljeznicar_logo.svg/330px-Zeljeznicar_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "MDA",
+    "f": "md",
+    "n": "Moldova",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Sheriff Tiraspol",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/2/27/FC_Sheriff.svg/330px-FC_Sheriff.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "FC Milsami",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/d/dc/Milsami.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      }
+    ]
+  },
+  {
+    "c": "AZE",
+    "f": "az",
+    "n": "Azerbaijan",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Qarabağ FK",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fe/Qaraba%C4%9F_FK_logo.svg/250px-Qaraba%C4%9F_FK_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Neftchi Baku",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/9/92/Neft%C3%A7i_PFK_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      }
+    ]
+  },
+  {
+    "c": "CYP",
+    "f": "cy",
+    "n": "Cyprus",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "APOEL FC",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/APOEL_%28logo_with_stars%29.svg/60px-APOEL_%28logo_with_stars%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Omonia Nicosia",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/AC_Omonia_logo.svg/250px-AC_Omonia_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "AEK Larnaca",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f9/AEK_Larnaca_logo.svg/250px-AEK_Larnaca_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "SVN",
+    "f": "si",
+    "n": "Slovenia",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "NK Maribor",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/ee/NK_Maribor.svg/330px-NK_Maribor.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "NK Olimpija Ljubljana",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1e/NK_Olimpija_Ljubljana_logo.svg/250px-NK_Olimpija_Ljubljana_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "BUL",
+    "f": "bg",
+    "n": "Bulgaria",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Ludogorets",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/PFC_Ludogorets.svg/330px-PFC_Ludogorets.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "CSKA Sofia",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/CSKA_Sofia_logo.svg/500px-CSKA_Sofia_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "Levski Sofia",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e6/Levski_Sofia_crest_%282026%29.svg/960px-Levski_Sofia_crest_%282026%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "GEO",
+    "f": "ge",
+    "n": "Georgia",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "Dinamo Tbilisi",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/3/38/FC_Dinamo_Tbilisi_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      },
+      {
+        "n": "FC Lokomotivi Tbilisi",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/9/9a/Locomotive_logo.png"
+      }
+    ]
+  },
+  {
+    "c": "ALB",
+    "f": "al",
+    "n": "Albania",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "FK Partizani",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/3/36/Partizani_Tirana_Club_Logo.svg/250px-Partizani_Tirana_Club_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "KF Skënderbeu",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6a/Sk%C3%ABnderbeu_Kor%C3%A7%C3%AB_Logo.svg/250px-Sk%C3%ABnderbeu_Kor%C3%A7%C3%AB_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      },
+      {
+        "n": "FK Tirana",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0e/Tirana_Club_Logo.svg/330px-Tirana_Club_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
+  },
+  {
+    "c": "MNE",
+    "f": "me",
+    "n": "Montenegro",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "FK Budućnost Podgorica",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/6/6f/Fk_Buducnost_Logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      },
+      {
+        "n": "FK Sutjeska",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/e/e9/FK_Sutjeska_Nik%C5%A1i%C4%87.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      }
+    ]
+  },
+  {
+    "c": "MKD",
+    "f": "mk",
+    "n": "North Macedonia",
+    "r": "Europe",
+    "clubs": [
+      {
+        "n": "FK Vardar",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/8/83/FK_Vardar.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+      },
+      {
+        "n": "FK Shkupi",
+        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8d/KF_Shkupi_logo.svg/330px-KF_Shkupi_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+      }
+    ]
   }
 ]
