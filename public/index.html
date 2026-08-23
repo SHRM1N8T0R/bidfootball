@@ -634,9 +634,6 @@ function renderLB(){
     if(url){const img=document.createElement('img');img.src=url;img.alt='';img.style.cssText='width:100%;height:100%;object-fit:contain;padding:3px;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4))';img.onerror=()=>{d.textContent='⚽'};d.innerHTML='';d.appendChild(img);}
   });
 
-  el.querySelectorAll('.lb-row').forEach(row=>{
-    row.addEventListener('click',e=>{if(e.target.closest('.sbtn'))return;openModal(row.dataset.code);});
-  });
   el.querySelectorAll('.sbtn').forEach(btn=>{
     btn.addEventListener('click',e=>{e.stopPropagation();openModal(btn.dataset.code,btn.dataset.club);});
   });
