@@ -25,9 +25,9 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
 <style>
 :root{
-  --bg:#081410;--bg2:#0e2016;--bg3:#132619;--card:#102018;--cardh:#183020;
-  --border:#1f3d28;--gold:#f5c518;--gold2:#c9a200;--green:#1e9e46;--green2:#27c25a;
-  --dim:#6a9474;--text:#e6efe8;--red:#e84545;--r:10px;--sh:0 8px 32px rgba(0,0,0,.5);
+  --bg:#0d2212;--bg2:#112a17;--bg3:#17321e;--card:#142e1a;--cardh:#1c3d23;
+  --border:#254d30;--gold:#f5c518;--gold2:#c9a200;--green:#1e9e46;--green2:#27c25a;
+  --dim:#72a07c;--text:#e8f0ea;--red:#e84545;--r:10px;--sh:0 8px 32px rgba(0,0,0,.45);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -434,6 +434,10 @@ main{position:relative;z-index:1;padding:0 20px 80px}
         <div class="gap-bar-label"><span id="gbl-left">Club pot</span><strong id="gbl-right">World crown</strong></div>
         <div class="gap-bar-track"><div class="gap-bar-fill" id="gbar" style="width:0%"></div></div>
         <div class="gap-bar-msg" id="gbmsg">Select a club</div>
+        <a class="xbtn" id="rival-tweet" href="#" target="_blank" rel="noopener" style="display:none;margin-top:8px;font-size:11px;padding:5px 12px">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622z"/></svg>
+          Recruit your mates
+        </a>
       </div>
       <!-- amount -->
       <div>
@@ -842,12 +846,21 @@ function updateGapBar(){
 
   $('gbl-left').textContent=mClub.n;
   $('gbar').style.width=pct+'%';
+  const rt=$('rival-tweet');
   if(isCrown){
     $('gbmsg').textContent='👑 This contribution takes the world crown!';
     $('gbmsg').className='gap-bar-msg taking';
+    if(rt)rt.style.display='none';
   } else {
     $('gbmsg').textContent=`${fmt(gap)} more needed to take the crown`;
     $('gbmsg').className='gap-bar-msg';
+    if(rt&&mClub&&mCode){
+      const rival=crown?.club&&crown.club!==mClub.n?` ${crown.club} hold it right now.`:'';
+      const txt=`${mClub.n} are chasing the BidFootball world crown ⚽👑${rival} Every $5 counts — join us:`;
+      const deepUrl='https://bidfootball.lol/?c='+encodeURIComponent(mCode)+'&club='+encodeURIComponent(mClub.n);
+      rt.href='https://twitter.com/intent/tweet?text='+encodeURIComponent(txt)+'&url='+encodeURIComponent(deepUrl);
+      rt.style.display='inline-flex';
+    }
   }
 }
 
@@ -924,8 +937,11 @@ function handleParams(){
     const c=p.get('c')||'';
     const amt=p.get('amt');
     const deepUrl='https://bidfootball.lol/?c='+encodeURIComponent(c)+'&club='+encodeURIComponent(club);
-    const amtTxt=amt?` $${amt} behind`:'';
-    const tweetText=`Just put${amtTxt} ${club} on BidFootball ⚽ — help us take the world crown 👑`;
+    const amtTxt=amt?` $${amt} on`:'my money on';
+    const rival=crown&&crown.club&&crown.club!==club?crown.club:null;
+    const tweetText=rival
+      ?`Just put ${amtTxt} ${club} on BidFootball ⚽ — ${rival} hold the world crown and we're coming for it 👑 Join us:`
+      :`Just backed ${club} on BidFootball ⚽ — help us hold the world crown 👑`;
     const xLink=$('xshare');
     if(xLink)xLink.href='https://twitter.com/intent/tweet?text='+encodeURIComponent(tweetText)+'&url='+encodeURIComponent(deepUrl);
     $('sbar').classList.add('show');
