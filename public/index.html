@@ -200,6 +200,15 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 .mbody{padding:18px 20px;display:flex;flex-direction:column;gap:15px}
 .flabel{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--dim);margin-bottom:7px}
 .cgrid2{display:grid;grid-template-columns:1fr 1fr;gap:6px;max-height:220px;overflow-y:auto;padding-right:2px}
+.mcsearch-wrap{position:relative;margin-bottom:7px}
+.mcsearch{width:100%;background:var(--bg3);border:1.5px solid var(--border);border-radius:8px;padding:8px 12px 8px 34px;font-size:13px;color:var(--text);outline:none;transition:border-color .13s}
+.mcsearch::placeholder{color:var(--dim)}.mcsearch:focus{border-color:var(--green)}
+.mcsearch-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:14px;pointer-events:none}
+.mcdrop{position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--bg2);border:1px solid var(--border);border-radius:8px;box-shadow:var(--sh);z-index:20;max-height:200px;overflow-y:auto;display:none}
+.mcdrop.open{display:block}
+.mcdi{padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:13px;border-bottom:1px solid var(--border)}
+.mcdi:last-child{border-bottom:none}.mcdi:hover{background:var(--cardh)}
+.mcdi img{border-radius:2px;flex-shrink:0}
 .cop{background:var(--bg3);border:2px solid var(--border);border-radius:8px;padding:8px 10px;display:flex;align-items:center;gap:7px;cursor:pointer;transition:all .13s}
 .cop:hover{border-color:var(--green)}
 .cop.sel{border-color:var(--green);background:rgba(30,158,70,.12)}
@@ -405,7 +414,13 @@ main{position:relative;z-index:1;padding:0 20px 80px}
     </div>
     <div class="mbody">
       <div>
-        <div class="flabel">Choose a club to support</div>
+        <div class="flabel">Country</div>
+        <div class="mcsearch-wrap">
+          <span class="mcsearch-icon">🌍</span>
+          <input type="text" class="mcsearch" id="mcsearch" placeholder="Search a country…" autocomplete="off">
+          <div class="mcdrop" id="mcdrop"></div>
+        </div>
+        <div class="flabel" style="margin-top:12px">Choose a club to support</div>
         <div class="cgrid2" id="mcgrid"></div>
       </div>
       <!-- gap bar -->
@@ -539,7 +554,7 @@ function renderCrown(){
   const btn=document.createElement('button');
   btn.className='crown-btn';
   btn.innerHTML='⚔️ Challenge the Crown';
-  btn.onclick=()=>openModal(crown.code);
+  btn.onclick=()=>openModal(null);
   card.appendChild(btn);
 
   el.appendChild(card);
@@ -726,23 +741,18 @@ document.addEventListener('click',e=>{if(!e.target.closest('.sbox'))sresults.cla
 sinput.addEventListener('keydown',e=>{if(e.key==='Escape'){sresults.classList.remove('open');sinput.value='';}});
 
 // ══════════════════════ MODAL
-function openModal(code,preClub){
+function renderModalClubs(code,preClub){
   const country=clubs.find(c=>c.c===code);if(!country)return;
   mCode=code;mClub=null;
   const topTotal=crown?.total||0;
 
   $('mflag').innerHTML=`<img src="${fl(country.f)}" width="40" height="30" style="border-radius:3px">`;
   $('mtitle').textContent=country.n;
-
   const topForCountry=Object.keys(totals).filter(k=>k.startsWith(code+'::')).sort((a,b)=>(totals[b]?.total||0)-(totals[a]?.total||0))[0];
   const leader=topForCountry?totals[topForCountry]:null;
   $('msub2').innerHTML=leader
     ?`Biggest pot here: <strong>${leader.club}</strong> · <strong>${fmt(leader.total)}</strong> · ${leader.bids} supporter${leader.bids===1?'':'s'}`
     :'No supporters yet — be the first!';
-
-  $('amt').value=5;
-  $('namein').value='';
-  $('merr').classList.remove('show');
 
   const cg=$('mcgrid');
   cg.innerHTML=country.clubs.map(cl=>{
@@ -760,7 +770,6 @@ function openModal(code,preClub){
       </div>
     </div>`;
   }).join('');
-
   cg.querySelectorAll('.cop').forEach(o=>{
     o.addEventListener('click',()=>{
       cg.querySelectorAll('.cop').forEach(x=>x.classList.remove('sel'));
@@ -769,14 +778,55 @@ function openModal(code,preClub){
       updateGapBar();updateTierPreview();updateSubmitBtn();
     });
   });
-
   const pre=preClub?cg.querySelector(`[data-name="${preClub}"]`):null;
   const def=pre||cg.firstElementChild;
   if(def)def.click();
+}
+
+function openModal(code,preClub){
+  $('amt').value=5;$('namein').value='';$('merr').classList.remove('show');
+  mClub=null;mCode=code||null;
+
+  const search=$('mcsearch'),drop=$('mcdrop');
+
+  // Wire up country search (idempotent — remove old listener first)
+  const newSearch=search.cloneNode(true);
+  search.parentNode.replaceChild(newSearch,search);
+  const newDrop=drop.cloneNode(true);
+  drop.parentNode.replaceChild(newDrop,drop);
+  const cs=$('mcsearch'),cd=$('mcdrop');
+
+  const showDrop=q=>{
+    const matches=clubs.filter(c=>c.n.toLowerCase().includes(q.toLowerCase())).slice(0,12);
+    if(!matches.length||!q){cd.classList.remove('open');return;}
+    cd.innerHTML=matches.map(c=>`<div class="mcdi" data-code="${c.c}"><img src="${fl(c.f)}" width="20" height="15"><span>${c.n}</span></div>`).join('');
+    cd.querySelectorAll('.mcdi').forEach(el=>el.addEventListener('click',()=>{
+      cd.classList.remove('open');cs.value=clubs.find(x=>x.c===el.dataset.code)?.n||'';
+      renderModalClubs(el.dataset.code);
+    }));
+    cd.classList.add('open');
+  };
+  cs.addEventListener('input',()=>showDrop(cs.value));
+  cs.addEventListener('blur',()=>setTimeout(()=>cd.classList.remove('open'),150));
+  document.addEventListener('click',e=>{if(!e.target.closest('.mcsearch-wrap'))cd.classList.remove('open');},{once:false});
+
+  if(code){
+    const country=clubs.find(c=>c.c===code);
+    if(country)cs.value=country.n;
+    renderModalClubs(code,preClub);
+  } else {
+    // No country pre-selected — clear header, prompt user to pick
+    $('mflag').innerHTML='🌍';
+    $('mtitle').textContent='All Clubs';
+    $('msub2').textContent='Search a country above to choose your club';
+    $('mcgrid').innerHTML='';
+    cs.value='';
+    setTimeout(()=>cs.focus(),200);
+  }
 
   $('overlay').classList.add('open');
   document.body.style.overflow='hidden';
-  setTimeout(()=>$('amt').focus(),180);
+  if(code)setTimeout(()=>$('amt').focus(),180);
 }
 
 function updateGapBar(){
