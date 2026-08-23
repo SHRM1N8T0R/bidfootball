@@ -200,15 +200,9 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 .mbody{padding:18px 20px;display:flex;flex-direction:column;gap:15px}
 .flabel{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--dim);margin-bottom:7px}
 .cgrid2{display:grid;grid-template-columns:1fr 1fr;gap:6px;max-height:220px;overflow-y:auto;padding-right:2px}
-.mcsearch-wrap{position:relative;margin-bottom:7px}
-.mcsearch{width:100%;background:var(--bg3);border:1.5px solid var(--border);border-radius:8px;padding:8px 12px 8px 34px;font-size:13px;color:var(--text);outline:none;transition:border-color .13s}
-.mcsearch::placeholder{color:var(--dim)}.mcsearch:focus{border-color:var(--green)}
-.mcsearch-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:14px;pointer-events:none}
-.mcdrop{position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--bg2);border:1px solid var(--border);border-radius:8px;box-shadow:var(--sh);z-index:20;max-height:200px;overflow-y:auto;display:none}
-.mcdrop.open{display:block}
-.mcdi{padding:8px 12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:13px;border-bottom:1px solid var(--border)}
-.mcdi:last-child{border-bottom:none}.mcdi:hover{background:var(--cardh)}
-.mcdi img{border-radius:2px;flex-shrink:0}
+.mcsel{width:100%;background:var(--bg3);border:1.5px solid var(--border);border-radius:8px;padding:9px 12px;font-size:13px;color:var(--text);outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23638a6c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px;transition:border-color .13s}
+.mcsel:focus{border-color:var(--green)}
+.mcsel option{background:var(--bg2);color:var(--text)}
 .cop{background:var(--bg3);border:2px solid var(--border);border-radius:8px;padding:8px 10px;display:flex;align-items:center;gap:7px;cursor:pointer;transition:all .13s}
 .cop:hover{border-color:var(--green)}
 .cop.sel{border-color:var(--green);background:rgba(30,158,70,.12)}
@@ -415,11 +409,9 @@ main{position:relative;z-index:1;padding:0 20px 80px}
     <div class="mbody">
       <div>
         <div class="flabel">Country</div>
-        <div class="mcsearch-wrap">
-          <span class="mcsearch-icon">🌍</span>
-          <input type="text" class="mcsearch" id="mcsearch" placeholder="Search a country…" autocomplete="off">
-          <div class="mcdrop" id="mcdrop"></div>
-        </div>
+        <select class="mcsel" id="mcsel">
+          <option value="">— Select a country —</option>
+        </select>
         <div class="flabel" style="margin-top:12px">Choose a club to support</div>
         <div class="cgrid2" id="mcgrid"></div>
       </div>
@@ -787,41 +779,34 @@ function openModal(code,preClub){
   $('amt').value=5;$('namein').value='';$('merr').classList.remove('show');
   mClub=null;mCode=code||null;
 
-  const search=$('mcsearch'),drop=$('mcdrop');
+  // Populate select (sorted alphabetically, idempotent)
+  const sel=$('mcsel');
+  if(sel.options.length<=1){
+    [...clubs].sort((a,b)=>a.n.localeCompare(b.n)).forEach(c=>{
+      const o=document.createElement('option');
+      o.value=c.c;o.textContent=c.n;
+      sel.appendChild(o);
+    });
+  }
 
-  // Wire up country search (idempotent — remove old listener first)
-  const newSearch=search.cloneNode(true);
-  search.parentNode.replaceChild(newSearch,search);
-  const newDrop=drop.cloneNode(true);
-  drop.parentNode.replaceChild(newDrop,drop);
-  const cs=$('mcsearch'),cd=$('mcdrop');
+  // Remove stale listener by cloning
+  const newSel=sel.cloneNode(true);
+  sel.parentNode.replaceChild(newSel,sel);
+  $('mcsel').addEventListener('change',e=>{
+    const c=e.target.value;
+    if(c)renderModalClubs(c);
+    else{$('mflag').innerHTML='🌍';$('mtitle').textContent='All Clubs';$('msub2').textContent='Select a country to choose your club';$('mcgrid').innerHTML='';}
+  });
 
-  const showDrop=q=>{
-    const matches=clubs.filter(c=>c.n.toLowerCase().includes(q.toLowerCase())).slice(0,12);
-    if(!matches.length||!q){cd.classList.remove('open');return;}
-    cd.innerHTML=matches.map(c=>`<div class="mcdi" data-code="${c.c}"><img src="${fl(c.f)}" width="20" height="15"><span>${c.n}</span></div>`).join('');
-    cd.querySelectorAll('.mcdi').forEach(el=>el.addEventListener('click',()=>{
-      cd.classList.remove('open');cs.value=clubs.find(x=>x.c===el.dataset.code)?.n||'';
-      renderModalClubs(el.dataset.code);
-    }));
-    cd.classList.add('open');
-  };
-  cs.addEventListener('input',()=>showDrop(cs.value));
-  cs.addEventListener('blur',()=>setTimeout(()=>cd.classList.remove('open'),150));
-  document.addEventListener('click',e=>{if(!e.target.closest('.mcsearch-wrap'))cd.classList.remove('open');},{once:false});
+  $('mcsel').value=code||'';
 
   if(code){
-    const country=clubs.find(c=>c.c===code);
-    if(country)cs.value=country.n;
     renderModalClubs(code,preClub);
   } else {
-    // No country pre-selected — clear header, prompt user to pick
     $('mflag').innerHTML='🌍';
     $('mtitle').textContent='All Clubs';
-    $('msub2').textContent='Search a country above to choose your club';
+    $('msub2').textContent='Select a country to choose your club';
     $('mcgrid').innerHTML='';
-    cs.value='';
-    setTimeout(()=>cs.focus(),200);
   }
 
   $('overlay').classList.add('open');
