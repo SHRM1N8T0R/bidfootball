@@ -59,7 +59,7 @@ export async function onRequestPost({ request, env }) {
       "metadata[clubLogo]": clubLogo,
       "metadata[amount]":   amount,   // store USD amount in KV (display currency)
       "metadata[bidder]":   bidder,
-      success_url: `${origin}/?paid=1&club=${encodeURIComponent(club)}`,
+      success_url: `${origin}/?paid=1&c=${encodeURIComponent(code)}&club=${encodeURIComponent(club)}&amt=${amount}`,
       cancel_url:  `${origin}/?canceled=1`,
     });
     return json({ url: session.url, myTotal, gapToCrown, isTakingCrown });

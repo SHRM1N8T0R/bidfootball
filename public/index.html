@@ -25,9 +25,9 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
 <style>
 :root{
-  --bg:#060e08;--bg2:#0b1a0d;--bg3:#0f2012;--card:#0d1c10;--cardh:#132118;
-  --border:#1a3320;--gold:#f5c518;--gold2:#c9a200;--green:#1e9e46;--green2:#27c25a;
-  --dim:#638a6c;--text:#e4ece6;--red:#e84545;--r:10px;--sh:0 8px 32px rgba(0,0,0,.55);
+  --bg:#081410;--bg2:#0e2016;--bg3:#132619;--card:#102018;--cardh:#183020;
+  --border:#1f3d28;--gold:#f5c518;--gold2:#c9a200;--green:#1e9e46;--green2:#27c25a;
+  --dim:#6a9474;--text:#e6efe8;--red:#e84545;--r:10px;--sh:0 8px 32px rgba(0,0,0,.5);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -37,7 +37,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 
 /* HEADER */
-header{position:sticky;top:0;z-index:200;background:#060e08;border-bottom:1px solid var(--border);padding:0 20px}
+header{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);padding:0 20px}
 .hdr{max-width:1160px;margin:0 auto;height:56px;display:flex;align-items:center;gap:14px}
 .logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;flex-shrink:0}
 .logo-ball{font-size:24px;line-height:1}
@@ -258,8 +258,13 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 @keyframes shim{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
 
 /* SUCCESS */
-.sbar{background:rgba(30,158,70,.1);border:1px solid rgba(30,158,70,.3);border-radius:8px;padding:12px 17px;margin-bottom:18px;font-size:13px;display:none;align-items:center;gap:10px}
+.sbar{background:rgba(30,158,70,.1);border:1px solid rgba(30,158,70,.3);border-radius:12px;padding:16px 18px;margin-bottom:18px;font-size:13px;display:none;flex-direction:column;gap:12px}
 .sbar.show{display:flex}
+.sbar-top{display:flex;align-items:center;gap:10px}
+.sbar-share{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sbar-share p{font-size:12px;color:var(--dim);flex:1;min-width:160px}
+.xbtn{display:inline-flex;align-items:center;gap:6px;background:#000;color:#fff;border:none;border-radius:20px;padding:7px 15px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;flex-shrink:0}
+.xbtn:hover{background:#222}
 
 /* RESPONSIVE */
 @media(max-width:700px){
@@ -299,7 +304,16 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 <main>
 <div class="wrap">
 
-  <div class="sbar" id="sbar"><span style="font-size:22px">🏆</span><div><strong>Crown supported!</strong> Your contribution is live and the pot has grown.</div></div>
+  <div class="sbar" id="sbar">
+    <div class="sbar-top"><span style="font-size:22px">🏆</span><div><strong>Crown supported!</strong> Your contribution is live and the pot has grown.</div></div>
+    <div class="sbar-share">
+      <p>Get your mates to back the same club — every contribution counts:</p>
+      <a class="xbtn" id="xshare" href="#" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Share on X
+      </a>
+    </div>
+  </div>
 
   <!-- CROWN HERO -->
   <section class="crown-hero">
@@ -905,8 +919,26 @@ $('msub-btn').addEventListener('click',async()=>{
 // ══════════════════════ URL PARAMS
 function handleParams(){
   const p=new URLSearchParams(location.search);
-  if(p.has('paid')){$('sbar').classList.add('show');history.replaceState({},'','/');toast('🏆 Your support is live!','ok');}
+  if(p.has('paid')){
+    const club=p.get('club')||'my club';
+    const c=p.get('c')||'';
+    const amt=p.get('amt');
+    const deepUrl='https://bidfootball.lol/?c='+encodeURIComponent(c)+'&club='+encodeURIComponent(club);
+    const amtTxt=amt?` $${amt} behind`:'';
+    const tweetText=`Just put${amtTxt} ${club} on BidFootball ⚽ — help us take the world crown 👑`;
+    const xLink=$('xshare');
+    if(xLink)xLink.href='https://twitter.com/intent/tweet?text='+encodeURIComponent(tweetText)+'&url='+encodeURIComponent(deepUrl);
+    $('sbar').classList.add('show');
+    history.replaceState({},'','/');
+    toast('🏆 Your support is live!','ok');
+  }
   if(p.has('canceled')){toast('Checkout canceled. No charge made.');history.replaceState({},'','/');}
+  // Deep link: ?c=ENG&club=Arsenal opens modal directly
+  if(p.has('c')&&p.has('club')&&!p.has('paid')){
+    const dlCode=p.get('c'),dlClub=p.get('club');
+    history.replaceState({},'','/');
+    setTimeout(()=>openModal(dlCode,dlClub),400);
+  }
 }
 
 // ══════════════════════ VISITOR STATS
