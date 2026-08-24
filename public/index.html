@@ -271,6 +271,23 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 .cb-sub{font-size:10px;color:#5a7a63;margin-top:1px;display:flex;align-items:center;gap:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cb-amt{font-size:13px;font-weight:800;color:#1a7d3a;flex-shrink:0}
 .cb-empty{font-size:12px;color:#5a7a63;text-align:center;padding:14px 10px;background:#fff;border:1.5px dashed #d7e2d9;border-radius:8px;line-height:1.5}
+/* SUPPORTERS WALL (always-visible exposure cards) */
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.wcard{background:#fbfdfb;border:1px solid #d7e2d9;border-radius:12px;padding:12px 13px;display:flex;flex-direction:column;gap:7px;box-shadow:0 2px 8px rgba(0,0,0,.12);cursor:pointer;transition:transform .13s,box-shadow .13s;min-height:96px}
+.wcard:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.wcard.lg{border-color:rgba(197,162,0,.5);background:#fffdf3}
+.wc-top{display:flex;align-items:center;gap:7px}
+.wc-logo{width:26px;height:26px;border-radius:50%;background:#f0f4f1;border:1px solid #dce6de;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:14px}
+.wc-logo img{width:100%;height:100%;object-fit:contain;padding:2px}
+.wc-club{font-size:11px;color:#5a7a63;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wc-name{font-size:15px;font-weight:800;color:#14261b;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wc-name a{color:#1273c4;text-decoration:none}
+.wc-name a:hover{text-decoration:underline}
+.wc-bottom{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:auto}
+.wc-social{font-size:11px;color:#1273c4;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wc-tier{font-size:11px;color:#5a7a63}
+.wc-amt{font-size:13px;font-weight:800;color:#1a7d3a;flex-shrink:0}
+@media(max-width:520px){.wall{grid-template-columns:1fr 1fr;gap:7px}.wcard{padding:10px;min-height:88px}.wc-name{font-size:13px}}
 /* gap to crown bar */
 .gap-bar-wrap{background:#f0f4f1;border:1px solid #dce6de;border-radius:8px;padding:12px 14px}
 .gap-bar-label{font-size:12px;color:#5a7a63;margin-bottom:8px;display:flex;justify-content:space-between}
@@ -441,6 +458,13 @@ main{position:relative;z-index:1;padding:0 20px 80px}
     <div class="sk" style="height:66px"></div>
     <div class="sk" style="height:66px"></div>
   </div>
+
+  <!-- SUPPORTERS WALL -->
+  <div class="sec-head" style="margin-top:48px">
+    <div class="sec-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="#f5c518" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Getting Seen</div>
+    <div style="font-size:12px;color:var(--dim)">Real people on the boards — tap to visit</div>
+  </div>
+  <div class="wall" id="wall"></div>
 
   <!-- COUNTRY BROWSER -->
   <div class="sec-head" style="margin-top:48px">
@@ -634,7 +658,7 @@ async function loadLB(){
 }
 
 function renderAll(){
-  renderHeader();renderCrown();renderLB();renderCountryGrid();renderTicker();
+  renderHeader();renderCrown();renderLB();renderWall();renderCountryGrid();renderTicker();
   // Update pot in statbar once data is loaded
   const pot=Object.values(totals).reduce((s,c)=>s+c.total,0);
   const el=$('sb-pot');if(el)el.textContent='€'+pot.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
@@ -947,6 +971,41 @@ function renderModalClubs(code,preClub){
   const pre=preClub?cg.querySelector(`[data-name="${preClub}"]`):null;
   const def=pre||cg.firstElementChild;
   if(def)def.click();
+}
+
+// Always-visible "Getting Seen" wall: recent listings as clickable cards, with
+// link-bearing ones surfaced first so paid socials are the star of the section.
+function renderWall(){
+  const el=$('wall');if(!el)return;
+  const list=(feed||[]).slice()
+    .sort((a,b)=>((b.link?1:0)-(a.link?1:0))||(b.ts-a.ts))
+    .slice(0,18);
+  if(!list.length){
+    el.innerHTML='<div style="grid-column:1/-1;text-align:center;color:var(--dim);font-size:13px;padding:22px">Be the first to get seen — claim a spot above.</div>';
+    return;
+  }
+  const icon=t=>t==='Legend'?'👑':t==='Champion'?'⚡':'🤝';
+  el.innerHTML=list.map(f=>{
+    const isLeg=f.tier==='Legend';
+    const nm=f.link
+      ? `<a href="${esc(f.link)}" target="_blank" rel="noopener nofollow">${esc(f.bidder)} ↗</a>`
+      : esc(f.bidder);
+    const bottom=f.link
+      ? `<div class="wc-social">↗ ${esc(f.link.replace(/^https?:\/\//,'').replace(/\/$/,'').slice(0,26))}</div>`
+      : `<div class="wc-tier">${icon(f.tier)} ${f.tier||'Supporter'}</div>`;
+    return `<div class="wcard ${isLeg?'lg':''}" data-code="${esc(f.code)}" data-club="${esc(f.club)}">
+      <div class="wc-top"><div class="wc-logo" data-logo="${esc(f.clubLogo||'')}">⚽</div><div class="wc-club">${esc(f.club)}</div></div>
+      <div class="wc-name">${nm}</div>
+      <div class="wc-bottom">${bottom}<div class="wc-amt">${fmt(f.amount)}</div></div>
+    </div>`;
+  }).join('');
+  el.querySelectorAll('.wc-logo[data-logo]').forEach(d=>{
+    const u=d.dataset.logo;if(u){const img=new Image();img.src=u;img.alt='';img.onerror=()=>{d.textContent='⚽'};d.innerHTML='';d.appendChild(img);}
+  });
+  // Tapping the card (but not the social link) opens that club's board.
+  el.querySelectorAll('.wcard').forEach(c=>{
+    c.addEventListener('click',e=>{if(e.target.closest('a'))return;openModal(c.dataset.code,c.dataset.club);});
+  });
 }
 
 // Shows everyone listed on the selected club's board, with clickable socials.
