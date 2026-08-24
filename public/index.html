@@ -365,18 +365,10 @@ main{position:relative;z-index:1;padding:0 20px 80px}
     </div>
   </div>
 
-  <!-- CROWN HERO -->
-  <section class="crown-hero">
-    <div class="ch-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="#f5c518" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> THE WORLD CROWN HOLDER</div>
-    <div id="crown-area">
-      <div class="crown-card" style="margin:0 auto">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
-          <div class="sk" style="width:96px;height:96px;border-radius:50%"></div>
-          <div class="sk" style="width:180px;height:26px;border-radius:6px"></div>
-          <div class="sk" style="width:100px;height:42px;border-radius:6px"></div>
-        </div>
-      </div>
-    </div>
+  <!-- PODIUM HERO -->
+  <section class="crown-hero" id="crown-hero-section">
+    <div class="ch-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="#f5c518" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> WORLD RANKINGS</div>
+    <div id="crown-area"></div>
   </section>
 
   <!-- TAGLINE -->
@@ -636,43 +628,49 @@ function renderHeader(){
   $('hTotal').textContent=fmt(total);
 }
 
-// ══════════════════════ CROWN HERO
+// ══════════════════════ CROWN HERO (podium if 3+ clubs, fallback card otherwise)
 function renderCrown(){
   const el=$('crown-area');
+  const hero=document.getElementById('crown-hero-section');
   if(!crown||!crown.club){
     el.innerHTML=`<div class="crown-card" style="margin:0 auto"><div class="crown-empty"><div class="big">🏆</div><h2>The Crown is Up for Grabs</h2><p>No club has been crowned yet. Be the first to support yours and claim the world crown.</p></div></div>`;
     return;
   }
-  const logoUrl=crown.clubLogo||'';
-  const logoDiv=logoEl(logoUrl,96);
-  logoDiv.style.cssText+='border:3px solid var(--gold2);box-shadow:0 0 24px rgba(245,197,24,.3);background:#f0f4f1;margin-bottom:16px;';
-
+  if(ranked.length<3){
+    // Fewer than 3 clubs — show original crown card
+    const logoDiv=logoEl(crown.clubLogo||'',96);
+    logoDiv.style.cssText+='border:3px solid var(--gold2);box-shadow:0 0 24px rgba(245,197,24,.3);background:#f0f4f1;margin-bottom:16px;';
+    el.innerHTML='';
+    const card=document.createElement('div');card.className='crown-card';card.style.margin='0 auto';
+    card.innerHTML=`<div style="font-size:36px;margin-bottom:14px;animation:bob 3s ease-in-out infinite">👑</div><div class="crown-club">${crown.club}</div><div class="crown-country"><img src="${fl(crown.flag)}" width="18" height="13" style="border-radius:2px"> ${crown.country}</div><div class="crown-total">${fmt(crown.total)}</div><div class="crown-meta">${crown.bids} supporter${crown.bids===1?'':'s'}</div>`;
+    card.insertBefore(logoDiv,card.firstChild);
+    const btn=document.createElement('button');btn.className='crown-btn';btn.innerHTML='⚔️ Challenge the Crown';btn.onclick=()=>openModal(null);card.appendChild(btn);
+    el.appendChild(card);
+    setTimeout(fireConfetti,350);
+    return;
+  }
+  // 3+ clubs — render big podium as hero
   el.innerHTML='';
-  const card=document.createElement('div');
-  card.className='crown-card';card.style.margin='0 auto';
-
-  card.innerHTML=`
-    <div style="font-size:36px;margin-bottom:14px;animation:bob 3s ease-in-out infinite">👑</div>
-    <div class="crown-club">${crown.club}</div>
-    <div class="crown-country">
-      <img src="${fl(crown.flag)}" width="18" height="13" style="border-radius:2px">
-      ${crown.country}
-    </div>
-    <div class="crown-total">${fmt(crown.total)}</div>
-    <div class="crown-meta">${crown.bids.toLocaleString()} supporter${crown.bids===1?'':'s'} · Last: ${ago(crown.ts)}</div>
-    ${crown.legends?.length?`<div style="font-size:12px;color:#1a7d3a;font-weight:700;margin-top:8px">👑 Legends: ${crown.legends.join(', ')}</div>`:''}
-  `;
-
-  card.insertBefore(logoDiv, card.firstChild);
-
-  const btn=document.createElement('button');
-  btn.className='crown-btn';
-  btn.innerHTML='⚔️ Challenge the Crown';
-  btn.onclick=()=>openModal(null);
-  card.appendChild(btn);
-  setTimeout(fireConfetti, 350);
-
-  el.appendChild(card);
+  const podWrap=document.createElement('div');
+  podWrap.className='podium';podWrap.style.cssText='margin-bottom:6px';
+  const order=[{c:ranked[1],cls:'second',bcls:'s',medal:'2'},{c:ranked[0],cls:'first',bcls:'g',medal:'1'},{c:ranked[2],cls:'third',bcls:'b',medal:'3'}];
+  order.forEach(({c,cls,bcls,medal})=>{
+    const pod=document.createElement('div');pod.className=`pod ${cls}`;pod.dataset.code=c.code;pod.dataset.club=c.club;
+    const card=document.createElement('div');card.className='pod-card';
+    if(cls==='first'){const cr=document.createElement('div');cr.className='pod-crown';cr.textContent='👑';card.appendChild(cr);}
+    const logo=document.createElement('div');logo.className='pod-logo';logo.textContent='⚽';
+    if(c.clubLogo){const img=new Image();img.src=c.clubLogo;img.alt='';img.onerror=()=>{logo.textContent='⚽'};logo.innerHTML='';logo.appendChild(img);}
+    card.appendChild(logo);
+    card.innerHTML+=`<div class="pod-club">${esc(c.club)}</div><div class="pod-country"><img src="${fl(c.flag)}" width="13" height="10" style="border-radius:2px"> ${esc(c.country)}</div><div class="pod-total">${fmt(c.total)}</div><div class="pod-bids">${c.bids} supporter${c.bids===1?'':'s'}</div>`;
+    const baseEl=document.createElement('div');baseEl.className=`pod-base ${bcls}`;baseEl.textContent=medal;
+    pod.appendChild(card);pod.appendChild(baseEl);
+    pod.addEventListener('click',()=>openModal(c.code,c.club));
+    podWrap.appendChild(pod);
+  });
+  el.appendChild(podWrap);
+  const hint=document.createElement('div');hint.style.cssText='text-align:center;font-size:12px;color:var(--dim);padding:4px 0 2px';hint.textContent='Tap any club to claim your spot';
+  el.appendChild(hint);
+  setTimeout(fireConfetti,350);
 }
 
 // ══════════════════════ TICKER
