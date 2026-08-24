@@ -155,39 +155,40 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 .sbtn.take:hover{filter:brightness(1.08)}
 
 /* PODIUM */
-.podium{display:flex;align-items:flex-end;justify-content:center;gap:12px;margin-bottom:22px;flex-wrap:nowrap}
-.pod{display:flex;flex-direction:column;align-items:center;width:170px;cursor:pointer;transition:transform .15s}
-.pod:hover{transform:translateY(-3px)}
-.pod-card{background:#fbfdfb;border:1px solid #d7e2d9;border-radius:12px 12px 0 0;padding:14px 10px 12px;width:100%;text-align:center;box-shadow:0 3px 14px rgba(0,0,0,.18)}
-.pod.first .pod-card{border-color:rgba(197,162,0,.55);background:#fffdf3;box-shadow:0 4px 20px rgba(245,197,24,.28)}
+.podium{display:flex;align-items:flex-end;justify-content:center;gap:16px;margin-bottom:28px;flex-wrap:nowrap}
+.pod{display:flex;flex-direction:column;align-items:center;width:220px;cursor:pointer;transition:transform .15s}
+.pod:hover{transform:translateY(-4px)}
+.pod-card{background:#fbfdfb;border:1px solid #d7e2d9;border-radius:14px 14px 0 0;padding:20px 14px 16px;width:100%;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.22)}
+.pod.first .pod-card{border-color:rgba(197,162,0,.55);background:#fffdf3;box-shadow:0 6px 28px rgba(245,197,24,.32)}
 .pod.second .pod-card{border-color:#cbd6ce}
 .pod.third .pod-card{border-color:#e2cdb2;background:#fdfbf7}
-.pod-crown{font-size:22px;line-height:1;margin-bottom:4px;animation:bob 3s ease-in-out infinite}
-.pod-logo{width:56px;height:56px;border-radius:50%;background:#f0f4f1;border:2px solid #dce6de;display:flex;align-items:center;justify-content:center;overflow:hidden;margin:0 auto 8px;font-size:26px}
-.pod-logo img{width:100%;height:100%;object-fit:contain;padding:5px}
-.pod.first .pod-logo{width:66px;height:66px;border-color:var(--gold2);box-shadow:0 0 14px rgba(245,197,24,.35)}
-.pod-club{font-size:13px;font-weight:800;color:#14261b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.25}
-.pod.first .pod-club{font-size:15px}
-.pod-country{font-size:10px;color:#5a7a63;margin-top:2px;display:flex;align-items:center;justify-content:center;gap:4px}
-.pod-total{font-size:19px;font-weight:900;color:#1a7d3a;margin-top:5px;line-height:1}
-.pod.first .pod-total{font-size:23px}
-.pod-bids{font-size:10px;color:#5a7a63;margin-top:3px}
-.pod-base{width:100%;display:flex;align-items:center;justify-content:center;border-radius:0 0 6px 6px;font-size:22px;font-weight:900;color:rgba(0,0,0,.35)}
-.pod-base.g{background:linear-gradient(180deg,#f5c518,#d9ad0c);height:64px}
-.pod-base.s{background:linear-gradient(180deg,#c2ccd4,#a8b3bc);height:44px}
-.pod-base.b{background:linear-gradient(180deg,#cf9464,#b57848);height:30px}
+.pod-crown{font-size:28px;line-height:1;margin-bottom:6px;animation:bob 3s ease-in-out infinite}
+.pod-logo{width:80px;height:80px;border-radius:50%;background:#f0f4f1;border:2px solid #dce6de;display:flex;align-items:center;justify-content:center;overflow:hidden;margin:0 auto 10px;font-size:36px}
+.pod-logo img{width:100%;height:100%;object-fit:contain;padding:6px}
+.pod.first .pod-logo{width:96px;height:96px;border-color:var(--gold2);box-shadow:0 0 18px rgba(245,197,24,.45)}
+.pod-club{font-size:15px;font-weight:800;color:#14261b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.25}
+.pod.first .pod-club{font-size:18px}
+.pod-country{font-size:11px;color:#5a7a63;margin-top:3px;display:flex;align-items:center;justify-content:center;gap:4px}
+.pod-total{font-size:26px;font-weight:900;color:#1a7d3a;margin-top:6px;line-height:1}
+.pod.first .pod-total{font-size:32px}
+.pod-bids{font-size:11px;color:#5a7a63;margin-top:4px}
+.pod-base{width:100%;display:flex;align-items:center;justify-content:center;border-radius:0 0 8px 8px;font-size:28px;font-weight:900;color:rgba(0,0,0,.32)}
+.pod-base.g{background:linear-gradient(180deg,#f5c518,#d9ad0c);height:88px}
+.pod-base.s{background:linear-gradient(180deg,#c2ccd4,#a8b3bc);height:60px}
+.pod-base.b{background:linear-gradient(180deg,#cf9464,#b57848);height:40px}
 @media(max-width:700px){
   .podium{gap:6px}
-  .pod{width:33.33%}
-  .pod-card{padding:10px 5px 9px}
-  .pod-logo{width:42px;height:42px;font-size:20px}
-  .pod.first .pod-logo{width:50px;height:50px}
+  .pod{width:31%}
+  .pod-card{padding:12px 6px 10px}
+  .pod-logo{width:48px;height:48px;font-size:22px}
+  .pod.first .pod-logo{width:58px;height:58px}
   .pod-club{font-size:11px;white-space:normal}
-  .pod.first .pod-club{font-size:12px}
-  .pod-total{font-size:15px}
-  .pod.first .pod-total{font-size:18px}
+  .pod.first .pod-club{font-size:13px}
+  .pod-total{font-size:17px}
+  .pod.first .pod-total{font-size:22px}
   .pod-country,.pod-bids{font-size:9px}
-  .pod-base.g{height:46px}.pod-base.s{height:32px}.pod-base.b{height:22px}
+  .pod-crown{font-size:20px}
+  .pod-base.g{height:56px}.pod-base.s{height:40px}.pod-base.b{height:28px}
 }
 
 /* TIER LEGEND */

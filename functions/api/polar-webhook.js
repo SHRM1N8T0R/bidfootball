@@ -9,7 +9,7 @@ async function verifyPolarSignature(rawBody, headers, secret) {
   // Replay window: 5 minutes
   if (Math.abs(Math.floor(Date.now() / 1000) - Number(ts)) > 300) return false;
 
-  const keyB64 = secret.startsWith("whsec_") ? secret.slice(6) : secret;
+  const keyB64 = secret.trim().startsWith("whsec_") ? secret.trim().slice(6) : secret.trim();
   const keyBytes = Uint8Array.from(atob(keyB64), c => c.charCodeAt(0));
   const enc = new TextEncoder();
   const key = await crypto.subtle.importKey("raw", keyBytes, { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
