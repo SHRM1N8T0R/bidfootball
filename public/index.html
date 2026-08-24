@@ -255,6 +255,22 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 .cop-name{font-size:12px;font-weight:700;line-height:1.3;color:#14261b}
 .cop-pot{font-size:10px;color:#1a7d3a;font-weight:700;margin-top:1px}
 .cop-gap{font-size:10px;color:#5a7a63;margin-top:1px}
+/* CLUB BOARD (who's listed, with clickable socials) */
+.club-board{margin-top:2px}
+.cb-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;gap:8px}
+.cb-title{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#5a7a63}
+.cb-hint{font-size:10px;color:#93a89a;flex-shrink:0}
+.cb-list{max-height:190px;overflow-y:auto;display:flex;flex-direction:column;gap:5px;padding-right:2px}
+.cb-item{display:flex;align-items:center;gap:9px;background:#fff;border:1.5px solid #e2eae4;border-radius:8px;padding:7px 10px}
+.cb-item.lg{border-color:rgba(197,162,0,.45);background:#fffdf3}
+.cb-medal{font-size:14px;flex-shrink:0;width:20px;text-align:center}
+.cb-main{flex:1;min-width:0}
+.cb-name{font-size:13px;font-weight:700;color:#14261b;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cb-name a{color:#1273c4;text-decoration:none}
+.cb-name a:hover{text-decoration:underline}
+.cb-sub{font-size:10px;color:#5a7a63;margin-top:1px;display:flex;align-items:center;gap:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cb-amt{font-size:13px;font-weight:800;color:#1a7d3a;flex-shrink:0}
+.cb-empty{font-size:12px;color:#5a7a63;text-align:center;padding:14px 10px;background:#fff;border:1.5px dashed #d7e2d9;border-radius:8px;line-height:1.5}
 /* gap to crown bar */
 .gap-bar-wrap{background:#f0f4f1;border:1px solid #dce6de;border-radius:8px;padding:12px 14px}
 .gap-bar-label{font-size:12px;color:#5a7a63;margin-bottom:8px;display:flex;justify-content:space-between}
@@ -484,6 +500,8 @@ main{position:relative;z-index:1;padding:0 20px 80px}
           Recruit your mates
         </a>
       </div>
+      <!-- club board: who's already listed, with clickable socials -->
+      <div class="club-board" id="club-board"></div>
       <!-- amount -->
       <div>
         <div class="flabel">Your listing amount</div>
@@ -919,12 +937,42 @@ function renderModalClubs(code,preClub){
       cg.querySelectorAll('.cop').forEach(x=>x.classList.remove('sel'));
       o.classList.add('sel');
       mClub={n:o.dataset.name,logo:o.dataset.logo};
-      updateGapBar();updateTierPreview();updateSubmitBtn();
+      updateGapBar();updateTierPreview();updateSubmitBtn();renderClubBoard();
     });
   });
   const pre=preClub?cg.querySelector(`[data-name="${preClub}"]`):null;
   const def=pre||cg.firstElementChild;
   if(def)def.click();
+}
+
+// Shows everyone listed on the selected club's board, with clickable socials.
+// This is the exposure surface: anyone who opens a club sees these links.
+function renderClubBoard(){
+  const el=$('club-board');if(!el)return;
+  if(!mClub||!mCode){el.innerHTML='';return;}
+  const list=(feed||[]).filter(f=>f.code===mCode&&f.club===mClub.n)
+    .sort((a,b)=>(b.amount-a.amount)||(b.ts-a.ts));
+  const clubName=esc(mClub.n);
+  if(!list.length){
+    el.innerHTML=`<div class="flabel">On this board</div><div class="cb-empty">Be the first on <strong>${clubName}</strong>'s board — your name and socials go right here for every visitor to see.</div>`;
+    return;
+  }
+  const icon=t=>t==='Legend'?'👑':t==='Champion'?'⚡':'🤝';
+  el.innerHTML=`<div class="cb-head"><span class="cb-title">Listed on ${clubName}</span><span class="cb-hint">tap a name to visit ↗</span></div>`+
+    `<div class="cb-list">`+list.slice(0,50).map(f=>{
+      const isLeg=f.tier==='Legend';
+      const nm=f.link
+        ? `<a href="${esc(f.link)}" target="_blank" rel="noopener nofollow">${esc(f.bidder)} ↗</a>`
+        : esc(f.bidder);
+      const sub=f.link
+        ? esc(f.link.replace(/^https?:\/\//,'').replace(/\/$/,'').slice(0,34))
+        : `${f.tier||'Supporter'} listing`;
+      return `<div class="cb-item ${isLeg?'lg':''}">
+        <div class="cb-medal">${icon(f.tier)}</div>
+        <div class="cb-main"><div class="cb-name">${nm}</div><div class="cb-sub">${sub}</div></div>
+        <div class="cb-amt">${fmt(f.amount)}</div>
+      </div>`;
+    }).join('')+`</div>`;
 }
 
 function openModal(code,preClub){
