@@ -6,8 +6,8 @@ async function verifyPolarSignature(rawBody, headers, secret) {
   const ts  = headers.get("webhook-timestamp");
   const sig = headers.get("webhook-signature");
   if (!id || !ts || !sig || !secret) return false;
-  // Replay window: 24 hours (widened temporarily to allow retrying past deliveries)
-  if (Math.abs(Math.floor(Date.now() / 1000) - Number(ts)) > 86400) return false;
+  // Replay window: 5 minutes
+  if (Math.abs(Math.floor(Date.now() / 1000) - Number(ts)) > 300) return false;
 
   const raw = secret.trim().startsWith("whsec_") ? secret.trim().slice(6) : secret.trim();
   // Standard Webhooks uses base64url; normalise to standard base64 for atob()
