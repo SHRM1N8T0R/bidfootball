@@ -24,8 +24,6 @@ export async function onRequestPost({ request, env }) {
     return json({ error: "Checkout is launching very soon — follow @bidfootball on X to be first when it opens.", placeholder: true }, 503);
   }
 
-  const debug = new URL(request.url).searchParams.has("debug");
-
   try {
     const origin = env.SITE_URL || new URL(request.url).origin;
     const apiBase = env.POLAR_SERVER === "sandbox" ? "https://sandbox-api.polar.sh" : "https://api.polar.sh";
@@ -50,8 +48,6 @@ export async function onRequestPost({ request, env }) {
     });
 
     const raw = await res.text();
-    if (debug) return json({ debug: true, status: res.status, apiBase, productIdLen: productId.length, tokenLen: token.length, raw: raw.slice(0, 1500) }, 200);
-
     let data = null;
     try { data = JSON.parse(raw); } catch {}
     if (!res.ok || !data?.url) {
