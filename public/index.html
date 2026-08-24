@@ -1060,8 +1060,9 @@ $('msub-btn').addEventListener('click',async()=>{
   try{
     const r=await fetch('/api/checkout',{method:'POST',headers:{'content-type':'application/json'},
       body:JSON.stringify({code:mCode,country:country.n,flag:country.f,club:mClub.n,clubLogo:mClub.logo,amount,bidder,link})});
-    const d=await r.json();
-    if(!r.ok||!d.url){errEl.textContent=d.error||'Checkout failed. Try again.';errEl.classList.add('show');btn.disabled=false;btn.innerHTML=prev;return;}
+    let d=null;
+    try{d=await r.json();}catch{}
+    if(!r.ok||!d?.url){errEl.textContent=d?.error||`Checkout failed (${r.status}). Try again.`;errEl.classList.add('show');btn.disabled=false;btn.innerHTML=prev;return;}
     window.location.href=d.url;
   }catch{errEl.textContent='Network error. Try again.';errEl.classList.add('show');btn.disabled=false;btn.innerHTML=prev;}
 });

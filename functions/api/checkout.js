@@ -32,6 +32,12 @@ export async function onRequestPost({ request, env }) {
     const token = String(env.POLAR_ACCESS_TOKEN).trim();
     const productId = String(env.POLAR_PRODUCT_ID).trim();
 
+    // Polar rejects empty-string metadata values (min_length 1), so drop blanks.
+    const metadata = {};
+    for (const [k, v] of Object.entries({ code, country, flag, club, clubLogo, bidder, link, amount })) {
+      if (v !== "" && v != null) metadata[k] = v;
+    }
+
     const res = await fetch(`${apiBase}/v1/checkouts/`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}`, "content-type": "application/json" },
@@ -39,7 +45,7 @@ export async function onRequestPost({ request, env }) {
         products: [productId],
         amount: amount * 100,                       // EUR cents (product must be pay-what-you-want)
         success_url: `${origin}/?paid=1&c=${encodeURIComponent(code)}&club=${encodeURIComponent(club)}&amt=${amount}`,
-        metadata: { code, country, flag, club, clubLogo, bidder, link, amount },
+        metadata,
       }),
     });
 
