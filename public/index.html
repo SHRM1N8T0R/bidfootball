@@ -273,8 +273,9 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 .cb-empty{font-size:12px;color:#5a7a63;text-align:center;padding:14px 10px;background:#fff;border:1.5px dashed #d7e2d9;border-radius:8px;line-height:1.5}
 /* SUPPORTERS WALL (always-visible exposure cards) */
 .wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
-.wcard{background:#fbfdfb;border:1px solid #d7e2d9;border-radius:12px;padding:12px 13px;display:flex;flex-direction:column;gap:7px;box-shadow:0 2px 8px rgba(0,0,0,.12);cursor:pointer;transition:transform .13s,box-shadow .13s;min-height:96px}
-.wcard:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.wcard{background:#fbfdfb;border:1px solid #d7e2d9;border-radius:12px;padding:12px 13px;display:flex;flex-direction:column;gap:7px;box-shadow:0 2px 8px rgba(0,0,0,.12);cursor:default;transition:transform .13s,box-shadow .13s;min-height:96px}
+.wcard.has-link{cursor:pointer}
+.wcard.has-link:hover{transform:translateY(-2px)}
 .wcard.lg{border-color:rgba(197,162,0,.5);background:#fffdf3}
 .wc-top{display:flex;align-items:center;gap:7px}
 .wc-logo{width:26px;height:26px;border-radius:50%;background:#f0f4f1;border:1px solid #dce6de;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:14px}
@@ -288,6 +289,23 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 .wc-tier{font-size:11px;color:#5a7a63}
 .wc-amt{font-size:13px;font-weight:800;color:#1a7d3a;flex-shrink:0}
 @media(max-width:520px){.wall{grid-template-columns:1fr 1fr;gap:7px}.wcard{padding:10px;min-height:88px}.wc-name{font-size:13px}}
+/* card with a link = clearly clickable-out */
+.wcard.has-link{position:relative}
+.wcard.has-link:hover{border-color:#1273c4;box-shadow:0 6px 20px rgba(18,115,196,.22)}
+.wcard.has-link:hover .wc-name{color:#1273c4}
+.wcard.has-link .wc-visit{position:absolute;top:9px;right:10px;font-size:10px;font-weight:700;color:#1273c4;opacity:0;transition:opacity .13s}
+.wcard.has-link:hover .wc-visit{opacity:1}
+/* leaving-site interstitial */
+.leave-modal{max-width:400px}
+.lv-body{padding:26px 24px 22px;text-align:center}
+.lv-ico{width:46px;height:46px;border-radius:50%;background:#e8f1fb;color:#1273c4;font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.lv-body h3{font-size:18px;font-weight:800;color:#14261b;margin-bottom:8px}
+.lv-body p{font-size:13px;color:#5a7a63;line-height:1.55;margin-bottom:14px}
+.lv-url{font-size:13px;font-weight:700;color:#1273c4;background:#f0f4f8;border:1px solid #d7e2e9;border-radius:8px;padding:10px 12px;margin-bottom:18px;word-break:break-all;line-height:1.4}
+.lv-actions{display:flex;gap:10px}
+.lv-btn{flex:1;padding:12px;border-radius:8px;font-size:14px;font-weight:800;cursor:pointer;text-align:center;text-decoration:none;transition:all .13s;border:none}
+.lv-btn.back{background:#eef2ef;color:#3f5f48}.lv-btn.back:hover{background:#e2eae4}
+.lv-btn.go{background:#1273c4;color:#fff;display:flex;align-items:center;justify-content:center}.lv-btn.go:hover{background:#0f63aa}
 /* gap to crown bar */
 .gap-bar-wrap{background:#f0f4f1;border:1px solid #dce6de;border-radius:8px;padding:12px 14px}
 .gap-bar-label{font-size:12px;color:#5a7a63;margin-bottom:8px;display:flex;justify-content:space-between}
@@ -568,6 +586,22 @@ main{position:relative;z-index:1;padding:0 20px 80px}
   </div>
 </div>
 
+<!-- LEAVING-SITE INTERSTITIAL (user-submitted links) -->
+<div class="overlay" id="leave-overlay">
+  <div class="modal leave-modal" role="dialog" aria-modal="true">
+    <div class="lv-body">
+      <div class="lv-ico">↗</div>
+      <h3>You're leaving BidFootball</h3>
+      <p>This link was submitted by a user. BidFootball doesn't control or endorse it — continue at your own discretion.</p>
+      <div class="lv-url" id="lv-url"></div>
+      <div class="lv-actions">
+        <button class="lv-btn back" id="lv-back">Go back</button>
+        <a class="lv-btn go" id="lv-go" href="#" target="_blank" rel="noopener nofollow ugc">Continue →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -724,7 +758,7 @@ function renderTicker(){
   const src=feed.slice(0,8);
   const items=[...src,...src];
   inner.innerHTML=items.map(f=>{
-    const nameHtml=f.link?`<a href="${esc(f.link)}" target="_blank" rel="noopener nofollow" style="color:var(--text);text-decoration:underline"><strong>${esc(f.bidder)}</strong></a>`:`<strong>${esc(f.bidder)}</strong>`;
+    const nameHtml=f.link?`<a href="${esc(f.link)}" class="ext-link" data-href="${esc(f.link)}" target="_blank" rel="noopener nofollow ugc" style="color:var(--text);text-decoration:underline"><strong>${esc(f.bidder)}</strong></a>`:`<strong>${esc(f.bidder)}</strong>`;
     return `
     <span class="ti">
       ${f.flag?`<img src="${fl(f.flag)}" width="16" height="12" style="border-radius:2px;vertical-align:middle">`:'🌍'}
@@ -973,6 +1007,28 @@ function renderModalClubs(code,preClub){
   if(def)def.click();
 }
 
+// ══════════════════════ OUTBOUND-LINK SAFETY GATE
+// Every user-submitted link routes through a "you're leaving" interstitial.
+function leaveTo(url){
+  if(!url)return;
+  $('lv-url').textContent=url;
+  $('lv-go').href=url;
+  $('leave-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLeave(){
+  $('leave-overlay').classList.remove('open');
+  if(!$('overlay').classList.contains('open'))document.body.style.overflow='';
+}
+$('lv-back').addEventListener('click',closeLeave);
+$('lv-go').addEventListener('click',()=>setTimeout(closeLeave,50)); // native anchor opens the tab, then close
+$('leave-overlay').addEventListener('click',e=>{if(e.target===$('leave-overlay'))closeLeave();});
+// Intercept any .ext-link (ticker / board names) and send through the gate.
+document.addEventListener('click',e=>{
+  const a=e.target.closest('.ext-link');
+  if(a){e.preventDefault();e.stopPropagation();leaveTo(a.dataset.href||a.getAttribute('href'));}
+});
+
 // Always-visible "Getting Seen" wall: recent listings as clickable cards, with
 // link-bearing ones surfaced first so paid socials are the star of the section.
 function renderWall(){
@@ -987,24 +1043,23 @@ function renderWall(){
   const icon=t=>t==='Legend'?'👑':t==='Champion'?'⚡':'🤝';
   el.innerHTML=list.map(f=>{
     const isLeg=f.tier==='Legend';
-    const nm=f.link
-      ? `<a href="${esc(f.link)}" target="_blank" rel="noopener nofollow">${esc(f.bidder)} ↗</a>`
-      : esc(f.bidder);
-    const bottom=f.link
+    const hasLink=!!f.link;
+    const bottom=hasLink
       ? `<div class="wc-social">↗ ${esc(f.link.replace(/^https?:\/\//,'').replace(/\/$/,'').slice(0,26))}</div>`
       : `<div class="wc-tier">${icon(f.tier)} ${f.tier||'Supporter'}</div>`;
-    return `<div class="wcard ${isLeg?'lg':''}" data-code="${esc(f.code)}" data-club="${esc(f.club)}">
+    return `<div class="wcard ${isLeg?'lg':''} ${hasLink?'has-link':''}" data-href="${hasLink?esc(f.link):''}">
+      ${hasLink?'<span class="wc-visit">visit ↗</span>':''}
       <div class="wc-top"><div class="wc-logo" data-logo="${esc(f.clubLogo||'')}">⚽</div><div class="wc-club">${esc(f.club)}</div></div>
-      <div class="wc-name">${nm}</div>
+      <div class="wc-name">${esc(f.bidder)}</div>
       <div class="wc-bottom">${bottom}<div class="wc-amt">${fmt(f.amount)}</div></div>
     </div>`;
   }).join('');
   el.querySelectorAll('.wc-logo[data-logo]').forEach(d=>{
     const u=d.dataset.logo;if(u){const img=new Image();img.src=u;img.alt='';img.onerror=()=>{d.textContent='⚽'};d.innerHTML='';d.appendChild(img);}
   });
-  // Tapping the card (but not the social link) opens that club's board.
-  el.querySelectorAll('.wcard').forEach(c=>{
-    c.addEventListener('click',e=>{if(e.target.closest('a'))return;openModal(c.dataset.code,c.dataset.club);});
+  // Only link-bearing cards are clickable — they open that person's link via the safety gate.
+  el.querySelectorAll('.wcard.has-link').forEach(c=>{
+    c.addEventListener('click',()=>leaveTo(c.dataset.href));
   });
 }
 
@@ -1025,7 +1080,7 @@ function renderClubBoard(){
     `<div class="cb-list">`+list.slice(0,50).map(f=>{
       const isLeg=f.tier==='Legend';
       const nm=f.link
-        ? `<a href="${esc(f.link)}" target="_blank" rel="noopener nofollow">${esc(f.bidder)} ↗</a>`
+        ? `<a href="${esc(f.link)}" class="ext-link" data-href="${esc(f.link)}" target="_blank" rel="noopener nofollow ugc">${esc(f.bidder)} ↗</a>`
         : esc(f.bidder);
       const sub=f.link
         ? esc(f.link.replace(/^https?:\/\//,'').replace(/\/$/,'').slice(0,34))
