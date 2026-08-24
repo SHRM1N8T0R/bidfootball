@@ -87,3 +87,55 @@ export async function verifyStripeSignature(rawBody, sigHeader, secret, toleranc
 export function clean(str, max = 60) {
   return String(str || "").replace(/[<>]/g, "").trim().slice(0, max);
 }
+
+// Only accept http/https URLs. Returns "" for anything else (javascript:, data:, etc.).
+export function cleanLink(str, max = 200) {
+  const s = String(str || "").trim().slice(0, max);
+  if (!s) return "";
+  try {
+    const u = new URL(s);
+    return (u.protocol === "http:" || u.protocol === "https:") ? u.href : "";
+  } catch { return ""; }
+}
+
+// Records a paid listing into totals + feed. Shared by every payment webhook.
+// listing: { code, country, flag, club, clubLogo, amount, bidder, link }
+export async function recordListing(env, listing) {
+  const [totals, feed] = await Promise.all([getTotals(env), getFeed(env)]);
+  const key = clubKey(listing.code, listing.club);
+
+  if (!totals[key]) {
+    totals[key] = { code: listing.code, country: listing.country || "", flag: listing.flag || "", club: listing.club, clubLogo: listing.clubLogo || "", total: 0, bids: 0, lastBidder: "", ts: 0, legends: [] };
+  }
+  const e = totals[key];
+  e.total     += listing.amount;
+  e.bids      += 1;               // "bids" = number of listings on this club's board
+  e.clubLogo   = listing.clubLogo || e.clubLogo;
+  e.lastBidder = listing.bidder || "Anonymous";
+  e.ts         = Date.now();
+
+  const tier = tierFor(listing.amount);
+  if (tier?.label === "Legend" && e.legends) {
+    if (!e.legends.includes(listing.bidder)) e.legends.push(listing.bidder);
+    if (e.legends.length > 20) e.legends = e.legends.slice(-20);
+  }
+
+  const prevCrown = computeGlobalCrown(Object.fromEntries(
+    Object.entries(totals).filter(([k]) => k !== key)
+  ));
+  const tookCrown = !prevCrown || e.total > prevCrown.total;
+
+  feed.unshift({
+    code: listing.code, country: listing.country, flag: listing.flag,
+    club: listing.club, clubLogo: listing.clubLogo,
+    amount: listing.amount, bidder: listing.bidder || "Anonymous",
+    link: listing.link || "", ts: e.ts, tookCrown, tier: tier?.label || null,
+  });
+
+  await Promise.all([
+    env.BIDS.put(TOTALS_KEY, JSON.stringify(totals)),
+    env.BIDS.put(FEED_KEY,   JSON.stringify(feed.slice(0, FEED_MAX))),
+  ]);
+
+  return { newTotal: e.total, tookCrown };
+}
