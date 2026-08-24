@@ -9,7 +9,9 @@ async function verifyPolarSignature(rawBody, headers, secret) {
   // Replay window: 24 hours (widened temporarily to allow retrying past deliveries)
   if (Math.abs(Math.floor(Date.now() / 1000) - Number(ts)) > 86400) return false;
 
-  const keyB64 = secret.trim().startsWith("whsec_") ? secret.trim().slice(6) : secret.trim();
+  const raw = secret.trim().startsWith("whsec_") ? secret.trim().slice(6) : secret.trim();
+  // Standard Webhooks uses base64url; normalise to standard base64 for atob()
+  const keyB64 = raw.replace(/-/g, "+").replace(/_/g, "/").padEnd(Math.ceil(raw.length / 4) * 4, "=");
   const keyBytes = Uint8Array.from(atob(keyB64), c => c.charCodeAt(0));
   const enc = new TextEncoder();
   const key = await crypto.subtle.importKey("raw", keyBytes, { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
