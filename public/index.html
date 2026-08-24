@@ -522,8 +522,8 @@ const safeLink=u=>{try{const p=new URL(u);return(p.protocol==='http:'||p.protoco
 
 function toast(msg,type=''){const t=$('toast');t.textContent=msg;t.className='toast show '+type;clearTimeout(t._t);t._t=setTimeout(()=>t.className='toast',3500);}
 
-// Looping confetti bursting from both sides while the crown holder is on screen
-let _confettiStarted=false;
+// Confetti: bursts from both sides only while the crown hero is visible on screen
+let _confettiStarted=false,_confettiVisible=false;
 function fireConfetti(){
   if(_confettiStarted||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   _confettiStarted=true;
@@ -536,13 +536,24 @@ function fireConfetti(){
   const colors=['#f5c518','#c9a200','#27c25a','#ffffff','#1e9e46','#e84545'];
   let parts=[];
   function burst(){
+    if(!_confettiVisible)return;
     for(let i=0;i<80;i++){
       const L=i%2===0;
       parts.push({x:L?-14:W+14,y:H*0.25+Math.random()*H*0.35,vx:(L?1:-1)*(4+Math.random()*5),vy:-7-Math.random()*5,g:0.18+Math.random()*0.10,s:8+Math.random()*12,c:colors[i%colors.length],r:Math.random()*6.28,vr:(Math.random()-0.5)*0.3,life:1});
     }
   }
-  burst();
-  setInterval(burst,5000); // loop
+  // Only burst when crown section is in the viewport
+  const hero=document.querySelector('.crown-hero');
+  if(hero){
+    // Check initial visibility (page loads at top, hero is visible)
+    const r=hero.getBoundingClientRect();
+    _confettiVisible=r.top<innerHeight&&r.bottom>0;
+    new IntersectionObserver(entries=>{
+      _confettiVisible=entries[0].isIntersecting;
+      if(_confettiVisible)burst();
+    },{threshold:0.25}).observe(hero);
+  }
+  setInterval(burst,5000);
   (function frame(){
     ctx.clearRect(0,0,W,H);
     parts=parts.filter(p=>p.life>0&&p.y<H+30);
