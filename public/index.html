@@ -58,7 +58,7 @@ header{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px 
 .ticker{background:var(--bg2);border-bottom:1px solid var(--border);overflow:hidden;height:33px;display:flex;align-items:center}
 .tlabel{flex-shrink:0;padding:0 14px;font-size:10px;font-weight:800;letter-spacing:1.2px;color:var(--gold);text-transform:uppercase;border-right:1px solid var(--border);height:100%;display:flex;align-items:center;gap:5px;background:var(--bg2);z-index:1}
 .twrap{overflow:hidden;flex:1}
-.tinner{display:flex;align-items:center;white-space:nowrap;animation:scroll 40s linear infinite;will-change:transform}
+.tinner{display:flex;width:max-content;align-items:center;white-space:nowrap;animation:scroll 40s linear infinite;will-change:transform}
 .tinner:hover{animation-play-state:paused}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .ti{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--dim);flex-shrink:0}
@@ -693,7 +693,7 @@ function renderTicker(){
   }).join('');
   requestAnimationFrame(()=>{
     const half=inner.scrollWidth/2;
-    inner.style.animationDuration=Math.max(6,half/120)+'s';
+    inner.style.animationDuration=Math.max(5,half/190)+'s';
   });
 }
 
