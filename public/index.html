@@ -1115,8 +1115,12 @@ async function heartbeat(){
     const r=await fetch('/api/presence',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({id:_sid})});
     const d=await r.json();real=Math.max(1,d.online||1);
   }catch{}
-  const floor=Math.floor(3+Math.abs(Math.sin(Date.now()/3600000)*5)); // 3–8, drifts by time of day
-  const onEl=$('sb-online');if(onEl)onEl.textContent=real+floor;
+  // Busy-looking floor that drifts smoothly in the 20–40 band by time of day.
+  const t=Date.now();
+  let floor=30+Math.sin(t/5400000)*10+Math.sin(t/900000)*2; // slow ±10 + gentle ±2
+  floor=Math.max(20,Math.min(40,Math.round(floor)));
+  // Additional REAL concurrent visitors (beyond this viewer) add on top.
+  const onEl=$('sb-online');if(onEl)onEl.textContent=floor+Math.max(0,real-1);
 }
 heartbeat();
 setInterval(heartbeat,25000);
