@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BidFootball — One Crown. Every Club. One Winner.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <meta name="description" content="One crown. Every club. Claim your listing on your club's board from €5. The club with the biggest board wears the world crown.">
 
 <!-- Open Graph -->
@@ -31,9 +34,12 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+body{font-family:'Space Grotesk',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:repeating-linear-gradient(180deg,transparent 0,transparent 44px,rgba(255,255,255,.012) 44px,rgba(255,255,255,.012) 88px)}
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%,rgba(39,194,90,.10) 0%,transparent 70%),
+    repeating-linear-gradient(180deg,transparent 0,transparent 54px,rgba(255,255,255,.014) 54px,rgba(255,255,255,.014) 108px),
+    repeating-linear-gradient(90deg,transparent 0,transparent 54px,rgba(255,255,255,.006) 54px,rgba(255,255,255,.006) 108px)}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 
 /* HEADER */
@@ -91,11 +97,11 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 
 /* TAGLINE */
 .tagline{text-align:center;padding:0 0 40px}
-.tagline h1{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-.4px;line-height:1.2;margin-bottom:10px}
+.tagline h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-.5px;line-height:1.15;margin-bottom:10px}
 .tagline h1 em{font-style:normal;color:var(--gold)}
 .tagline p{font-size:15px;color:var(--dim);max-width:500px;margin:0 auto 20px;line-height:1.65}
 .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
-.chip{background:#fbfdfb;border:1px solid #d7e2d9;border-radius:20px;padding:5px 13px;font-size:12px;color:#3f5f48;font-weight:600;display:flex;align-items:center;gap:5px;box-shadow:0 1px 5px rgba(0,0,0,.14)}
+.chip{background:#fbfdfb;border:1px solid #d7e2d9;border-radius:20px;padding:5px 13px;font-size:12px;color:#3f5f48;font-weight:600;display:flex;align-items:center;gap:5px;box-shadow:0 1px 5px rgba(0,0,0,.14);cursor:default;user-select:none}
 
 /* SEARCH */
 .search-wrap{padding:0 0 40px;position:relative}
@@ -121,8 +127,7 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 
 /* SECTION HEAD */
 .sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-.sec-title{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:8px}
-.sec-title::before{content:'';display:inline-block;width:3px;height:13px;background:var(--gold);border-radius:2px}
+.sec-title{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:7px}
 
 /* LEADERBOARD */
 .lb{display:flex;flex-direction:column;gap:5px;margin-bottom:48px}
@@ -292,7 +297,7 @@ main{position:relative;z-index:1;padding:0 20px 80px}
     <a href="/" class="logo"><span class="logo-ball">⚽</span><span class="logo-name">Bid<span>Football</span></span></a>
     <div class="hdr-right">
       <div class="pill"><span class="dot"></span>&nbsp;<strong id="hSupporters">—</strong> listings worldwide</div>
-      <div class="pill">💰 Board total: <strong id="hTotal">—</strong></div>
+      <div class="pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#5a7a63" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Board total: <strong id="hTotal">—</strong></div>
     </div>
   </div>
 </header>
@@ -307,7 +312,7 @@ main{position:relative;z-index:1;padding:0 20px 80px}
   <span class="sb-sep">·</span>
   <span><strong id="sb-visits">—</strong> visitors since launch</span>
   <span class="sb-sep">·</span>
-  <span>🌍 <strong id="sb-pot">€—</strong> across all boards</span>
+  <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><strong id="sb-pot">€—</strong> across all boards</span>
 </div>
 
 <main>
@@ -326,7 +331,7 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 
   <!-- CROWN HERO -->
   <section class="crown-hero">
-    <div class="ch-label">👑 THE WORLD CROWN HOLDER</div>
+    <div class="ch-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="#f5c518" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> THE WORLD CROWN HOLDER</div>
     <div id="crown-area">
       <div class="crown-card" style="margin:0 auto">
         <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
@@ -343,43 +348,43 @@ main{position:relative;z-index:1;padding:0 20px 80px}
     <h1>Put your name on your club.<br><em>Own the world.</em></h1>
     <p>One crown. Every listing on your club's board adds to its total. The club with the biggest board wears the crown. Claim your spot from €5.</p>
     <div class="chips">
-      <span class="chip">🌍 Global clubs</span>
-      <span class="chip">💰 From €5</span>
-      <span class="chip">👑 1 world crown</span>
-      <span class="chip">🔗 Your name + link</span>
-      <span class="chip">🔒 Secure checkout</span>
+      <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#3f5f48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Global clubs</span>
+      <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#3f5f48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> From €5</span>
+      <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#b58600" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 1 world crown</span>
+      <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#3f5f48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Your name + link</span>
+      <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#3f5f48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Secure checkout</span>
     </div>
   </div>
 
   <!-- SEARCH -->
   <div class="search-wrap">
     <div class="sbox">
-      <span class="si">🔍</span>
+      <span class="si"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5a7a63" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
       <input type="text" id="sinput" placeholder="Search any club or country — e.g. Man Utd, Barcelona, Brazil…" autocomplete="off">
       <div class="sresults" id="sresults"></div>
     </div>
   </div>
 
   <!-- TIERS -->
-  <div class="sec-head"><div class="sec-title">⚡ Listing Tiers</div></div>
+  <div class="sec-head"><div class="sec-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Listing Tiers</div></div>
   <div class="tiers-row">
     <div class="tier-pill legend">
-      <h4>👑 Legend</h4>
+      <h4><svg width="13" height="13" viewBox="0 0 24 24" fill="#b58600" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Legend</h4>
       <p>€50+ · Your name and link stay on the board permanently, even if your club loses the crown.</p>
     </div>
     <div class="tier-pill champ">
-      <h4>⚡ Champion</h4>
+      <h4><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#3f5f48" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Champion</h4>
       <p>€25+ · Your listing is featured as a Champion next to your club's ranking.</p>
     </div>
     <div class="tier-pill">
-      <h4>🤝 Supporter</h4>
+      <h4><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#3f5f48" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Supporter</h4>
       <p>€5+ · Your name and link go on your club's board and add to its total.</p>
     </div>
   </div>
 
   <!-- GLOBAL LEADERBOARD -->
   <div class="sec-head">
-    <div class="sec-title">🏆 Global Rankings</div>
+    <div class="sec-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg> Global Rankings</div>
     <div style="font-size:12px;color:var(--dim)">Ranked by board total</div>
   </div>
   <div class="lb" id="lb">
@@ -392,7 +397,7 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 
   <!-- COUNTRY BROWSER -->
   <div class="sec-head" style="margin-top:48px">
-    <div class="sec-title">🌍 Browse by Country</div>
+    <div class="sec-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Browse by Country</div>
   </div>
   <div class="region-tabs" id="rtabs">
     <button class="rtab" data-r="All">All</button>
@@ -531,18 +536,18 @@ function fireConfetti(){
   const colors=['#f5c518','#c9a200','#27c25a','#ffffff','#1e9e46','#e84545'];
   let parts=[];
   function burst(){
-    for(let i=0;i<70;i++){
+    for(let i=0;i<80;i++){
       const L=i%2===0;
-      parts.push({x:L?-14:W+14,y:H*0.30+Math.random()*H*0.30,vx:(L?1:-1)*(8+Math.random()*10),vy:-11-Math.random()*9,g:0.30+Math.random()*0.14,s:9+Math.random()*11,c:colors[i%colors.length],r:Math.random()*6.28,vr:(Math.random()-0.5)*0.5,life:1});
+      parts.push({x:L?-14:W+14,y:H*0.25+Math.random()*H*0.35,vx:(L?1:-1)*(4+Math.random()*5),vy:-7-Math.random()*5,g:0.18+Math.random()*0.10,s:8+Math.random()*12,c:colors[i%colors.length],r:Math.random()*6.28,vr:(Math.random()-0.5)*0.3,life:1});
     }
   }
   burst();
-  setInterval(burst,3200); // loop
+  setInterval(burst,5000); // loop
   (function frame(){
     ctx.clearRect(0,0,W,H);
     parts=parts.filter(p=>p.life>0&&p.y<H+30);
     for(const p of parts){
-      p.vy+=p.g;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;p.vx*=0.99;p.life-=0.006;
+      p.vy+=p.g;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;p.vx*=0.99;p.life-=0.004;
       ctx.save();ctx.globalAlpha=Math.max(0,Math.min(1,p.life));ctx.translate(p.x,p.y);ctx.rotate(p.r);
       ctx.fillStyle=p.c;ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s*0.62);ctx.restore();
     }

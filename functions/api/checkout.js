@@ -14,7 +14,7 @@ export async function onRequestPost({ request, env }) {
   const clubLogo = clean(body.clubLogo, 400);
   const bidder   = clean(body.bidder, 40) || "Anonymous";
   const link     = cleanLink(body.link, 200);
-  const amount   = Math.floor(Number(body.amount)); // USD
+  const amount   = Math.floor(Number(body.amount)); // EUR
 
   if (!code || !country || !club) return json({ error: "Missing fields" }, 400);
   if (!Number.isFinite(amount) || amount < MIN_BID) return json({ error: `Minimum listing is €${MIN_BID}` }, 400);
@@ -33,17 +33,21 @@ export async function onRequestPost({ request, env }) {
       headers: { Authorization: `Bearer ${env.POLAR_ACCESS_TOKEN}`, "content-type": "application/json" },
       body: JSON.stringify({
         products: [env.POLAR_PRODUCT_ID],
-        amount: amount * 100,                       // USD cents (product must be pay-what-you-want)
+        amount: amount * 100,                       // EUR cents (product must be pay-what-you-want)
         success_url: `${origin}/?paid=1&c=${encodeURIComponent(code)}&club=${encodeURIComponent(club)}&amt=${amount}`,
         metadata: { code, country, flag, club, clubLogo, bidder, link, amount },
       }),
     });
-    const data = await res.json();
+    let data;
+    try { data = await res.json(); } catch { return json({ error: "Polar returned an invalid response. Try again." }, 502); }
     if (!res.ok || !data?.url) {
-      return json({ error: data?.detail || data?.error || "Checkout failed. Try again." }, 502);
+      console.error("Polar checkout error", res.status, JSON.stringify(data));
+      const errMsg = (Array.isArray(data?.detail) ? data.detail[0]?.msg : data?.detail) || data?.error || "Checkout failed. Try again.";
+      return json({ error: errMsg }, 502);
     }
     return json({ url: data.url });
   } catch (err) {
+    console.error("Checkout function error", err.message);
     return json({ error: "Checkout failed. " + err.message }, 502);
   }
 }
