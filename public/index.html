@@ -43,8 +43,8 @@ header{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px 
 .logo-ball{font-size:24px;line-height:1}
 .logo-name{font-size:18px;font-weight:800;letter-spacing:-.3px}.logo-name span{color:var(--gold)}
 .hdr-right{display:flex;gap:10px;margin-left:auto;flex-shrink:0}
-.pill{background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-size:12px;color:var(--dim);display:flex;align-items:center;gap:5px}
-.pill strong{color:var(--text);font-weight:700}
+.pill{background:#fbfdfb;border:1px solid #d7e2d9;border-radius:20px;padding:4px 12px;font-size:12px;color:#5a7a63;display:flex;align-items:center;gap:5px;box-shadow:0 1px 5px rgba(0,0,0,.15)}
+.pill strong{color:#14261b;font-weight:700}
 .dot{width:6px;height:6px;border-radius:50%;background:var(--green2);box-shadow:0 0 5px var(--green2);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
@@ -73,21 +73,21 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 .crown-hero{padding:44px 0 36px;text-align:center}
 .ch-label{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px}
 .ch-label::before,.ch-label::after{content:'';flex:none;width:40px;height:1px;background:var(--border)}
-.crown-card{display:inline-flex;flex-direction:column;align-items:center;background:var(--card);border:1px solid rgba(245,197,24,.3);border-radius:20px;padding:36px 48px;box-shadow:0 0 40px rgba(245,197,24,.08),var(--sh);position:relative;min-width:320px;max-width:500px}
+.crown-card{display:inline-flex;flex-direction:column;align-items:center;background:#fbfdfb;border:none;border-radius:20px;padding:36px 48px;box-shadow:0 10px 40px rgba(0,0,0,.28),0 0 60px rgba(245,197,24,.12);position:relative;min-width:320px;max-width:500px}
 .crown-icon{font-size:40px;line-height:1;margin-bottom:16px;animation:bob 3s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-.crown-logo{width:96px;height:96px;border-radius:50%;border:3px solid var(--gold);box-shadow:0 0 24px rgba(245,197,24,.35);background:var(--bg3);display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;font-size:40px}
-.crown-logo img{width:100%;height:100%;object-fit:contain;padding:8px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))}
-.crown-club{font-size:26px;font-weight:900;letter-spacing:-.4px;margin-bottom:4px}
-.crown-country{font-size:14px;color:var(--dim);display:flex;align-items:center;gap:6px;justify-content:center;margin-bottom:14px}
-.crown-total{font-size:42px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:4px}
-.crown-meta{font-size:13px;color:var(--dim)}
+.crown-logo{width:96px;height:96px;border-radius:50%;border:3px solid var(--gold2);box-shadow:0 0 24px rgba(245,197,24,.3);background:#f0f4f1;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-bottom:16px;font-size:40px}
+.crown-logo img{width:100%;height:100%;object-fit:contain;padding:8px}
+.crown-club{font-size:26px;font-weight:900;letter-spacing:-.4px;margin-bottom:4px;color:#12241a}
+.crown-country{font-size:14px;color:#5a7a63;display:flex;align-items:center;gap:6px;justify-content:center;margin-bottom:14px}
+.crown-total{font-size:44px;font-weight:900;color:#b58600;line-height:1;margin-bottom:4px}
+.crown-meta{font-size:13px;color:#5a7a63}
 .crown-btn{margin-top:20px;background:linear-gradient(135deg,var(--gold2),var(--gold));border:none;border-radius:30px;padding:12px 32px;font-size:15px;font-weight:800;color:#1a1000;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:7px}
 .crown-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .crown-empty{padding:40px 0;text-align:center}
 .crown-empty .big{font-size:52px;margin-bottom:12px}
-.crown-empty h2{font-size:22px;font-weight:800;margin-bottom:8px}
-.crown-empty p{font-size:15px;color:var(--dim);max-width:380px;margin:0 auto}
+.crown-empty h2{font-size:22px;font-weight:800;margin-bottom:8px;color:#12241a}
+.crown-empty p{font-size:15px;color:#5a7a63;max-width:380px;margin:0 auto}
 
 /* TAGLINE */
 .tagline{text-align:center;padding:0 0 40px}
@@ -100,8 +100,8 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 /* SEARCH */
 .search-wrap{padding:0 0 40px;position:relative}
 .sbox{position:relative;max-width:580px;margin:0 auto}
-.sbox input{width:100%;background:var(--bg2);border:2px solid var(--border);border-radius:40px;padding:13px 20px 13px 48px;font-size:16px;color:var(--text);outline:none;transition:border-color .15s}
-.sbox input::placeholder{color:var(--dim)}
+.sbox input{width:100%;background:#fbfdfb;border:2px solid #d7e2d9;border-radius:40px;padding:13px 20px 13px 48px;font-size:16px;color:#14261b;outline:none;transition:border-color .15s;box-shadow:0 2px 10px rgba(0,0,0,.16)}
+.sbox input::placeholder{color:#5a7a63}
 .sbox input:focus{border-color:var(--green)}
 .si{position:absolute;left:17px;top:50%;transform:translateY(-50%);font-size:18px;pointer-events:none}
 .sresults{position:absolute;top:calc(100% + 8px);left:0;right:0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);z-index:100;display:none;max-height:380px;overflow-y:auto}
@@ -517,6 +517,37 @@ const safeLink=u=>{try{const p=new URL(u);return(p.protocol==='http:'||p.protoco
 
 function toast(msg,type=''){const t=$('toast');t.textContent=msg;t.className='toast show '+type;clearTimeout(t._t);t._t=setTimeout(()=>t.className='toast',3500);}
 
+// Confetti bursting from both sides — fires once when the crown holder appears
+let _confettiFired=false;
+function fireConfetti(){
+  if(_confettiFired||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  _confettiFired=true;
+  const c=document.createElement('canvas');
+  c.style.cssText='position:fixed;inset:0;pointer-events:none;z-index:400';
+  document.body.appendChild(c);
+  const ctx=c.getContext('2d');
+  const W=c.width=innerWidth,H=c.height=innerHeight;
+  const colors=['#f5c518','#c9a200','#27c25a','#ffffff','#1e9e46'];
+  const parts=[];
+  for(let i=0;i<100;i++){
+    const L=i%2===0;
+    parts.push({x:L?-10:W+10,y:H*0.32+Math.random()*H*0.28,vx:(L?1:-1)*(6+Math.random()*8),vy:-9-Math.random()*7,g:0.28+Math.random()*0.12,s:5+Math.random()*6,c:colors[i%colors.length],r:Math.random()*6.28,vr:(Math.random()-0.5)*0.5,life:1});
+  }
+  const start=Date.now();
+  (function frame(){
+    const t=Date.now()-start;ctx.clearRect(0,0,W,H);let alive=false;
+    for(const p of parts){
+      p.vy+=p.g;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;p.vx*=0.99;
+      if(t>1600)p.life-=0.028;
+      if(p.life>0&&p.y<H+20){alive=true;
+        ctx.save();ctx.globalAlpha=Math.max(0,p.life);ctx.translate(p.x,p.y);ctx.rotate(p.r);
+        ctx.fillStyle=p.c;ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s*0.6);ctx.restore();
+      }
+    }
+    if(alive&&t<4500)requestAnimationFrame(frame);else c.remove();
+  })();
+}
+
 function logoEl(url,sz=36){
   const d=document.createElement('div');
   d.style.cssText=`width:${sz}px;height:${sz}px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:50%;`;
@@ -559,7 +590,7 @@ function renderCrown(){
   }
   const logoUrl=crown.clubLogo||'';
   const logoDiv=logoEl(logoUrl,96);
-  logoDiv.style.cssText+='border:3px solid var(--gold);box-shadow:0 0 24px rgba(245,197,24,.35);background:var(--bg3);margin-bottom:16px;';
+  logoDiv.style.cssText+='border:3px solid var(--gold2);box-shadow:0 0 24px rgba(245,197,24,.3);background:#f0f4f1;margin-bottom:16px;';
 
   el.innerHTML='';
   const card=document.createElement('div');
@@ -574,7 +605,7 @@ function renderCrown(){
     </div>
     <div class="crown-total">${fmt(crown.total)}</div>
     <div class="crown-meta">${crown.bids.toLocaleString()} supporter${crown.bids===1?'':'s'} · Last: ${ago(crown.ts)}</div>
-    ${crown.legends?.length?`<div style="font-size:12px;color:var(--gold);margin-top:8px">👑 Legends: ${crown.legends.join(', ')}</div>`:''}
+    ${crown.legends?.length?`<div style="font-size:12px;color:#b58600;font-weight:700;margin-top:8px">👑 Legends: ${crown.legends.join(', ')}</div>`:''}
   `;
 
   card.insertBefore(logoDiv, card.firstChild);
@@ -584,6 +615,7 @@ function renderCrown(){
   btn.innerHTML='⚔️ Challenge the Crown';
   btn.onclick=()=>openModal(null);
   card.appendChild(btn);
+  setTimeout(fireConfetti, 350);
 
   el.appendChild(card);
 }
