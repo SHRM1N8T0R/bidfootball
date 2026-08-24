@@ -24,30 +24,36 @@ export async function onRequestPost({ request, env }) {
     return json({ error: "Checkout is launching very soon — follow @bidfootball on X to be first when it opens.", placeholder: true }, 503);
   }
 
-  const origin = env.SITE_URL || new URL(request.url).origin;
-  const apiBase = env.POLAR_SERVER === "sandbox" ? "https://sandbox-api.polar.sh" : "https://api.polar.sh";
+  const debug = new URL(request.url).searchParams.has("debug");
 
   try {
+    const origin = env.SITE_URL || new URL(request.url).origin;
+    const apiBase = env.POLAR_SERVER === "sandbox" ? "https://sandbox-api.polar.sh" : "https://api.polar.sh";
+    const token = String(env.POLAR_ACCESS_TOKEN).trim();
+    const productId = String(env.POLAR_PRODUCT_ID).trim();
+
     const res = await fetch(`${apiBase}/v1/checkouts/`, {
       method: "POST",
-      headers: { Authorization: `Bearer ${env.POLAR_ACCESS_TOKEN}`, "content-type": "application/json" },
+      headers: { Authorization: `Bearer ${token}`, "content-type": "application/json" },
       body: JSON.stringify({
-        products: [env.POLAR_PRODUCT_ID],
+        products: [productId],
         amount: amount * 100,                       // EUR cents (product must be pay-what-you-want)
         success_url: `${origin}/?paid=1&c=${encodeURIComponent(code)}&club=${encodeURIComponent(club)}&amt=${amount}`,
         metadata: { code, country, flag, club, clubLogo, bidder, link, amount },
       }),
     });
-    let data;
-    try { data = await res.json(); } catch { return json({ error: "Polar returned an invalid response. Try again." }, 502); }
+
+    const raw = await res.text();
+    if (debug) return json({ debug: true, status: res.status, apiBase, productIdLen: productId.length, tokenLen: token.length, raw: raw.slice(0, 1500) }, 200);
+
+    let data = null;
+    try { data = JSON.parse(raw); } catch {}
     if (!res.ok || !data?.url) {
-      console.error("Polar checkout error", res.status, JSON.stringify(data));
-      const errMsg = (Array.isArray(data?.detail) ? data.detail[0]?.msg : data?.detail) || data?.error || "Checkout failed. Try again.";
-      return json({ error: errMsg }, 502);
+      const errMsg = (Array.isArray(data?.detail) ? data.detail[0]?.msg : data?.detail) || data?.error || `Checkout failed (${res.status}).`;
+      return json({ error: String(errMsg) }, 502);
     }
     return json({ url: data.url });
   } catch (err) {
-    console.error("Checkout function error", err.message);
-    return json({ error: "Checkout failed. " + err.message }, 502);
+    return json({ error: "Checkout failed. " + (err?.message || String(err)) }, 502);
   }
 }
