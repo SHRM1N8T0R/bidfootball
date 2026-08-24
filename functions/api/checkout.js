@@ -17,7 +17,7 @@ export async function onRequestPost({ request, env }) {
   const amount   = Math.floor(Number(body.amount)); // USD
 
   if (!code || !country || !club) return json({ error: "Missing fields" }, 400);
-  if (!Number.isFinite(amount) || amount < MIN_BID) return json({ error: `Minimum listing is $${MIN_BID}` }, 400);
+  if (!Number.isFinite(amount) || amount < MIN_BID) return json({ error: `Minimum listing is €${MIN_BID}` }, 400);
 
   // Payments not wired yet → graceful placeholder the frontend shows nicely.
   if (!env.POLAR_ACCESS_TOKEN || !env.POLAR_PRODUCT_ID) {

@@ -251,7 +251,7 @@
       },
       {
         "n": "Monaco",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/AS_Monaco_FC.svg/330px-AS_Monaco_FC.svg.png"
+        "logo": "/club-logos/monaco.png"
       },
       {
         "n": "Lyon",
@@ -411,7 +411,7 @@
       },
       {
         "n": "Rangers",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Rangers_FC.svg/330px-Rangers_FC.svg.png"
+        "logo": "/club-logos/rangers.png"
       },
       {
         "n": "Aberdeen",
@@ -755,7 +755,7 @@
       },
       {
         "n": "LDU Quito",
-        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/LOGO_5TA._ESTRELLA.png/330px-LOGO_5TA._ESTRELLA.png"
+        "logo": "/club-logos/ldu-quito.png"
       }
     ]
   },
@@ -1215,7 +1215,7 @@
     "clubs": [
       {
         "n": "Auckland City",
-        "logo": "https://upload.wikimedia.org/wikipedia/commons/9/93/Auckland_Territorial_Authority.PNG"
+        "logo": "/club-logos/auckland-city.png"
       }
     ]
   },
@@ -1283,7 +1283,7 @@
       },
       {
         "n": "Austria Wien",
-        "logo": "https://upload.wikimedia.org/wikipedia/commons/6/65/FK_Austria_Wien_Logo.png"
+        "logo": "/club-logos/austria-wien.png"
       }
     ]
   },
@@ -1335,11 +1335,11 @@
     "clubs": [
       {
         "n": "Ferencváros",
-        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Budapest_Bezirk09.svg/960px-Budapest_Bezirk09.svg.png"
+        "logo": "/club-logos/ferencvaros.png"
       },
       {
         "n": "MTK Budapest",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/MTK_Budapest_FC_%28crest%29.svg/250px-MTK_Budapest_FC_%28crest%29.svg.png"
+        "logo": "/club-logos/mtk-budapest.svg"
       }
     ]
   },
@@ -1359,7 +1359,7 @@
       },
       {
         "n": "Dinamo Bucharest",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/6/69/CS_Dinamo_Bucure%C8%99ti_logo.png"
+        "logo": "/club-logos/dinamo-bucharest.png"
       }
     ]
   },
@@ -1379,7 +1379,7 @@
       },
       {
         "n": "The New Saints",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/The_New_Saints_FC_logo.svg/330px-The_New_Saints_FC_logo.svg.png"
+        "logo": "/club-logos/the-new-saints.png"
       }
     ]
   },
