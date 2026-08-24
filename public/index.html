@@ -1103,10 +1103,23 @@ const HIT_BASE=230;
     const total=HIT_BASE+(d.hits||0);
     const vis=$('sb-visits');if(vis)vis.textContent=total.toLocaleString();
   }catch{}
-  // Simulated online count — varies naturally by time + small jitter
-  const online=Math.floor(9+Math.abs(Math.sin(Date.now()/3600000)*12)+Math.random()*7);
-  const onEl=$('sb-online');if(onEl)onEl.textContent=online;
 })();
+
+// Online now = REAL concurrent tabs (heartbeat presence) + a gentle simulated
+// floor so the number never looks dead. Real visitors visibly add on top.
+let _sid=sessionStorage.getItem('bf_sid');
+if(!_sid){_sid=(Math.random().toString(36).slice(2)+Date.now().toString(36)).replace(/[^a-z0-9]/gi,'');sessionStorage.setItem('bf_sid',_sid);}
+async function heartbeat(){
+  let real=1;
+  try{
+    const r=await fetch('/api/presence',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({id:_sid})});
+    const d=await r.json();real=Math.max(1,d.online||1);
+  }catch{}
+  const floor=Math.floor(3+Math.abs(Math.sin(Date.now()/3600000)*5)); // 3–8, drifts by time of day
+  const onEl=$('sb-online');if(onEl)onEl.textContent=real+floor;
+}
+heartbeat();
+setInterval(heartbeat,25000);
 
 // ══════════════════════ BOOT
 (async()=>{
