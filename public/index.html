@@ -280,6 +280,13 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 .wc-top{display:flex;align-items:center;gap:7px}
 .wc-logo{width:26px;height:26px;border-radius:50%;background:#f0f4f1;border:1px solid #dce6de;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:14px}
 .wc-logo img{width:100%;height:100%;object-fit:contain;padding:2px}
+.wc-rank{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;background:#eef2ef;color:#7a8a80}
+.wc-rank.r1{background:linear-gradient(135deg,#f5c518,#d9ad0c);color:#4a3800;box-shadow:0 1px 4px rgba(245,197,24,.5)}
+.wc-rank.r2{background:linear-gradient(135deg,#cbd5dc,#a8b3bc);color:#28323a}
+.wc-rank.r3{background:linear-gradient(135deg,#d69f70,#b57848);color:#3a2410}
+.wc-rank.top5{background:rgba(30,158,70,.16);color:#1a7d3a}
+.wcard.top3{box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.wcard.top3 .wc-amt{font-size:15px}
 .wc-club{font-size:11px;color:#5a7a63;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .wc-name{font-size:15px;font-weight:800;color:#14261b;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .wc-name a{color:#1273c4;text-decoration:none}
@@ -1041,15 +1048,17 @@ function renderWall(){
     return;
   }
   const icon=t=>t==='Legend'?'👑':t==='Champion'?'⚡':'🤝';
-  el.innerHTML=list.map(f=>{
+  el.innerHTML=list.map((f,i)=>{
+    const rank=i+1;
+    const rcls=rank===1?'r1':rank===2?'r2':rank===3?'r3':rank<=5?'top5':'';
     const isLeg=f.tier==='Legend';
     const hasLink=!!f.link;
     const bottom=hasLink
       ? `<div class="wc-social">↗ ${esc(f.link.replace(/^https?:\/\//,'').replace(/\/$/,'').slice(0,26))}</div>`
       : `<div class="wc-tier">${icon(f.tier)} ${f.tier||'Supporter'}</div>`;
-    return `<div class="wcard ${isLeg?'lg':''} ${hasLink?'has-link':''}" data-href="${hasLink?esc(f.link):''}">
+    return `<div class="wcard ${isLeg?'lg':''} ${hasLink?'has-link':''} ${rank<=3?'top3':''}" data-href="${hasLink?esc(f.link):''}">
       ${hasLink?'<span class="wc-visit">visit ↗</span>':''}
-      <div class="wc-top"><div class="wc-logo" data-logo="${esc(f.clubLogo||'')}">⚽</div><div class="wc-club">${esc(f.club)}</div></div>
+      <div class="wc-top"><span class="wc-rank ${rcls}">${rank}</span><div class="wc-logo" data-logo="${esc(f.clubLogo||'')}">⚽</div><div class="wc-club">${esc(f.club)}</div></div>
       <div class="wc-name">${esc(f.bidder)}</div>
       <div class="wc-bottom">${bottom}<div class="wc-amt">${fmt(f.amount)}</div></div>
     </div>`;
