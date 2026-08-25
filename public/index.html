@@ -1035,7 +1035,7 @@ function renderWall(){
   const el=$('wall');if(!el)return;
   const list=(feed||[]).slice()
     .sort((a,b)=>((b.link?1:0)-(a.link?1:0))||(b.ts-a.ts))
-    .slice(0,18);
+    .slice(0,20);
   if(!list.length){
     el.innerHTML='<div style="grid-column:1/-1;text-align:center;color:var(--dim);font-size:13px;padding:22px">Be the first to get seen — claim a spot above.</div>';
     return;
