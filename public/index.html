@@ -295,6 +295,12 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 .wc-social{font-size:11px;color:#1273c4;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .wc-tier{font-size:11px;color:#5a7a63}
 .wc-amt{font-size:13px;font-weight:800;color:#1a7d3a;flex-shrink:0}
+.wc-clicks{color:#1273c4;font-weight:800}
+.wall-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:18px}
+.wn-btn{background:var(--card);border:1px solid var(--border);color:var(--text);font-family:inherit;font-size:13px;font-weight:700;padding:8px 16px;border-radius:8px;cursor:pointer;transition:all .13s}
+.wn-btn:hover:not(:disabled){background:var(--cardh);border-color:var(--green2)}
+.wn-btn:disabled{opacity:.35;cursor:not-allowed}
+.wn-info{font-size:12px;color:var(--dim);font-weight:600;min-width:150px;text-align:center}
 @media(max-width:520px){.wall{grid-template-columns:1fr 1fr;gap:7px}.wcard{padding:10px;min-height:88px}.wc-name{font-size:13px}}
 /* card with a link = clearly clickable-out */
 .wcard.has-link{position:relative}
@@ -459,6 +465,7 @@ main{position:relative;z-index:1;padding:0 20px 80px}
     <div style="font-size:12px;color:var(--dim)">Biggest listings first — tap to visit</div>
   </div>
   <div class="wall" id="wall"></div>
+  <div class="wall-nav" id="wall-nav"></div>
 
   <!-- TIERS -->
   <div class="sec-head" style="margin-top:48px"><div class="sec-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Listing Tiers</div></div>
@@ -622,6 +629,7 @@ const MIN = 5;
 
 // ══════════════════════ STATE
 let clubs=[], totals={}, crown=null, ranked=[], feed=[], region="Europe";
+let wallPage=0; const WALL_PER=20; let clicks={};
 let mCode=null, mClub=null;
 
 // ══════════════════════ UTILS
@@ -693,7 +701,7 @@ async function loadClubs(){clubs=await fetch('/clubs.json').then(r=>r.json());}
 async function loadLB(){
   try{
     const d=await fetch('/api/leaderboard').then(r=>r.json());
-    totals=d.totals||{};crown=d.crown||null;ranked=d.ranked||[];feed=d.feed||[];
+    totals=d.totals||{};crown=d.crown||null;ranked=d.ranked||[];feed=d.feed||[];clicks=d.clicks||{};
     renderAll();
   }catch(e){console.error(e);}
 }
@@ -1016,8 +1024,10 @@ function renderModalClubs(code,preClub){
 
 // ══════════════════════ OUTBOUND-LINK SAFETY GATE
 // Every user-submitted link routes through a "you're leaving" interstitial.
+let _leaveUrl='';
 function leaveTo(url){
   if(!url)return;
+  _leaveUrl=url;
   $('lv-url').textContent=url;
   $('lv-go').href=url;
   $('leave-overlay').classList.add('open');
@@ -1028,7 +1038,15 @@ function closeLeave(){
   if(!$('overlay').classList.contains('open'))document.body.style.overflow='';
 }
 $('lv-back').addEventListener('click',closeLeave);
-$('lv-go').addEventListener('click',()=>setTimeout(closeLeave,50)); // native anchor opens the tab, then close
+$('lv-go').addEventListener('click',()=>{
+  // Count the click (fire-and-forget) + optimistically bump the visible counter.
+  const u=_leaveUrl;
+  if(u){
+    clicks[u]=(clicks[u]||0)+1;renderWall();
+    fetch('/api/click',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({url:u})}).catch(()=>{});
+  }
+  setTimeout(closeLeave,50); // native anchor opens the tab, then close
+});
 $('leave-overlay').addEventListener('click',e=>{if(e.target===$('leave-overlay'))closeLeave();});
 // Intercept any .ext-link (ticker / board names) and send through the gate.
 document.addEventListener('click',e=>{
@@ -1040,21 +1058,27 @@ document.addEventListener('click',e=>{
 // link-bearing ones surfaced first so paid socials are the star of the section.
 function renderWall(){
   const el=$('wall');if(!el)return;
-  const list=(feed||[]).slice()
-    .sort((a,b)=>(b.amount-a.amount)||(b.ts-a.ts))
-    .slice(0,20);
-  if(!list.length){
+  const nav=$('wall-nav');
+  const all=(feed||[]).slice().sort((a,b)=>(b.amount-a.amount)||(b.ts-a.ts));
+  if(!all.length){
     el.innerHTML='<div style="grid-column:1/-1;text-align:center;color:var(--dim);font-size:13px;padding:22px">Be the first to get seen — claim a spot above.</div>';
+    if(nav)nav.innerHTML='';
     return;
   }
+  const pages=Math.ceil(all.length/WALL_PER);
+  wallPage=Math.max(0,Math.min(wallPage,pages-1));
+  const start=wallPage*WALL_PER;
+  const list=all.slice(start,start+WALL_PER);
   const icon=t=>t==='Legend'?'👑':t==='Champion'?'⚡':'🤝';
   el.innerHTML=list.map((f,i)=>{
-    const rank=i+1;
+    const rank=start+i+1;
     const rcls=rank===1?'r1':rank===2?'r2':rank===3?'r3':rank<=5?'top5':'';
     const isLeg=f.tier==='Legend';
     const hasLink=!!f.link;
+    const n=hasLink?(clicks[f.link]||0):0;
+    const dom=hasLink?esc(f.link.replace(/^https?:\/\//,'').replace(/\/$/,'').slice(0,16)):'';
     const bottom=hasLink
-      ? `<div class="wc-social">↗ ${esc(f.link.replace(/^https?:\/\//,'').replace(/\/$/,'').slice(0,26))}</div>`
+      ? `<div class="wc-social"><span class="wc-clicks">${n} click${n===1?'':'s'}</span> · ${dom}</div>`
       : `<div class="wc-tier">${icon(f.tier)} ${f.tier||'Supporter'}</div>`;
     return `<div class="wcard ${isLeg?'lg':''} ${hasLink?'has-link':''} ${rank<=3?'top3':''}" data-href="${hasLink?esc(f.link):''}">
       ${hasLink?'<span class="wc-visit">visit ↗</span>':''}
@@ -1070,6 +1094,18 @@ function renderWall(){
   el.querySelectorAll('.wcard.has-link').forEach(c=>{
     c.addEventListener('click',()=>leaveTo(c.dataset.href));
   });
+  // Pagination controls
+  if(nav){
+    if(pages<=1){nav.innerHTML='';}
+    else{
+      nav.innerHTML=`<button class="wn-btn" id="wn-prev" ${wallPage===0?'disabled':''}>← Prev</button>`+
+        `<span class="wn-info">Page ${wallPage+1} / ${pages} · ${all.length} listed</span>`+
+        `<button class="wn-btn" id="wn-next" ${wallPage>=pages-1?'disabled':''}>Next →</button>`;
+      const p=$('wn-prev'),nx=$('wn-next');
+      if(p)p.onclick=()=>{if(wallPage>0){wallPage--;renderWall();$('wall').scrollIntoView({behavior:'smooth',block:'center'});}};
+      if(nx)nx.onclick=()=>{if(wallPage<pages-1){wallPage++;renderWall();$('wall').scrollIntoView({behavior:'smooth',block:'center'});}};
+    }
+  }
 }
 
 // Shows everyone listed on the selected club's board, with clickable socials.
@@ -1091,8 +1127,9 @@ function renderClubBoard(){
       const nm=f.link
         ? `<a href="${esc(f.link)}" class="ext-link" data-href="${esc(f.link)}" target="_blank" rel="noopener nofollow ugc">${esc(f.bidder)} ↗</a>`
         : esc(f.bidder);
+      const cn=f.link?(clicks[f.link]||0):0;
       const sub=f.link
-        ? esc(f.link.replace(/^https?:\/\//,'').replace(/\/$/,'').slice(0,34))
+        ? `<span class="wc-clicks">${cn} click${cn===1?'':'s'}</span> · ${esc(f.link.replace(/^https?:\/\//,'').replace(/\/$/,'').slice(0,24))}`
         : `${f.tier||'Supporter'} listing`;
       return `<div class="cb-item ${isLeg?'lg':''}">
         <div class="cb-medal">${icon(f.tier)}</div>

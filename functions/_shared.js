@@ -1,6 +1,6 @@
 export const TOTALS_KEY = "totals"; // { [code_clubName]: { total, bids, code, country, flag, club, clubLogo, lastBidder, ts, legends } }
 export const FEED_KEY   = "feed";
-export const FEED_MAX   = 100;
+export const FEED_MAX   = 500; // keep listings around so everyone stays on the paginated wall
 
 export const MIN_BID = 5;
 export const TIERS = [
