@@ -1309,40 +1309,35 @@ function handleParams(){
 // ══════════════════════ VISITOR STATS
 const HIT_BASE=230;
 (async()=>{
+  const show=h=>{const vis=$('sb-visits');if(vis)vis.textContent=(HIT_BASE+(h||0)).toLocaleString();};
+  const cached=sessionStorage.getItem('bf_hits');
+  if(cached!==null){show(parseInt(cached)||0);return;} // already counted this session — no KV write
   try{
     const r=await fetch('/api/hit',{method:'POST'});
     const d=await r.json();
-    const total=HIT_BASE+(d.hits||0);
-    const vis=$('sb-visits');if(vis)vis.textContent=total.toLocaleString();
+    sessionStorage.setItem('bf_hits',String(d.hits||0));
+    show(d.hits||0);
   }catch{}
 })();
 
-// Online now = REAL concurrent tabs (heartbeat presence) + a gentle simulated
-// floor so the number never looks dead. Real visitors visibly add on top.
-let _sid=sessionStorage.getItem('bf_sid');
-if(!_sid){_sid=(Math.random().toString(36).slice(2)+Date.now().toString(36)).replace(/[^a-z0-9]/gi,'');sessionStorage.setItem('bf_sid',_sid);}
-async function heartbeat(){
-  let real=1;
-  try{
-    const r=await fetch('/api/presence',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({id:_sid})});
-    const d=await r.json();real=Math.max(1,d.online||1);
-  }catch{}
-  // Busy-looking floor that drifts smoothly in the 20–40 band by time of day.
+// "Online now" — purely client-side simulated count that drifts smoothly in the
+// 20–40 band by time of day. No KV / network (real-presence heartbeat was removed
+// because it burned the free-tier KV write budget: ~1 write / tab / 25s).
+function updateOnline(){
   const t=Date.now();
-  let floor=30+Math.sin(t/5400000)*10+Math.sin(t/900000)*2; // slow ±10 + gentle ±2
-  floor=Math.max(20,Math.min(40,Math.round(floor)));
-  // Additional REAL concurrent visitors (beyond this viewer) add on top.
-  const onEl=$('sb-online');if(onEl)onEl.textContent=floor+Math.max(0,real-1);
+  let n=30+Math.sin(t/5400000)*10+Math.sin(t/900000)*2; // slow ±10 + gentle ±2
+  n=Math.max(20,Math.min(40,Math.round(n)));
+  const onEl=$('sb-online');if(onEl)onEl.textContent=n;
 }
-heartbeat();
-setInterval(heartbeat,25000);
+updateOnline();
+setInterval(updateOnline,60000);
 
 // ══════════════════════ BOOT
 (async()=>{
   await loadClubs();
   await loadLB();
   handleParams();
-  setInterval(loadLB,30000);
+  setInterval(loadLB,60000);
 })();
 </script>
 </body>
