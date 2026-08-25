@@ -449,7 +449,7 @@ main{position:relative;z-index:1;padding:0 20px 80px}
   <!-- SUPPORTERS WALL -->
   <div class="sec-head">
     <div class="sec-title"><svg width="13" height="13" viewBox="0 0 24 24" fill="#f5c518" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Getting Seen</div>
-    <div style="font-size:12px;color:var(--dim)">Real people on the boards — tap to visit</div>
+    <div style="font-size:12px;color:var(--dim)">Biggest listings first — tap to visit</div>
   </div>
   <div class="wall" id="wall"></div>
 
@@ -1034,7 +1034,7 @@ document.addEventListener('click',e=>{
 function renderWall(){
   const el=$('wall');if(!el)return;
   const list=(feed||[]).slice()
-    .sort((a,b)=>((b.link?1:0)-(a.link?1:0))||(b.ts-a.ts))
+    .sort((a,b)=>(b.amount-a.amount)||(b.ts-a.ts))
     .slice(0,20);
   if(!list.length){
     el.innerHTML='<div style="grid-column:1/-1;text-align:center;color:var(--dim);font-size:13px;padding:22px">Be the first to get seen — claim a spot above.</div>';
