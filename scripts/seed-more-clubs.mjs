@@ -34,7 +34,8 @@ for (const c of CLUBS) {
     ts: now - Math.floor(Math.random() * 20 * 3600000),
     legends: [],
   };
-  // Add one feed entry per club
+  // One feed row cannot add up to `total` when bids > 1. Do not treat the
+  // feed sum and this total as the same number; the live board was seeded this way.
   feed.unshift({
     code: c.code, country: c.country, flag: c.flag,
     club: c.club, clubLogo: c.clubLogo,

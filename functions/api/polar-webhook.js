@@ -59,11 +59,20 @@ export async function onRequestPost({ request, env }) {
   if (!code || !club || !Number.isFinite(amount) || amount < MIN_BID)
     return json({ received: true, note: "bad metadata" });
 
+  // Polar sends both order.created and order.paid for one purchase. Recording
+  // both would double the listing. The order id is the same on both events.
+  // A missing id still records, so a payload we don't recognise is not dropped.
+  const orderId = String(event.data?.id || "").trim();
+  const dedupeKey = orderId ? `ord:${orderId}` : "";
+  if (dedupeKey && await env.BIDS.get(dedupeKey))
+    return json({ received: true, duplicate: true });
+
   const { newTotal, tookCrown } = await recordListing(env, {
     code, country: clean(m.country, 60), flag: clean(m.flag, 10),
     club, clubLogo: clean(m.clubLogo, 400), amount,
     bidder: clean(m.bidder, 40) || "Anonymous", link: cleanLink(m.link, 200),
   });
 
+  if (dedupeKey) await env.BIDS.put(dedupeKey, event.type || "1");
   return json({ received: true, club, newTotal, tookCrown });
 }

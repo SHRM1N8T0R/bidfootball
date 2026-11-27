@@ -23,6 +23,12 @@ const EXTRA = [
 
 const now = Date.now();
 for (const s of EXTRA) {
+  // Re-running this script used to append the same rows again. Skip a row that
+  // is already in the feed so totals and the feed are not pushed further apart.
+  if (feed.some(f => f.code === s.code && f.club === s.club && f.bidder === s.bidder && f.amount === s.amount)) {
+    console.log(`⏭  ${s.bidder} already on ${s.club}`);
+    continue;
+  }
   const key = `${s.code}::${s.club}`;
   if (!totals[key]) totals[key] = { code:s.code, country:s.country, flag:s.flag, club:s.club, clubLogo:s.clubLogo, total:0, bids:0, lastBidder:"", ts:0, legends:[] };
   const e = totals[key];

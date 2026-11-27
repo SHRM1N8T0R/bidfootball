@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — BidFootball</title>
+<meta name="description" content="What BidFootball collects: public listings, Polar checkout, visit and click counts, and how to ask about your data.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://bidfootball.lol/privacy">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root{--bg:#152d1a;--bg2:#1c3822;--border:#2e5e3a;--gold:#f5c518;--green2:#27c25a;--dim:#7aaa84;--text:#eaf2eb}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.65;padding:0 20px 80px}
+.wrap{max-width:720px;margin:0 auto}
+header{border-bottom:1px solid var(--border);padding:18px 0;margin-bottom:32px}
+a.logo{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:inherit;font-weight:800;font-size:18px}
+a.logo span{color:var(--gold)}
+h1{font-size:28px;font-weight:900;margin:8px 0 6px}
+.sub{color:var(--dim);font-size:13px;margin-bottom:28px}
+h2{font-size:16px;font-weight:800;margin:24px 0 8px}
+h2 .n{color:var(--gold);margin-right:6px}
+p,li{font-size:14px;color:var(--text);margin-bottom:8px}
+ul{padding-left:20px}
+a{color:var(--green2)}
+.todo{background:#2a2412;border:1px solid #8a6d12;border-radius:10px;padding:14px 16px;margin:16px 0 8px}
+.todo strong{color:var(--gold)}
+.back{display:inline-block;margin-top:30px;color:var(--green2);text-decoration:none;font-weight:700;font-size:14px}
+footer{border-top:1px solid var(--border);margin-top:40px;padding-top:20px;color:var(--dim);font-size:12px;text-align:center}
+footer a{color:var(--green2);text-decoration:none}
+strong{color:#fff}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="/" class="logo"><span>⚽</span> Bid<span>Football</span></a></div></header>
+<div class="wrap">
+  <h1>Privacy Policy</h1>
+  <div class="sub">Last updated: 27 November 2026</div>
+
+  <p>This policy describes what bidfootball.lol ("BidFootball", "we") collects when you use the site or buy a listing. It is written to match how the site actually works.</p>
+
+  <div class="todo">
+    <p><strong>TODO (owner): legal entity.</strong> This project does not record a company name, registration number, or postal address. Before you rely on this page for EU compliance, replace this notice with the operator's legal name and address. Contact until then: <a href="mailto:dagos1555@gmail.com">dagos1555@gmail.com</a>.</p>
+  </div>
+
+  <h2><span class="n">1.</span>Who is responsible</h2>
+  <p>The site is operated as an independent fan project. Questions and privacy requests: <a href="mailto:dagos1555@gmail.com">dagos1555@gmail.com</a>. There is no user account and no separate privacy inbox.</p>
+
+  <h2><span class="n">2.</span>What we collect</h2>
+  <ul>
+    <li><strong>Listing details you submit.</strong> A display name (up to 40 characters) and an optional http(s) link (a social handle, profile, or shop). These are shown publicly on the club board, the activity ticker, and the "Getting Seen" wall. The club, country, and amount are stored with them.</li>
+    <li><strong>Payment.</strong> Checkout is run by <strong>Polar</strong>, our merchant of record and the seller of record. Polar collects the payment details, including card data and billing information, and handles tax. We do not receive or store card numbers. After a paid order, Polar sends us the listing metadata (name, link, club, country, amount) so we can publish the listing. Polar's policy: <a href="https://polar.sh/legal/privacy" target="_blank" rel="noopener">polar.sh/legal/privacy</a>.</li>
+    <li><strong>Visit counter.</strong> Once per browser session the page calls <code>/api/hit</code>. That adds 1 to a single site-wide number in our database. We do not store your IP address or a visitor profile for this counter. The browser keeps a session flag (<code>sessionStorage</code>) so a refresh does not count again.</li>
+    <li><strong>Outbound click counts.</strong> If you continue to a link another fan submitted, the page calls <code>/api/click</code>. We store how many times each listing URL was opened. To ignore repeat clicks, we also store a short-lived key of your IP address plus that URL for one hour, then it expires.</li>
+    <li><strong>Hosting logs.</strong> The site is hosted on Cloudflare. Cloudflare processes connection data (such as IP address and user agent) to deliver and protect the site. See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's privacy policy</a>.</li>
+  </ul>
+  <p>We do not run a third-party ad network, and the site itself does not set tracking cookies. Polar and Cloudflare may set cookies that their checkout and security features need, on their own domains.</p>
+
+  <h2><span class="n">3.</span>Why we use it (GDPR)</h2>
+  <ul>
+    <li><strong>Contract.</strong> Publishing the listing you paid for, and taking payment through Polar.</li>
+    <li><strong>Legitimate interests.</strong> A site-wide visit count, click counts on public listings, and the one-hour IP key that stops click-count spam. These are not used to build a profile of you.</li>
+    <li><strong>Legal obligation.</strong> Polar, as merchant of record, handles tax and payment records.</li>
+  </ul>
+  <p>The display name and link are public because that is the product. Do not submit a name or URL you are not willing to show on the open web.</p>
+
+  <h2><span class="n">4.</span>How long we keep it</h2>
+  <ul>
+    <li>Listings stay on the board while the site is up. That public listing is what you bought. Email us if you want a name or link taken down.</li>
+    <li>Click-dedupe keys (IP + URL) expire after one hour.</li>
+    <li>Click totals and the visit counter are aggregate numbers kept with the site data.</li>
+    <li>The session flag stays in your browser until you close the tab.</li>
+  </ul>
+
+  <h2><span class="n">5.</span>Your rights</h2>
+  <p>If the GDPR applies to you, you can ask to access, correct, delete, or restrict the personal data we hold, object to processing based on legitimate interests, and ask for a copy in a portable format. You can also complain to your local supervisory authority. Email <a href="mailto:dagos1555@gmail.com">dagos1555@gmail.com</a>. We may need to ask for enough detail to find the listing (the name and club you used).</p>
+  <p>Payment records held by Polar have to be requested from Polar. We cannot see or delete card data.</p>
+
+  <h2><span class="n">6.</span>Where data is processed</h2>
+  <p>We use Cloudflare to host the site and Polar to take payment. Both may process data outside the country you are in, including in the United States. Their own terms describe the safeguards they offer.</p>
+
+  <h2><span class="n">7.</span>Children</h2>
+  <p>BidFootball is not aimed at children. Do not buy a listing if you are under the age required to enter a contract in your country.</p>
+
+  <h2><span class="n">8.</span>Changes</h2>
+  <p>If we change this policy we will update the date at the top. The current version is always at <a href="/privacy">/privacy</a>.</p>
+
+  <a class="back" href="/">← Back to BidFootball</a>
+  <footer>⚽ bidfootball.lol · <a href="/rules">Rules</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="/">Home</a></footer>
+</div>
+</body>
+</html>
