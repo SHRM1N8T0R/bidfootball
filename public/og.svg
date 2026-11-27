@@ -28,8 +28,14 @@
   <!-- Top label -->
   <text x="600" y="110" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" font-weight="800" letter-spacing="4" fill="#638a6c" text-transform="uppercase">ONE CROWN · EVERY CLUB · ONE WINNER</text>
 
-  <!-- Crown emoji area -->
-  <text x="600" y="230" text-anchor="middle" font-size="90">👑</text>
+  <!-- Crown drawn as paths so it still shows when the renderer has no emoji font -->
+  <g fill="#f5c518" transform="translate(600 188)">
+    <path d="M-78 28 L-62 -28 L-28 4 L0 -52 L28 4 L62 -28 L78 28 Z"/>
+    <rect x="-82" y="28" width="164" height="18" rx="3"/>
+    <circle cx="-62" cy="-34" r="8" fill="#fff3b0"/>
+    <circle cx="0" cy="-58" r="8" fill="#fff3b0"/>
+    <circle cx="62" cy="-34" r="8" fill="#fff3b0"/>
+  </g>
 
   <!-- Main headline -->
   <text x="600" y="310" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="68" font-weight="900" letter-spacing="-2" fill="white">BidFootball</text>
@@ -37,21 +43,22 @@
   <!-- Gold underline -->
   <rect x="420" y="326" width="360" height="4" rx="2" fill="url(#gold)"/>
 
-  <!-- Subtext -->
-  <text x="600" y="390" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="26" fill="#9abfa2" letter-spacing="-0.3">Pool with fans. Biggest pot holds the crown.</text>
+  <!-- Subtext. No club count: the catalogue changes and a hard-coded number goes stale. -->
+  <text x="600" y="378" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="24" fill="#9abfa2" letter-spacing="-0.3">Put your name on your club's board.</text>
+  <text x="600" y="412" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="24" fill="#9abfa2" letter-spacing="-0.3">The biggest board wears the crown.</text>
 
   <!-- Stat pills -->
   <!-- Pill 1 -->
-  <rect x="228" y="430" width="200" height="52" rx="26" fill="#0d1c10" stroke="#1a3320" stroke-width="1.5"/>
-  <text x="328" y="462" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" font-weight="700" fill="#e4ece6">🌍 189 Clubs</text>
+  <rect x="228" y="448" width="200" height="52" rx="26" fill="#0d1c10" stroke="#1a3320" stroke-width="1.5"/>
+  <text x="328" y="480" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" font-weight="700" fill="#e4ece6">Every club</text>
 
   <!-- Pill 2 -->
-  <rect x="450" y="430" width="200" height="52" rx="26" fill="#0d1c10" stroke="#1a3320" stroke-width="1.5"/>
-  <text x="550" y="462" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" font-weight="700" fill="#e4ece6">💰 From €5</text>
+  <rect x="450" y="448" width="200" height="52" rx="26" fill="#0d1c10" stroke="#1a3320" stroke-width="1.5"/>
+  <text x="550" y="480" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" font-weight="700" fill="#e4ece6">From €5</text>
 
   <!-- Pill 3 -->
-  <rect x="672" y="430" width="200" height="52" rx="26" fill="#0d1c10" stroke="#1a3320" stroke-width="1.5"/>
-  <text x="772" y="462" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" font-weight="700" fill="#e4ece6">⚡ Live Crown</text>
+  <rect x="672" y="448" width="200" height="52" rx="26" fill="#0d1c10" stroke="#1a3320" stroke-width="1.5"/>
+  <text x="772" y="480" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="15" font-weight="700" fill="#e4ece6">One crown</text>
 
   <!-- Domain -->
   <text x="600" y="572" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="22" font-weight="700" fill="#1e9e46" letter-spacing="0.5">bidfootball.lol</text>

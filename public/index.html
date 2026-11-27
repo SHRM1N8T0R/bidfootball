@@ -8,24 +8,27 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <meta name="description" content="Put your name and socials on your football club's board and get seen by every fan. Claim your listing from €5. The club with the biggest board wears the world crown.">
+<link rel="canonical" href="https://bidfootball.lol">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bidfootball.lol">
 <meta property="og:title" content="BidFootball — One Crown. Every Club. One Winner.">
-<meta property="og:description" content="Put your name and socials on your club's board and get seen by every fan. The biggest board holds THE world crown. From €5.">
+<meta property="og:description" content="Put your name and socials on your club's board and get seen by every fan. The biggest board wears the world crown. From €5.">
 <meta property="og:image" content="https://bidfootball.lol/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BidFootball — put your name on your club. The biggest board wears the crown.">
 <meta property="og:site_name" content="BidFootball">
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="BidFootball — One Crown. Every Club. One Winner.">
-<meta name="twitter:description" content="Put your name and socials on your club's board and get seen by every fan. The biggest board holds THE world crown. From €5.">
+<meta name="twitter:description" content="Put your name and socials on your club's board and get seen by every fan. The biggest board wears the world crown. From €5.">
 <meta name="twitter:image" content="https://bidfootball.lol/og.png">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
 :root{
   --bg:#1f4227;--bg2:#264d2e;--bg3:#2d5836;--card:#244a2b;--cardh:#2f5c39;
@@ -134,6 +137,7 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 .lb{display:flex;flex-direction:column;gap:5px;margin-bottom:48px}
 .lb-row{background:#fbfdfb;border:1px solid #d7e2d9;border-radius:var(--r);padding:13px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .15s;box-shadow:0 2px 8px rgba(0,0,0,.14)}
 .lb-row:hover{border-color:var(--green);background:#fff;box-shadow:0 3px 14px rgba(0,0,0,.2)}
+.lb-row.onpage{outline:2px solid var(--gold);outline-offset:2px}
 .lb-row.r1{border-color:rgba(197,162,0,.55);background:#fffdf3;box-shadow:0 3px 16px rgba(245,197,24,.22)}
 .lb-row.r2{border-color:#cbd6ce;background:#fbfdfb}
 .lb-row.r3{border-color:#e2cdb2;background:#fdfbf7}
@@ -353,6 +357,9 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 .msub.crown:hover{filter:brightness(1.08);transform:translateY(-1px)}
 .msub:disabled{opacity:.5;cursor:not-allowed;transform:none!important;filter:none!important}
 .mfooter{font-size:11px;color:#5a7a63;text-align:center;line-height:1.5}
+.mfooter a,.consent a{color:#1273c4;font-weight:700}
+.consent{display:flex;gap:10px;align-items:flex-start;background:#f0f4f1;border:1px solid #dce6de;border-radius:8px;padding:10px 12px;font-size:12px;color:#3f5f48;line-height:1.45}
+.consent input{margin-top:2px;width:16px;height:16px;flex-shrink:0;accent-color:#1e9e46}
 
 /* TOAST */
 .toast{position:fixed;bottom:20px;right:20px;z-index:999;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px 17px;font-size:13px;box-shadow:var(--sh);transform:translateY(80px);opacity:0;transition:all .3s;max-width:310px}
@@ -410,8 +417,6 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 </div>
 
 <div class="statbar">
-  <span><span class="sb-dot"></span><strong id="sb-online">—</strong> online</span>
-  <span class="sb-sep">·</span>
   <span><strong id="sb-visits">—</strong> visitors since launch</span>
   <span class="sb-sep">·</span>
   <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><strong id="sb-pot">€—</strong> across all boards</span>
@@ -419,17 +424,6 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 
 <main>
 <div class="wrap">
-
-  <div class="sbar" id="sbar">
-    <div class="sbar-top"><span style="font-size:22px">🏆</span><div><strong>You're on the board!</strong> Your listing is live and your club's total has grown.</div></div>
-    <div class="sbar-share">
-      <p>Get your mates to claim their spot on the same club. Every listing counts:</p>
-      <a class="xbtn" id="xshare" href="#" target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        Share on X
-      </a>
-    </div>
-  </div>
 
   <!-- PODIUM HERO -->
   <section class="crown-hero" id="crown-hero-section">
@@ -522,7 +516,7 @@ main{position:relative;z-index:1;padding:0 20px 80px}
 </main>
 
 <footer style="position:relative;z-index:1;border-top:1px solid var(--border);padding:26px 20px;text-align:center;color:var(--dim);font-size:12px">
-  <p>⚽ bidfootball.lol · One crown · Biggest board wins · <a href="/rules" style="color:var(--green2);text-decoration:none">Rules</a> · <a href="/terms" style="color:var(--green2);text-decoration:none">Terms</a></p>
+  <p>⚽ bidfootball.lol · One crown · Biggest board wins · <a href="/rules" style="color:var(--green2);text-decoration:none">Rules</a> · <a href="/terms" style="color:var(--green2);text-decoration:none">Terms</a> · <a href="/privacy" style="color:var(--green2);text-decoration:none">Privacy</a></p>
   <p style="margin-top:5px">Logos via <a href="https://wikipedia.org" target="_blank" style="color:var(--green2);text-decoration:none">Wikipedia</a> &amp; <a href="https://thesportsdb.com" target="_blank" style="color:var(--green2);text-decoration:none">TheSportsDB</a></p>
 </footer>
 
@@ -594,8 +588,12 @@ main{position:relative;z-index:1;padding:0 20px 80px}
         <div style="font-size:11px;color:var(--dim);margin-top:6px">Link your Instagram, X, TikTok, YouTube or shop — every visitor to your club's board can tap your name and find you.</div>
       </div>
       <div class="merr" id="merr"></div>
+      <label class="consent">
+        <input type="checkbox" id="consent">
+        <span>I agree to the <a href="/terms" target="_blank" rel="noopener">Terms</a> and <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>. I ask for this digital listing to be delivered immediately, and I acknowledge that I lose my 14-day right of withdrawal once it is delivered.</span>
+      </label>
       <button class="msub normal" id="msub-btn">🤝 Claim My Spot</button>
-      <div class="mfooter">Secure checkout · You get a public listing on your club's board · No refunds</div>
+      <div class="mfooter">Checkout is handled by <a href="https://polar.sh" target="_blank" rel="noopener">Polar</a>, the payment processor and merchant of record. Secure checkout. <a href="/terms" target="_blank" rel="noopener">Terms</a> · <a href="/privacy" target="_blank" rel="noopener">Privacy</a>.</div>
     </div>
   </div>
 </div>
@@ -641,6 +639,58 @@ const tierFor=n=>{for(const t of TIERS)if(n>=t.min)return t;return null;};
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 // Only allow http/https links; reject anything else (javascript:, data:, etc.)
 const safeLink=u=>{try{const p=new URL(u);return(p.protocol==='http:'||p.protocol==='https:')?p.href:'';}catch{return'';}};
+// Keep in sync with functions/_clubs.js. Slug is the clubs.json logo filename.
+function slugOf(logo, name){
+  if(typeof logo==='string' && logo.startsWith('/club-logos/')){
+    const base=logo.split('/').pop()||'';
+    const slug=base.replace(/(\.(?:svg|png|jpe?g|webp))+$/i,'');
+    if(slug) return slug.toLowerCase();
+  }
+  return String(name||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/&/g,' and ').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+}
+function findClientClub(slug){
+  const want=String(slug||'').toLowerCase();
+  for(const country of clubs){
+    for(const club of country.clubs||[]){
+      if(slugOf(club.logo, club.n)===want) return {code:country.c, name:club.n, logo:club.logo||'', country:country.n};
+    }
+  }
+  return null;
+}
+function clubFromName(code, name){
+  const country=clubs.find(c=>c.c===code);
+  const club=country?.clubs.find(c=>c.n===name);
+  return club?{code, name:club.n, logo:club.logo||''}:null;
+}
+function publicClubUrl(code, name){
+  const hit=clubFromName(code, name);
+  const slug=hit?slugOf(hit.logo, hit.name):slugOf('', name);
+  return slug?'https://bidfootball.lol/club/'+slug:'https://bidfootball.lol/';
+}
+function syncClubUrl(){
+  if(!mCode||!mClub) return;
+  const slug=slugOf(mClub.logo, mClub.n);
+  if(!slug) return;
+  const path='/club/'+slug;
+  if(location.pathname!==path) history.replaceState({bf:path}, '', path);
+  document.title=mClub.n+' on BidFootball';
+  markFocusedRow(false);
+}
+let _didFocusScroll=false;
+function markFocusedRow(allowScroll){
+  document.querySelectorAll('.lb-row.onpage').forEach(el=>el.classList.remove('onpage'));
+  const m=location.pathname.match(/^\/club\/([^/]+)\/?$/);
+  if(!m) return;
+  const hit=findClientClub(decodeURIComponent(m[1]));
+  if(!hit) return;
+  const row=[...document.querySelectorAll('.lb-row')].find(r=>r.dataset.code===hit.code && r.dataset.club===hit.name);
+  if(!row) return;
+  row.classList.add('onpage');
+  if(allowScroll && !_didFocusScroll){
+    _didFocusScroll=true;
+    row.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
 
 function toast(msg,type=''){const t=$('toast');t.textContent=msg;t.className='toast show '+type;clearTimeout(t._t);t._t=setTimeout(()=>t.className='toast',3500);}
 
@@ -869,6 +919,7 @@ function renderLB(){
   el.querySelectorAll('.lb-row').forEach(row=>{
     row.addEventListener('click',()=>openModal(row.dataset.code,row.dataset.club));
   });
+  markFocusedRow(true);
 }
 
 // ══════════════════════ COUNTRY GRID
@@ -1014,7 +1065,7 @@ function renderModalClubs(code,preClub){
       cg.querySelectorAll('.cop').forEach(x=>x.classList.remove('sel'));
       o.classList.add('sel');
       mClub={n:o.dataset.name,logo:o.dataset.logo};
-      updateGapBar();updateTierPreview();updateSubmitBtn();renderClubBoard();
+      updateGapBar();updateTierPreview();updateSubmitBtn();renderClubBoard();syncClubUrl();
     });
   });
   const pre=preClub?cg.querySelector(`[data-name="${preClub}"]`):null;
@@ -1141,6 +1192,7 @@ function renderClubBoard(){
 
 function openModal(code,preClub){
   $('amt').value=5;$('namein').value='';$('linkin').value='';$('merr').classList.remove('show');
+  const consent=$('consent'); if(consent) consent.checked=false;
   mClub=null;mCode=code||null;
 
   // Populate select (sorted alphabetically, idempotent)
@@ -1203,7 +1255,7 @@ function updateGapBar(){
     if(rt&&mClub&&mCode){
       const rival=crown?.club&&crown.club!==mClub.n?` ${crown.club} hold it right now.`:'';
       const txt=`${mClub.n} are chasing the BidFootball world crown ⚽👑${rival} Every €5 counts, join us:`;
-      const deepUrl='https://bidfootball.lol/?c='+encodeURIComponent(mCode)+'&club='+encodeURIComponent(mClub.n);
+      const deepUrl=publicClubUrl(mCode, mClub.n);
       rt.href='https://twitter.com/intent/tweet?text='+encodeURIComponent(txt)+'&url='+encodeURIComponent(deepUrl);
       rt.style.display='inline-flex';
     }
@@ -1267,6 +1319,7 @@ $('msub-btn').addEventListener('click',async()=>{
   errEl.classList.remove('show');
   if(!mClub){errEl.textContent='Choose a club first.';errEl.classList.add('show');return;}
   if(!amount||amount<MIN){errEl.textContent=`Minimum listing is €${MIN}.`;errEl.classList.add('show');return;}
+  if(!$('consent').checked){errEl.textContent='Tick the box to accept the Terms, the Privacy Policy, and immediate delivery (this waives the 14-day right of withdrawal).';errEl.classList.add('show');return;}
   if(rawLink&&!link){errEl.textContent='That link must start with http:// or https:// — or leave it blank.';errEl.classList.add('show');return;}
   const prev=btn.innerHTML;btn.disabled=true;btn.textContent='Redirecting to checkout…';
   try{
@@ -1280,29 +1333,61 @@ $('msub-btn').addEventListener('click',async()=>{
 });
 
 // ══════════════════════ URL PARAMS
+// The success banner is not in the page HTML. It is inserted only when Polar
+// redirects back with ?paid=1 (see checkout.js success_url).
+function showPaidBanner(club, code){
+  if($('sbar')) return;
+  const deepUrl=publicClubUrl(code, club);
+  const rival=crown&&crown.club&&crown.club!==club?crown.club:null;
+  const tweetText=rival
+    ?`I just claimed my spot for ${club} on BidFootball ⚽ ${rival} hold the world crown and we're coming for it 👑 Join us:`
+    :`I just claimed my spot for ${club} on BidFootball ⚽ help us hold the world crown 👑`;
+  const bar=document.createElement('div');
+  bar.className='sbar show';
+  bar.id='sbar';
+  bar.innerHTML=`<div class="sbar-top"><span style="font-size:22px">🏆</span><div><strong>You're on the board!</strong> Your listing is live and your club's total has grown.</div></div>
+    <div class="sbar-share">
+      <p>Get your mates to claim their spot on the same club. Every listing counts:</p>
+      <a class="xbtn" id="xshare" href="${esc('https://twitter.com/intent/tweet?text='+encodeURIComponent(tweetText)+'&url='+encodeURIComponent(deepUrl))}" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Share on X
+      </a>
+    </div>`;
+  const wrap=document.querySelector('main .wrap');
+  if(wrap) wrap.insertBefore(bar, wrap.firstChild);
+}
 function handleParams(){
   const p=new URLSearchParams(location.search);
+  const pathSlug=(location.pathname.match(/^\/club\/([^/]+)\/?$/)||[])[1];
   if(p.has('paid')){
     const club=p.get('club')||'my club';
     const c=p.get('c')||'';
-    const amt=p.get('amt');
-    const deepUrl='https://bidfootball.lol/?c='+encodeURIComponent(c)+'&club='+encodeURIComponent(club);
-    const rival=crown&&crown.club&&crown.club!==club?crown.club:null;
-    const tweetText=rival
-      ?`I just claimed my spot for ${club} on BidFootball ⚽ ${rival} hold the world crown and we're coming for it 👑 Join us:`
-      :`I just claimed my spot for ${club} on BidFootball ⚽ help us hold the world crown 👑`;
-    const xLink=$('xshare');
-    if(xLink)xLink.href='https://twitter.com/intent/tweet?text='+encodeURIComponent(tweetText)+'&url='+encodeURIComponent(deepUrl);
-    $('sbar').classList.add('show');
-    history.replaceState({},'','/');
+    showPaidBanner(club, c);
+    const next=c&&club?publicClubUrl(c, club).replace('https://bidfootball.lol',''):'/';
+    history.replaceState({}, '', next||'/');
     toast('🏆 You are on the board!','ok');
+    if(c&&club) setTimeout(()=>openModal(c, club), 400);
+    return;
   }
-  if(p.has('canceled')){toast('Checkout canceled. No charge made.');history.replaceState({},'','/');}
-  // Deep link: ?c=ENG&club=Arsenal opens modal directly
-  if(p.has('c')&&p.has('club')&&!p.has('paid')){
-    const dlCode=p.get('c'),dlClub=p.get('club');
-    history.replaceState({},'','/');
-    setTimeout(()=>openModal(dlCode,dlClub),400);
+  if(p.has('canceled')){
+    toast('Checkout canceled. No charge made.');
+    history.replaceState({}, '', location.pathname);
+    return;
+  }
+  if(pathSlug){
+    const hit=findClientClub(decodeURIComponent(pathSlug));
+    if(hit){
+      document.title=hit.name+' on BidFootball';
+      setTimeout(()=>openModal(hit.code, hit.name), 400);
+    }
+    return;
+  }
+  // Older share links: ?c=ENG&club=Arsenal. Move them onto /club/<slug> instead of wiping the URL.
+  if(p.has('c')&&p.has('club')){
+    const dlCode=p.get('c'), dlClub=p.get('club');
+    const next=publicClubUrl(dlCode, dlClub).replace('https://bidfootball.lol','');
+    history.replaceState({}, '', next||'/');
+    setTimeout(()=>openModal(dlCode, dlClub), 400);
   }
 }
 
@@ -1320,17 +1405,7 @@ const HIT_BASE=230;
   }catch{}
 })();
 
-// "Online now" — purely client-side simulated count that drifts smoothly in the
-// 20–40 band by time of day. No KV / network (real-presence heartbeat was removed
-// because it burned the free-tier KV write budget: ~1 write / tab / 25s).
-function updateOnline(){
-  const t=Date.now();
-  let n=30+Math.sin(t/5400000)*10+Math.sin(t/900000)*2; // slow ±10 + gentle ±2
-  n=Math.max(20,Math.min(40,Math.round(n)));
-  const onEl=$('sb-online');if(onEl)onEl.textContent=n;
-}
-updateOnline();
-setInterval(updateOnline,60000);
+document.querySelectorAll('.consent a').forEach(a=>a.addEventListener('click', e=>e.stopPropagation()));
 
 // ══════════════════════ BOOT
 (async()=>{

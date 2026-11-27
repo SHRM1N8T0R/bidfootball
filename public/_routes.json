@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": [
+    "/club-logos/*",
+    "/favicon.ico",
+    "/favicon.svg",
+    "/og.png",
+    "/og.svg",
+    "/clubs.json",
+    "/robots.txt"
+  ]
+}
